@@ -17,8 +17,10 @@ long getZombiBaseAddress()
 	return 0x00400000;
 };
 
-DWORD playerDamageJMPBack;
-DWORD playerDamageCall;
+DWORD playerDamageJMPBack;//where this jump will return to
+DWORD playerDamageCall; //exists to maintain the original code
+DWORD playerDamageCallback;//the address of our callback
+DWORD playerDamageCallbackPlayer;
 #pragma optimize( "", off )
 __declspec(naked) void playerDamageFunctions()
 {
@@ -26,7 +28,8 @@ __declspec(naked) void playerDamageFunctions()
 	{
 		mov ecx, eax
 		call playerDamageCall
-		mov float ptr [ebp+0x0C],00000000
+		mov dword ptr playerDamageCallbackPlayer, ebp
+		call playerDamageCallback
 		jmp [playerDamageJMPBack]
 	}
 }

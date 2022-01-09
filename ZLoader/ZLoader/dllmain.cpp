@@ -4,6 +4,14 @@
 #include "pch.h"
 
 
+//Todo: make it call a list of functions in a vector
+void playerDamageFunction()
+{
+    float *playerHealth = (float*)(playerDamageCallbackPlayer + 0x0C);
+    *playerHealth = 0;
+
+}
+
 void PlaceJMP(BYTE* Address, DWORD jumpTo, DWORD length = 5)
 {
     DWORD dwOldProtect, dwBkup, dwRelAddr;
@@ -34,9 +42,11 @@ bool createPlayerDamageHook()
     PlaceJMP((BYTE*)rabbidsBaseAddress + 0x00255338, (DWORD)playerDamageFunctions, 7);
     playerDamageJMPBack = (rabbidsBaseAddress + 0x00255338) + 5;
     playerDamageCall = (rabbidsBaseAddress+0x002558A0);
-
+    playerDamageCallback = (DWORD)&playerDamageFunction;
     return true;
 }
+
+
 
 
 DWORD WINAPI MainThread(LPVOID param)
@@ -45,6 +55,8 @@ DWORD WINAPI MainThread(LPVOID param)
     process_handle = GetCurrentProcess();
     rabbidsBaseAddress = (DWORD)GetModuleHandle("rabbids.win32.f.dll");
     createPlayerDamageHook();
+
+
     while (true)
     {
         if (GetAsyncKeyState(VK_F6) & 0x80000)
