@@ -23,6 +23,7 @@ DWORD playerDamageCallbackAddress;//the address of our callback
 //parameters
 DWORD playerDamageCallbackPlayer;
 DWORD playerDamageCallbackDamage;
+DWORD *playerDamageCallbackEBP;
 #pragma optimize( "", off )
 __declspec(naked) void playerDamageFunctions()
 {
@@ -33,6 +34,7 @@ __declspec(naked) void playerDamageFunctions()
 		//new code
 		mov dword ptr playerDamageCallbackPlayer, ecx
 		mov dword ptr playerDamageCallbackDamage, esp
+		mov dword ptr playerDamageCallbackEBP, ebp-10
 		call playerDamageCallbackAddress
 		//Jump Back
 		jmp [playerDamageJMPBack]

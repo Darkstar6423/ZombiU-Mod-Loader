@@ -5,10 +5,12 @@
 
 
 //Todo: make it call a list of functions in a vector
+
 void playerDamageCallback()
 {
-    float *damage = (float*)(playerDamageCallbackDamage);
-    *damage = *damage*2;
+    DWORD* attacker = (DWORD*)((char*)playerDamageCallbackEBP-0x10);
+    float* attacker_health = (float*)((char*)*attacker + 0x1b4);
+
 }
 
 void PlaceJMP(BYTE* Address, DWORD jumpTo, DWORD length = 5)
