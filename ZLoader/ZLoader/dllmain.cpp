@@ -2,16 +2,23 @@
 #include <vector>
 #include "dllmain.h"
 #include "pch.h"
-
+#include "ZombiStructs.h"
 
 //Todo: make it call a list of functions in a vector
 
 void playerDamageCallback()
 {
     DWORD* attacker = (DWORD*)((char*)playerDamageCallbackEBP-0x10);
-    float* attacker_health = (float*)((char*)*attacker + 0x1b4);
+
+    zombie Zombie = getZombieStruct(*attacker);
+
+    player Player = getPlayerStruct(playerDamageCallbackPlayer);
+
+    float* damage = (float*)playerDamageCallbackDamage;
+
 
 }
+
 
 void PlaceJMP(BYTE* Address, DWORD jumpTo, DWORD length = 5)
 {
