@@ -9,14 +9,13 @@
 void playerDamageCallback()
 {
     DWORD* attacker = (DWORD*)((char*)playerDamageCallbackEBP-0x10);
-
     zombie Zombie = getZombieStruct(*attacker);
 
     player Player = getPlayerStruct(playerDamageCallbackPlayer);
-
     float* damage = (float*)playerDamageCallbackDamage;
 
 
+    *damage = 0;
 }
 
 
