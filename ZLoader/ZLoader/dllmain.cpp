@@ -14,7 +14,7 @@ void playerDamageCallback()
     player Player = getPlayerStruct(playerDamageCallbackPlayer);
     float* damage = (float*)playerDamageCallbackDamage;
 
-
+    //give me god mode for testing purposes
     *damage = 0;
 }
 
@@ -45,6 +45,15 @@ void PlaceJMP(BYTE* Address, DWORD jumpTo, DWORD length = 5)
 }
 
 bool createPlayerDamageHook()
+{
+    PlaceJMP((BYTE*)rabbidsBaseAddress + 0x00E17F8, (DWORD)playerDamageFunctions, 5);
+    playerDamageJMPBack = (rabbidsBaseAddress + 0x00E17F8) + 5;
+    playerDamageCallbackAddress = (DWORD)&playerDamageCallback;
+    return true;
+}
+
+
+bool createZombieDamageHook()
 {
     PlaceJMP((BYTE*)rabbidsBaseAddress + 0x00E17F8, (DWORD)playerDamageFunctions, 5);
     playerDamageJMPBack = (rabbidsBaseAddress + 0x00E17F8) + 5;

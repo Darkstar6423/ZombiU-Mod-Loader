@@ -18,6 +18,13 @@ long getZombiBaseAddress()
 };
 
 
+/*TODO: event Hooks
+OnWeaponFired
+OnZombieDamaged
+OnZombieSpawned
+OnPlayerTick
+OnZombieTick
+*/
 
 
 //Player Damage Function
@@ -41,4 +48,15 @@ __declspec(naked) void playerDamageFunctions()
 		//Jump Back
 		jmp [playerDamageJMPBack]
 	}
+}
+
+__declspec(naked) void zombieDamageFunction()
+{
+
+	__asm
+	{
+
+	}
+
+
 }

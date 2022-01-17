@@ -9,38 +9,51 @@ player getPlayerStruct(DWORD Address)
 	Player.stamina = (float*)((char*)Address+0xc34);
 	Player.torch = (float*)((char*)Address+0xEC0);
 
+	Player.Weapon = getWeaponStruct((DWORD)((char*)Address + 0xDCC));
+
 	return Player;
 }
 
-//224 spitter
-//288 zombie type super zed = 9; normal = 7
-//4f8 armor? 15 = swat
-//478 ghost zombie?
 
+weapon getWeaponStruct(DWORD Address)
+{
+	struct weapon Weapon;
+	Weapon.baseAddress = Address;
+	Weapon.clip = (float*)((char*)Address+0x4b4);
+	Weapon.Type = (DWORD)((char*)Address+0x480);
+	Weapon.isEquiped = (DWORD)((char*)Address+0x56C) != 0x0;
+	return Weapon;
+}
+
+
+
+//todo: add rockstar zombie offset ??? I'm going to need 2 or more of these to find this
 zombie getZombieStruct(DWORD Address)
 {
 	struct zombie Zombie;
 	Zombie.baseAddress = Address;
 	Zombie.health = (float*)((char*)Address + 0x1b4);
+
+	//todo: change to use a "flag system" where we add up the values
 	if ((int)*((char*)Address+0x224) == 1)
 	{
-		Zombie.zedType = 1;
+		Zombie.zedType = 1;//spitter
 	}
 	else if ((int)*((char*)Address+0x4F8) == 15)
 	{
-		Zombie.zedType = 2;
+		Zombie.zedType = 2;//swat
 	}
 	else if ((int)*((char*)Address+0x478) == 1)
 	{
-		Zombie.zedType = 3;
+		Zombie.zedType = 3;//ghost
 	}
 	else if ((int)*((char*)Address+0x288) == 9)
 	{
-		Zombie.zedType = 4;
+		Zombie.zedType = 4;//super zombie
 	}
 	else if ((int)*((char*)Address+0x288) == 7)
 	{
-		Zombie.zedType = 0;
+		Zombie.zedType = 0;//normal
 	}
 
 
