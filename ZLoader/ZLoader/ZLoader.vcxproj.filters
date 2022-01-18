@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\functionhooks">
+      <UniqueIdentifier>{bc7035d1-0590-461d-b63b-933e56afa0c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\functionhooks">
+      <UniqueIdentifier>{4edc2238-f80c-4685-9440-2cd7e0a531d1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -27,6 +33,21 @@
     <ClInclude Include="ZombiStructs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="OnPlayerDamage.h">
+      <Filter>Header Files\functionhooks</Filter>
+    </ClInclude>
+    <ClInclude Include="utility.h">
+      <Filter>Header Files\functionhooks</Filter>
+    </ClInclude>
+    <ClInclude Include="OnZombieDamage.h">
+      <Filter>Header Files\functionhooks</Filter>
+    </ClInclude>
+    <ClInclude Include="functionhooks.h">
+      <Filter>Header Files\functionhooks</Filter>
+    </ClInclude>
+    <ClInclude Include="OnPlayerTick.h">
+      <Filter>Header Files\functionhooks</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -37,6 +58,18 @@
     </ClCompile>
     <ClCompile Include="ZombiStructs.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="onPlayerDamage.cpp">
+      <Filter>Source Files\functionhooks</Filter>
+    </ClCompile>
+    <ClCompile Include="utility.cpp">
+      <Filter>Source Files\functionhooks</Filter>
+    </ClCompile>
+    <ClCompile Include="OnZombieDamage.cpp">
+      <Filter>Source Files\functionhooks</Filter>
+    </ClCompile>
+    <ClCompile Include="OnPlayerTick.cpp">
+      <Filter>Source Files\functionhooks</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

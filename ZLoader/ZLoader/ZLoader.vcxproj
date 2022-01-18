@@ -160,12 +160,21 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="dllmain.h" />
+    <ClInclude Include="functionhooks.h" />
+    <ClInclude Include="OnPlayerDamage.h" />
+    <ClInclude Include="OnPlayerTick.h" />
+    <ClInclude Include="OnZombieDamage.h" />
+    <ClInclude Include="utility.h" />
     <ClInclude Include="ZombiStructs.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="onPlayerDamage.cpp" />
+    <ClCompile Include="OnPlayerTick.cpp" />
+    <ClCompile Include="OnZombieDamage.cpp" />
     <ClCompile Include="pch.cpp" />
+    <ClCompile Include="utility.cpp" />
     <ClCompile Include="ZombiStructs.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,109 +1,19 @@
-#include <Windows.h>
-#include <vector>
+
 #include "dllmain.h"
 #include "pch.h"
-#include "ZombiStructs.h"
-
-//Todo: make it call a list of functions in a vector
-
-void playerDamageCallback()
-{
-    DWORD* attacker = (DWORD*)((char*)playerDamageCallbackEBP-0x10);
-    zombie Zombie = getZombieStruct(*attacker);
-
-    player Player = getPlayerStruct(playerDamageCallbackPlayer);
-    float* damage = (float*)playerDamageCallbackDamage;
-
-    //give me god mode for testing purposes
-    *damage = 0;
-    return;
-}
-
-void zombieDamageCallback()
-{
-    struct zombie Zombie = getZombieStruct(zombieDamageCallbackZombie);
-    if (*Zombie.health > 0)
-    {
-        struct player Player = getPlayerStruct(OnPlayerTickCallbackPlayer);
-        float* damage = (float*)((char*)zombieDamageCallbackECX + 0x0C);
-
-        if (*Player.Weapon.Type == 1)
-        {
-            *damage = *Zombie.health;
-        }
-
-    }
-    return;
-
- }
 
 
-void onPlayerTickCallback()
-{
-    struct player Player = getPlayerStruct(OnPlayerTickCallbackPlayer);
-    return;
-}
-
-
-void PlaceJMP(BYTE* Address, DWORD jumpTo, DWORD length = 5)
-{
-    DWORD dwOldProtect, dwBkup, dwRelAddr;
-
-    //give that address read and write permissions and store the old permissions at oldProtection
-    VirtualProtect(Address, length, PAGE_EXECUTE_READWRITE, &dwOldProtect);
-
-    // Calculate the "distance" we're gonna have to jump - the size of the JMP instruction
-    dwRelAddr = (DWORD)(jumpTo - (DWORD)Address) - 5;
-
-    // Write the JMP opcode @ our jump position...
-    *Address = 0xE9;
-
-    // Write the offset to where we're gonna jump
-   //The instruction will then become JMP ff002123 for example
-    *((DWORD*)(Address + 0x1)) = dwRelAddr;
-
-    // Overwrite the rest of the bytes with NOPs
-    //ensuring no instruction is Half overwritten(To prevent any crashes)
-    for (DWORD x = 0x5; x < length; x++)
-        *(Address + x) = 0x90;
-
-    VirtualProtect(Address, length, dwOldProtect, &dwBkup);
-}
-
-bool createPlayerDamageHook()
-{
-    PlaceJMP((BYTE*)rabbidsBaseAddress + 0x00E17F8, (DWORD)playerDamageFunction, 5);
-    playerDamageJMPBack = (rabbidsBaseAddress + 0x00E17F8) + 5;
-    playerDamageCallbackAddress = (DWORD)&playerDamageCallback;
-    return true;
-}
-
-
-bool createZombieDamageHook()
-{
-    PlaceJMP((BYTE*)rabbidsBaseAddress + 0x2533AF, (DWORD)zombieDamageFunction, 5);
-    zombieDamageJMPBack = (rabbidsBaseAddress + 0x2533AF) + 5;
-    zombieDamageCallbackAddress = (DWORD)&zombieDamageCallback;
-    return true;
-}
-
-bool createPlayerTickHook()
-{
-    PlaceJMP((BYTE*)rabbidsBaseAddress + 0xE40A8, (DWORD)onPlayerTickFunction, 8);
-    OnPlayerTickJMPBack = (rabbidsBaseAddress + 0xE40A8) + 8;
-    OnPlayerTickCallbackAddress = (DWORD)&onPlayerTickCallback;
-    return true;
-}
 
 
 
 
 DWORD WINAPI MainThread(LPVOID param)
 {
-    Sleep(2000);
+    Sleep(2000); // wait for the game to finish loading
 
     process_handle = GetCurrentProcess();
-    rabbidsBaseAddress = (DWORD)GetModuleHandle("rabbids.win32.f.dll");
+    rabbidsBaseAddress = (DWORD)GetModuleHandle("rabbids.win32.f.dll"); // get the rabbids base address
+    //run function insertions
     createPlayerDamageHook();
     createZombieDamageHook();
     createPlayerTickHook();

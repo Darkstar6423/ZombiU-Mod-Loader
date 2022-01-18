@@ -17,7 +17,7 @@ struct zombie
 	struct pos origin;
 };
 
-zombie getZombieStruct(DWORD Address);
+extern zombie getZombieStruct(DWORD Address);
 
 /*to add:
 current ammo:for both inbag and out of bag: 50%
@@ -39,7 +39,7 @@ struct weapon
 	bool isEquiped;
 };
 
-weapon getWeaponStruct(DWORD Address);
+extern weapon getWeaponStruct(DWORD Address);
 
 
 struct player
@@ -53,5 +53,5 @@ struct player
 	struct pos origin;
 };
 
-player getPlayerStruct(DWORD Address);
+extern player getPlayerStruct(DWORD Address);
 
