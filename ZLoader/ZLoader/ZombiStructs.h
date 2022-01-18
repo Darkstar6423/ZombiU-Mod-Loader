@@ -2,17 +2,19 @@
 #include <windows.h>
 
 
+struct pos
+{
+	float* X;
+	float* Y;
+	float* Z;
+};
+
 struct zombie
 {
 	DWORD baseAddress;
 	float* health;
 	int zedType;
-	struct pos
-	{
-		float* X;
-		float* Y;
-		float* Z;
-	};
+	struct pos origin;
 };
 
 zombie getZombieStruct(DWORD Address);
@@ -23,18 +25,16 @@ current ammo:for both inbag and out of bag: 50%
 
 
 /*
-weapon types: offset:480
-Pistol:0ACFC350
-AK47:0ADD0C50
-Carbine:0AD01CB0
+weapon types: offset:278
+
 
 */
 
 struct weapon
 {
 	DWORD baseAddress;
-	float* clip; //offset 4b4
-	DWORD Type;
+	int* clip; //offset 4b4
+	int* Type;
 
 	bool isEquiped;
 };
@@ -50,12 +50,7 @@ struct player
 	float* torch;
 	struct weapon Weapon;//offset dcc
 
-	struct pos
-	{
-		float* X;
-		float* Y;
-		float* Z;
-	};
+	struct pos origin;
 };
 
 player getPlayerStruct(DWORD Address);

@@ -8,8 +8,8 @@ player getPlayerStruct(DWORD Address)
 	Player.health = (float*)((char*)Address+0x1b4);
 	Player.stamina = (float*)((char*)Address+0xc34);
 	Player.torch = (float*)((char*)Address+0xEC0);
-
-	Player.Weapon = getWeaponStruct((DWORD)((char*)Address + 0xDCC));
+	DWORD* weaponAddr = (DWORD*)((char*)Address + 0xDCC);
+	Player.Weapon = getWeaponStruct(*weaponAddr);
 
 	return Player;
 }
@@ -19,8 +19,8 @@ weapon getWeaponStruct(DWORD Address)
 {
 	struct weapon Weapon;
 	Weapon.baseAddress = Address;
-	Weapon.clip = (float*)((char*)Address+0x4b4);
-	Weapon.Type = (DWORD)((char*)Address+0x480);
+	Weapon.clip = (int*)((char*)Address+0x4b4);
+	Weapon.Type = (int*)((char*)Address+0x278);
 	Weapon.isEquiped = (DWORD)((char*)Address+0x56C) != 0x0;
 	return Weapon;
 }

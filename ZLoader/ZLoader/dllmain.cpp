@@ -16,6 +16,32 @@ void playerDamageCallback()
 
     //give me god mode for testing purposes
     *damage = 0;
+    return;
+}
+
+void zombieDamageCallback()
+{
+    struct zombie Zombie = getZombieStruct(zombieDamageCallbackZombie);
+    if (*Zombie.health > 0)
+    {
+        struct player Player = getPlayerStruct(OnPlayerTickCallbackPlayer);
+        float* damage = (float*)((char*)zombieDamageCallbackECX + 0x0C);
+
+        if (*Player.Weapon.Type == 1)
+        {
+            *damage = *Zombie.health;
+        }
+
+    }
+    return;
+
+ }
+
+
+void onPlayerTickCallback()
+{
+    struct player Player = getPlayerStruct(OnPlayerTickCallbackPlayer);
+    return;
 }
 
 
@@ -46,7 +72,7 @@ void PlaceJMP(BYTE* Address, DWORD jumpTo, DWORD length = 5)
 
 bool createPlayerDamageHook()
 {
-    PlaceJMP((BYTE*)rabbidsBaseAddress + 0x00E17F8, (DWORD)playerDamageFunctions, 5);
+    PlaceJMP((BYTE*)rabbidsBaseAddress + 0x00E17F8, (DWORD)playerDamageFunction, 5);
     playerDamageJMPBack = (rabbidsBaseAddress + 0x00E17F8) + 5;
     playerDamageCallbackAddress = (DWORD)&playerDamageCallback;
     return true;
@@ -55,9 +81,17 @@ bool createPlayerDamageHook()
 
 bool createZombieDamageHook()
 {
-    PlaceJMP((BYTE*)rabbidsBaseAddress + 0x00E17F8, (DWORD)playerDamageFunctions, 5);
-    playerDamageJMPBack = (rabbidsBaseAddress + 0x00E17F8) + 5;
-    playerDamageCallbackAddress = (DWORD)&playerDamageCallback;
+    PlaceJMP((BYTE*)rabbidsBaseAddress + 0x2533AF, (DWORD)zombieDamageFunction, 5);
+    zombieDamageJMPBack = (rabbidsBaseAddress + 0x2533AF) + 5;
+    zombieDamageCallbackAddress = (DWORD)&zombieDamageCallback;
+    return true;
+}
+
+bool createPlayerTickHook()
+{
+    PlaceJMP((BYTE*)rabbidsBaseAddress + 0xE40A8, (DWORD)onPlayerTickFunction, 8);
+    OnPlayerTickJMPBack = (rabbidsBaseAddress + 0xE40A8) + 8;
+    OnPlayerTickCallbackAddress = (DWORD)&onPlayerTickCallback;
     return true;
 }
 
@@ -71,8 +105,8 @@ DWORD WINAPI MainThread(LPVOID param)
     process_handle = GetCurrentProcess();
     rabbidsBaseAddress = (DWORD)GetModuleHandle("rabbids.win32.f.dll");
     createPlayerDamageHook();
-
-
+    createZombieDamageHook();
+    createPlayerTickHook();
     while (true)
     {
         if (GetAsyncKeyState(VK_F6) & 0x80000)
