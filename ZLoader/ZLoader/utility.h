@@ -1,5 +1,7 @@
 #pragma once
 #include "windows.h"
+#include "ModLoader.h"
+
 extern HANDLE process_handle;
 
 extern DWORD rabbidsBaseAddress;
@@ -13,6 +15,9 @@ extern DWORD playerDamageCallbackAddress;//the address of our callback
 extern DWORD playerDamageCallbackPlayer;
 extern DWORD playerDamageCallbackDamage;
 extern DWORD* playerDamageCallbackEBP;
+extern DWORD* playerDamageCallbackEAX;
+extern DWORD* playerDamageCallbackESP;
+extern DWORD* playerDamageCallbackECX;
 
 //Zombie Damage Function
 extern DWORD zombieDamageCallbackAddress;

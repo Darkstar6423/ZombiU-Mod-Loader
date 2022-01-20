@@ -19,6 +19,12 @@
     <Filter Include="Header Files\functionhooks">
       <UniqueIdentifier>{4edc2238-f80c-4685-9440-2cd7e0a531d1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ModLoader">
+      <UniqueIdentifier>{e7ce0d2e-5e0d-4584-9fea-4c1fe0a897a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ModLoader">
+      <UniqueIdentifier>{e9263788-43b6-494c-a729-b9a6142ac760}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -48,6 +54,9 @@
     <ClInclude Include="OnPlayerTick.h">
       <Filter>Header Files\functionhooks</Filter>
     </ClInclude>
+    <ClInclude Include="ModLoader.h">
+      <Filter>Header Files\ModLoader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -70,6 +79,9 @@
     </ClCompile>
     <ClCompile Include="OnPlayerTick.cpp">
       <Filter>Source Files\functionhooks</Filter>
+    </ClCompile>
+    <ClCompile Include="ModLoader.cpp">
+      <Filter>Source Files\ModLoader</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

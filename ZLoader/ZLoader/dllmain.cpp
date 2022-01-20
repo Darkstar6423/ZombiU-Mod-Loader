@@ -1,4 +1,3 @@
-
 #include "dllmain.h"
 #include "pch.h"
 
@@ -13,10 +12,18 @@ DWORD WINAPI MainThread(LPVOID param)
 
     process_handle = GetCurrentProcess();
     rabbidsBaseAddress = (DWORD)GetModuleHandle("rabbids.win32.f.dll"); // get the rabbids base address
-    //run function insertions
-    createPlayerDamageHook();
-    createZombieDamageHook();
-    createPlayerTickHook();
+    //load the mods dll
+    c_initFunction function;
+    bool loaded = loadExternalDLL(function);
+    function();
+    //if the dll does not load, do not insert opcode
+    if (loaded)
+    {
+        //run function insertions
+        createPlayerDamageHook();
+        createZombieDamageHook();
+        createPlayerTickHook();
+    }
     while (true)
     {
         if (GetAsyncKeyState(VK_F6) & 0x80000)

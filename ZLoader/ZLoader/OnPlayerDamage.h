@@ -14,7 +14,9 @@ static __declspec(naked) void playerDamageFunction()
 		mov dword ptr playerDamageCallbackPlayer, ecx
 		mov dword ptr playerDamageCallbackDamage, esp
 		mov dword ptr playerDamageCallbackEBP, ebp
+		mov dword ptr playerDamageCallbackECX, ecx
 		call playerDamageCallbackAddress
+		mov ecx,playerDamageCallbackECX
 		//Jump Back
 		jmp[playerDamageJMPBack]
 	}
@@ -23,3 +25,4 @@ static __declspec(naked) void playerDamageFunction()
 
 void playerDamageCallback();
 bool createPlayerDamageHook();
+extern c_playerDamageFunction PDamagefunc;
