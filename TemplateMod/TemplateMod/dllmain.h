@@ -2,9 +2,9 @@
 #include "ZombiStructs.h"
 
 bool mod_init();
-void OnPlayerDamage(player Player, zombie Zombie, float* Damage);
-void OnPlayerTick(player Player);
-void OnZombieDamage(zombie Zombie, player Player, float* Damage);
+void OnPlayerDamage(DWORD PlayerAdr, DWORD ZombieAdr, float* Damage);
+void OnPlayerTick(DWORD PlayerAdr);
+void OnZombieDamage(DWORD ZombieAdr, DWORD PlayerAdr, float* Damage);
 extern "C" {
 
 	__declspec(dllexport) int __cdecl C_init()
@@ -16,28 +16,28 @@ extern "C" {
 		return true;
 	}
 	
-	__declspec(dllexport) int __cdecl C_OnPlayerDamage(player Player, zombie Zombie, float* Damage)
+	__declspec(dllexport) int __cdecl C_OnPlayerDamage(DWORD PlayerAdr, DWORD ZombieAdr, float* Damage)
 	{
 
-		OnPlayerDamage(Player, Zombie, Damage);
+		OnPlayerDamage(PlayerAdr, ZombieAdr, Damage);
 
 		return true;
 	}
 	
-	__declspec(dllexport) int __cdecl C_OnPlayerTick(player Player)
+	__declspec(dllexport) int __cdecl C_OnPlayerTick(DWORD PlayerAdr)
 	{
 
-		OnPlayerTick(Player);
+		OnPlayerTick(PlayerAdr);
 
 
 		return true;
 	}
 	
-	__declspec(dllexport) int __cdecl C_OnZombieDamage(zombie Zombie, player Player, float* Damage)
+	__declspec(dllexport) int __cdecl C_OnZombieDamage(DWORD ZombieAdr, DWORD PlayerAdr, float* Damage)
 	{
 
 		
-		OnZombieDamage(Zombie, Player, Damage);
+		OnZombieDamage(ZombieAdr, PlayerAdr, Damage);
 
 		return true;
 	}

@@ -17,7 +17,7 @@ void zombieDamageCallback()
     {
         struct player Player = getPlayerStruct(OnPlayerTickCallbackPlayer);
         float* Damage = (float*)((char*)zombieDamageCallbackECX + 0x0C);
-        ZDamagefunc(Zombie, Player, Damage);
+        ZDamagefunc(zombieDamageCallbackZombie, OnPlayerTickCallbackPlayer, Damage);
     }
     return;
 

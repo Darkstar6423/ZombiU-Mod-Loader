@@ -12,14 +12,14 @@ bool mod_init()
 }
 
 
-void OnPlayerDamage(player Player, zombie Zombie, float* Damage)
+void OnPlayerDamage(DWORD PlayerAdr, DWORD ZombieAdr, float* Damage)
 {
 	*Damage = 50;
 
 }
 
 
-void OnPlayerTick(player Player)
+void OnPlayerTick(DWORD PlayerAdr)
 {
 
 
@@ -28,8 +28,9 @@ void OnPlayerTick(player Player)
 
 
 
-void OnZombieDamage(zombie Zombie, player Player, float* Damage)
+void OnZombieDamage(DWORD ZombieAdr, DWORD PlayerAdr, float* Damage)
 {
+	zombie Zombie = getZombieStruct(ZombieAdr);
 
 	*Damage = *Zombie.health;
 }

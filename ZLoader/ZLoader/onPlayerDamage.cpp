@@ -22,7 +22,7 @@ void playerDamageCallback()
     player Player = getPlayerStruct(playerDamageCallbackPlayer);
     float* Damage = (float*)playerDamageCallbackDamage;
 
-    PDamagefunc(Player, Zombie, Damage);
+    PDamagefunc(playerDamageCallbackPlayer, *attacker, Damage);
 
     return;
 }

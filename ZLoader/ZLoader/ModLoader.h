@@ -6,9 +6,9 @@
 
 //function definitions
 typedef __declspec(dllimport) int(__cdecl* c_initFunction)();
-typedef __declspec(dllimport) int(__cdecl* c_playerDamageFunction)(player Player, zombie Zombie, float* Damage);
-typedef __declspec(dllimport) int(__cdecl* c_playerTickFunction)(player Player);
-typedef __declspec(dllimport) int(__cdecl* c_zombieDamageFunction)(zombie Zombie, player Player, float* Damage);
+typedef __declspec(dllimport) int(__cdecl* c_playerDamageFunction)(DWORD Player, DWORD Zombie, float* Damage);
+typedef __declspec(dllimport) int(__cdecl* c_playerTickFunction)(DWORD Player);
+typedef __declspec(dllimport) int(__cdecl* c_zombieDamageFunction)(DWORD Zombie, DWORD Player, float* Damage);
 
 extern HINSTANCE modDLL;
 
