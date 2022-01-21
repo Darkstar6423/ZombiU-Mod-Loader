@@ -21,9 +21,10 @@ void playerDamageCallback()
 
     player Player = getPlayerStruct(playerDamageCallbackPlayer);
     float* Damage = (float*)playerDamageCallbackDamage;
-
-    PDamagefunc(playerDamageCallbackPlayer, *attacker, Damage);
-
+    if (PDamagefunc != NULL)
+    {
+        PDamagefunc(playerDamageCallbackPlayer, *attacker, Damage);
+    }
     return;
 }
 

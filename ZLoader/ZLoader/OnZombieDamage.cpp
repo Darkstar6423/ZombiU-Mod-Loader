@@ -8,6 +8,7 @@ DWORD zombieDamageJMPBack;
 //parameters
 DWORD zombieDamageCallbackZombie;
 DWORD zombieDamageCallbackECX;
+DWORD zombieDamageCallbackEBP;
 c_zombieDamageFunction ZDamagefunc;
 
 void zombieDamageCallback()
@@ -15,9 +16,13 @@ void zombieDamageCallback()
     struct zombie Zombie = getZombieStruct(zombieDamageCallbackZombie);
     if (*Zombie.health > 0)
     {
+
         struct player Player = getPlayerStruct(OnPlayerTickCallbackPlayer);
         float* Damage = (float*)((char*)zombieDamageCallbackECX + 0x0C);
-        ZDamagefunc(zombieDamageCallbackZombie, OnPlayerTickCallbackPlayer, Damage);
+        if (ZDamagefunc != NULL)
+        {
+            ZDamagefunc(zombieDamageCallbackZombie, OnPlayerTickCallbackPlayer, Damage);
+        }
     }
     return;
 

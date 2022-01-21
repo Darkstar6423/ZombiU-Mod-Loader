@@ -13,7 +13,11 @@ c_playerTickFunction PtickFunc;
 void onPlayerTickCallback()
 {
     struct player Player = getPlayerStruct(OnPlayerTickCallbackPlayer);
-    PtickFunc(OnPlayerTickCallbackPlayer);
+
+    if (PtickFunc != NULL)
+    {
+        PtickFunc(OnPlayerTickCallbackPlayer);
+    }
     return;
 }
 

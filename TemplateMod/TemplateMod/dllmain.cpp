@@ -8,13 +8,13 @@ bool mod_init()
 {
 	//code that runs on start goes here
 
-	return false;
+	return true;
 }
 
 
 void OnPlayerDamage(DWORD PlayerAdr, DWORD ZombieAdr, float* Damage)
 {
-	*Damage = 50;
+	*Damage = 0;
 
 }
 
