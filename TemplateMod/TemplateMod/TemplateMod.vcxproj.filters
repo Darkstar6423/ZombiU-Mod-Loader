@@ -27,7 +27,7 @@
     <ClInclude Include="dllmain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ZloaderFunctions.h">
+    <ClInclude Include="ZloaderEventHooks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

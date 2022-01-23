@@ -155,7 +155,7 @@
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="ZloaderFunctions.h" />
+    <ClInclude Include="ZloaderEventHooks.h" />
     <ClInclude Include="ZombiStructs.h" />
   </ItemGroup>
   <ItemGroup>

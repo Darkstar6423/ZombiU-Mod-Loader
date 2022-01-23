@@ -161,7 +161,9 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="functionhooks.h" />
+    <ClInclude Include="OnFlashLightDrain.h" />
     <ClInclude Include="ModLoader.h" />
+    <ClInclude Include="OnFlashLightGain.h" />
     <ClInclude Include="OnPlayerDamage.h" />
     <ClInclude Include="OnPlayerTick.h" />
     <ClInclude Include="OnZombieDamage.h" />
@@ -171,6 +173,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="OnFlashLightDrain.cpp" />
+    <ClCompile Include="OnFlashLightGain.cpp" />
     <ClCompile Include="onPlayerDamage.cpp" />
     <ClCompile Include="OnPlayerTick.cpp" />
     <ClCompile Include="OnZombieDamage.cpp" />

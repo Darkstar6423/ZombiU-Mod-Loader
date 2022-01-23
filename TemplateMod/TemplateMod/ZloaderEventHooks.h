@@ -38,6 +38,24 @@ extern "C" {
 
 		return true;
 	}
+	
+	__declspec(dllexport) int __cdecl c_OnflashLightDrain(DWORD Player, float* small_Drain, float* large_Drain)
+	{
+
+
+		OnFlashLightDrain(Player, small_Drain, large_Drain);
+
+		return true;
+	}
+	
+	__declspec(dllexport) int __cdecl c_OnflashLightGain(DWORD Player, float* Amount)
+	{
+
+
+		OnFlashLightGain(Player, Amount);
+
+		return true;
+	}
 
 
 }

@@ -29,7 +29,7 @@ bool loadCPlayerDamageFunction(c_playerDamageFunction &PDamagefunc)
 
 	if (!PDamagefunc)
 	{
-		MessageBoxA(NULL, "Could not find C_OnPlayerDamage function", "Fatal Error", MB_OK);
+		//MessageBoxA(NULL, "Could not find C_OnPlayerDamage function", "Fatal Error", MB_OK);
 		return false;
 	}
 	return true;
@@ -40,10 +40,10 @@ bool loadCPlayerTickFunction(c_playerTickFunction& PTickfunc)
 	PTickfunc = (c_playerTickFunction)GetProcAddress(modDLL, "C_OnPlayerTick");
 	if (!PTickfunc)
 	{
-		MessageBoxA(NULL, "Could not find C_OnPlayerTick function", "Fatal Error", MB_OK);
+		//MessageBoxA(NULL, "Could not find C_OnPlayerTick function", "Fatal Error", MB_OK);
 		return false;
 	}
-	
+	return true;
 }
 
 bool loadCZombieDamageFunction(c_zombieDamageFunction& ZDamagefunc)
@@ -51,8 +51,30 @@ bool loadCZombieDamageFunction(c_zombieDamageFunction& ZDamagefunc)
 	ZDamagefunc = (c_zombieDamageFunction)GetProcAddress(modDLL, "C_OnZombieDamage");
 	if (!ZDamagefunc)
 	{
-		MessageBoxA(NULL, "Could not find C_OnZombieDamage function", "Fatal Error", MB_OK);
+		//MessageBoxA(NULL, "Could not find C_OnZombieDamage function", "Fatal Error", MB_OK);
 		return false;
 	}
+	return true;
 	
+}
+
+bool loadCFlashLightDrainFunction(c_flashLightDrainFunction& FlashLightDrainfunc)
+{
+	FlashLightDrainfunc = (c_flashLightDrainFunction)GetProcAddress(modDLL, "c_OnflashLightDrain");
+	if (!FlashLightDrainfunc)
+	{
+		//MessageBoxA(NULL, "Could not find c_flashLightDrainFunction function", "Fatal Error", MB_OK);
+		return false;
+	}
+	return true;
+}
+bool loadCFlashLightGainFunction(c_flashLightGainFunction& FlashLightGainfunc)
+{
+	FlashLightGainfunc = (c_flashLightGainFunction)GetProcAddress(modDLL, "c_OnflashLightGain");
+	if (!FlashLightGainfunc)
+	{
+		//MessageBoxA(NULL, "Could not find c_flashLightDrainFunction function", "Fatal Error", MB_OK);
+		return false;
+	}
+	return true;
 }

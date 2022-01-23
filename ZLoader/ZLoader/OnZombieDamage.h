@@ -16,13 +16,15 @@ static __declspec(naked) void zombieDamageFunction()
 		mov dword ptr zombieDamageCallbackECX, ecx
 		mov dword ptr zombieDamageCallbackEBP, ebp
 		call zombieDamageCallbackAddress
-		endoffunction :
+		endoffunction:
 		movss xmm2, [ecx + 0x0C]
-		jmp[zombieDamageJMPBack]
+		jmp [zombieDamageJMPBack]
 	}
 
 
 }
+
+
 
 void zombieDamageCallback();
 bool createZombieDamageHook();

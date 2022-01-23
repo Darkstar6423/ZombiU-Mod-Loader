@@ -23,6 +23,8 @@ DWORD WINAPI MainThread(LPVOID param)
         createPlayerDamageHook();
         createZombieDamageHook();
         createPlayerTickHook();
+        createFlashLightDrainHook();
+        createFlashLightGainHook();
     }
     while (true)
     {

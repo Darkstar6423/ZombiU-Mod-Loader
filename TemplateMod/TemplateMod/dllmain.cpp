@@ -37,3 +37,21 @@ void OnZombieDamage(DWORD ZombieAdr, DWORD PlayerAdr, float* Damage)
 
 
 
+void OnFlashLightDrain(DWORD Player, float* small_Drain, float* large_Drain)
+{
+
+	*small_Drain = 1;
+	*large_Drain = 2;
+
+}
+
+
+
+void OnFlashLightGain(DWORD Player, float* Amount)
+{
+
+	*Amount = 15;
+}
+
+
+
