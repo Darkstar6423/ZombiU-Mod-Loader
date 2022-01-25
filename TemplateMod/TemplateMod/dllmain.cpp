@@ -54,4 +54,9 @@ void OnFlashLightGain(DWORD Player, float* Amount)
 }
 
 
+void OnWeaponFire(DWORD Weapon, int* clip)
+{
 
+	*clip += 1;
+
+}

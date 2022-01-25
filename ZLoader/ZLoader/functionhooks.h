@@ -6,3 +6,4 @@
 #include "OnPlayerTick.h"
 #include "OnFlashLightDrain.h"
 #include "OnFlashLightGain.h"
+#include "OnWeaponFire.h"

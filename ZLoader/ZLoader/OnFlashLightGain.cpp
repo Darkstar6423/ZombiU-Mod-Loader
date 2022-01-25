@@ -11,11 +11,9 @@ void FlashLightGainCallback()
 {
 
 
-
 	if (onFlashLightGainFunc != NULL)
 	{
 		float* amount = (float*)((char*)FlashLightGainPlayer+0xA68);
-
 		onFlashLightGainFunc(FlashLightGainPlayer, amount);
 	}
 

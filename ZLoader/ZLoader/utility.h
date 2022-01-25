@@ -41,5 +41,12 @@ extern DWORD FlashLightDrainPlayer;
 extern DWORD FlashLightGainCallbackAddress;
 extern DWORD FlashLightGainJMPBack;
 extern DWORD FlashLightGainPlayer;
+//onWeaponFire
+extern DWORD OnWeaponFireCallbackAddress;
+extern DWORD OnWeaponFireJMPBack;
+extern DWORD OnWeaponFireWeapon;
+extern DWORD OnWeaponFireEDX;
+extern DWORD OnWeaponFireECX;
+
 
 void PlaceJMP(BYTE* Address, DWORD jumpTo, DWORD length = 5);

@@ -78,3 +78,14 @@ bool loadCFlashLightGainFunction(c_flashLightGainFunction& FlashLightGainfunc)
 	}
 	return true;
 }
+
+bool loadCWeaponFireFunction(c_WeaponFireFunction& WeaponFireFunc)
+{
+	WeaponFireFunc = (c_WeaponFireFunction)GetProcAddress(modDLL, "c_WeaponFireFunction");
+	if (!WeaponFireFunc)
+	{
+		//MessageBoxA(NULL, "Could not find c_WeaponFireFunction function", "Fatal Error", MB_OK);
+		return false;
+	}
+	return true;
+}

@@ -57,5 +57,12 @@ extern "C" {
 		return true;
 	}
 
+	__declspec(dllexport) int __cdecl c_WeaponFireFunction(DWORD Weapon, int* clip)
+	{
+
+		OnWeaponFire(Weapon, clip);
+		return true;
+	}
+
 
 }

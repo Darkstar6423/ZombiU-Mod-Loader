@@ -166,6 +166,7 @@
     <ClInclude Include="OnFlashLightGain.h" />
     <ClInclude Include="OnPlayerDamage.h" />
     <ClInclude Include="OnPlayerTick.h" />
+    <ClInclude Include="OnWeaponFire.h" />
     <ClInclude Include="OnZombieDamage.h" />
     <ClInclude Include="utility.h" />
     <ClInclude Include="ZombiStructs.h" />
@@ -175,8 +176,9 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="OnFlashLightDrain.cpp" />
     <ClCompile Include="OnFlashLightGain.cpp" />
-    <ClCompile Include="onPlayerDamage.cpp" />
+    <ClCompile Include="OnPlayerDamage.cpp" />
     <ClCompile Include="OnPlayerTick.cpp" />
+    <ClCompile Include="OnWeaponFire.cpp" />
     <ClCompile Include="OnZombieDamage.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="ModLoader.cpp" />

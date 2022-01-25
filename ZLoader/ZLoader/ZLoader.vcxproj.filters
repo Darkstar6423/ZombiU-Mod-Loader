@@ -63,6 +63,9 @@
     <ClInclude Include="OnFlashLightGain.h">
       <Filter>Header Files\functionhooks</Filter>
     </ClInclude>
+    <ClInclude Include="OnWeaponFire.h">
+      <Filter>Header Files\functionhooks</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -73,9 +76,6 @@
     </ClCompile>
     <ClCompile Include="ZombiStructs.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="onPlayerDamage.cpp">
-      <Filter>Source Files\functionhooks</Filter>
     </ClCompile>
     <ClCompile Include="utility.cpp">
       <Filter>Source Files\functionhooks</Filter>
@@ -93,6 +93,12 @@
       <Filter>Source Files\functionhooks</Filter>
     </ClCompile>
     <ClCompile Include="OnFlashLightGain.cpp">
+      <Filter>Source Files\functionhooks</Filter>
+    </ClCompile>
+    <ClCompile Include="OnWeaponFire.cpp">
+      <Filter>Source Files\functionhooks</Filter>
+    </ClCompile>
+    <ClCompile Include="OnPlayerDamage.cpp">
       <Filter>Source Files\functionhooks</Filter>
     </ClCompile>
   </ItemGroup>
