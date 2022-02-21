@@ -7,8 +7,11 @@ DWORD zombieDamageCallbackAddress;
 DWORD zombieDamageJMPBack;
 //parameters
 DWORD zombieDamageCallbackZombie;
-DWORD zombieDamageCallbackECX;
-DWORD zombieDamageCallbackEBP;
+DWORD zombieDamageCallbackInflictor;
+DWORD zombieDamageCallbackEDX;
+DWORD *zombieDamageCallbackEBP;
+float* zombieDamageCallbackHealth;
+
 c_zombieDamageFunction ZDamagefunc;
 
 void zombieDamageCallback()
@@ -16,12 +19,10 @@ void zombieDamageCallback()
     struct zombie Zombie = getZombieStruct(zombieDamageCallbackZombie);
     if (*Zombie.health > 0)
     {
-
-        struct player Player = getPlayerStruct(OnPlayerTickCallbackPlayer);
-        float* Damage = (float*)((char*)zombieDamageCallbackECX + 0x0C);
+        float* damage = (float*)((char*)zombieDamageCallbackEBP - 0x08);
         if (ZDamagefunc != NULL)
         {
-            ZDamagefunc(zombieDamageCallbackZombie, OnPlayerTickCallbackPlayer, Damage);
+            ZDamagefunc(zombieDamageCallbackZombie, zombieDamageCallbackInflictor, damage);
         }
     }
     return;
@@ -32,9 +33,12 @@ void zombieDamageCallback()
 
 bool createZombieDamageHook()
 {
-    PlaceJMP((BYTE*)rabbidsBaseAddress + 0x2533AF, (DWORD)zombieDamageFunction, 5);
-    zombieDamageJMPBack = (rabbidsBaseAddress + 0x2533AF) + 5;
+   
+    PlaceJMP((BYTE*)rabbidsBaseAddress + 0x25FF06, (DWORD)zombieDamageFunction, 5);
+    zombieDamageJMPBack = (rabbidsBaseAddress + 0x25FF06) + 5;
     zombieDamageCallbackAddress = (DWORD)&zombieDamageCallback;
     loadCZombieDamageFunction(ZDamagefunc);
+    
     return true;
+    
 }

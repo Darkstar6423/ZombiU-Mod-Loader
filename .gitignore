@@ -1,5 +1,6 @@
 ZInjector/ZInjector/Debug/
 ZInjector/ZInjector/Release/
+ZInjector/x64/
 ZInjector/ZInjector/.vs/
 ZInjector/.vs/
 ZInjector/Debug/
@@ -8,6 +9,8 @@ ZInjector/Release/
 ZLoader/ZLoader/Debug/
 ZLoader/ZLoader/Release/
 ZLoader/ZLoader/.vs/
+ZLoader/ZLoader/x64/Release/
+ZLoader/x64/
 ZLoader/Release/
 ZLoader/Debug/
 ZLoader/.vs/

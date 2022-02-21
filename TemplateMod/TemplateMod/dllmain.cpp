@@ -28,11 +28,10 @@ void OnPlayerTick(DWORD PlayerAdr)
 
 
 
-void OnZombieDamage(DWORD ZombieAdr, DWORD PlayerAdr, float* Damage)
+void OnZombieDamage(DWORD ZombieAdr, DWORD Inflictor, float* Damage)
 {
-	zombie Zombie = getZombieStruct(ZombieAdr);
-
-	*Damage = *Zombie.health;
+	if (Inflictor != NULL)
+		*Damage = (float)1;
 }
 
 

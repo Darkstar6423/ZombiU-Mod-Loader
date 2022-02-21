@@ -24,8 +24,10 @@ extern DWORD zombieDamageCallbackAddress;
 extern DWORD zombieDamageJMPBack;
 //parameters
 extern DWORD zombieDamageCallbackZombie;
-extern DWORD zombieDamageCallbackECX;
-extern DWORD zombieDamageCallbackEBP;
+extern DWORD zombieDamageCallbackInflictor;
+extern DWORD* zombieDamageCallbackEBP;
+extern DWORD zombieDamageCallbackEDX;
+extern float* zombieDamageCallbackHealth;
 
 //Runs every tick on the player
 extern DWORD OnPlayerTickCallbackAddress;

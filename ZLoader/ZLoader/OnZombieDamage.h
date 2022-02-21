@@ -10,14 +10,18 @@ static __declspec(naked) void zombieDamageFunction()
 
 	__asm
 	{
-		cmp[edi + 0x3C], 01
+		cmp[ECX + 0x3C],01
 		je endoffunction
-		mov dword ptr zombieDamageCallbackZombie, edi
-		mov dword ptr zombieDamageCallbackECX, ecx
+		mov dword ptr zombieDamageCallbackZombie, ECX
+		mov dword ptr zombieDamageCallbackInflictor, EDI
 		mov dword ptr zombieDamageCallbackEBP, ebp
+		mov dword ptr zombieDamageCallbackEDX, EDX
 		call zombieDamageCallbackAddress
+		//set variables back
+		mov ebp, zombieDamageCallbackEBP
+		mov edx, zombieDamageCallbackEDX
 		endoffunction:
-		movss xmm2, [ecx + 0x0C]
+		subss xmm0, [ebp-0x08]
 		jmp [zombieDamageJMPBack]
 	}
 

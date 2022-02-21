@@ -7,6 +7,7 @@ DWORD playerDamageCallbackAddress;//the address of our callback
 //parameters
 DWORD playerDamageCallbackPlayer;
 DWORD playerDamageCallbackDamage;
+
 DWORD* playerDamageCallbackEBP;
 DWORD* playerDamageCallbackEAX;
 DWORD* playerDamageCallbackESP;

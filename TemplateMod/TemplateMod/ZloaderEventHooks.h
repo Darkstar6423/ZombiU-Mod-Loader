@@ -30,11 +30,11 @@ extern "C" {
 		return true;
 	}
 
-	__declspec(dllexport) int __cdecl C_OnZombieDamage(DWORD ZombieAdr, DWORD PlayerAdr, float* Damage)
+	__declspec(dllexport) int __cdecl C_OnZombieDamage(DWORD ZombieAdr, DWORD Inflictor, float* Damage)
 	{
 
 
-		OnZombieDamage(ZombieAdr, PlayerAdr, Damage);
+		OnZombieDamage(ZombieAdr, Inflictor, Damage);
 
 		return true;
 	}
