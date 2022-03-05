@@ -8,6 +8,7 @@ DWORD zombieDamageJMPBack;
 //parameters
 DWORD zombieDamageCallbackZombie;
 DWORD zombieDamageCallbackInflictor;
+DWORD zombieDamageCallbackIsHeadShot;
 DWORD zombieDamageCallbackEDX;
 DWORD *zombieDamageCallbackEBP;
 float* zombieDamageCallbackHealth;
@@ -20,9 +21,10 @@ void zombieDamageCallback()
     if (*Zombie.health > 0)
     {
         float* damage = (float*)((char*)zombieDamageCallbackEBP - 0x08);
+        bool isHeadShot = (bool)zombieDamageCallbackIsHeadShot;
         if (ZDamagefunc != NULL)
         {
-            ZDamagefunc(zombieDamageCallbackZombie, zombieDamageCallbackInflictor, damage);
+            ZDamagefunc(zombieDamageCallbackZombie, zombieDamageCallbackInflictor, damage, isHeadShot);
         }
     }
     return;

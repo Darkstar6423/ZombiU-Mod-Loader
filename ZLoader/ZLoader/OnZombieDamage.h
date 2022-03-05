@@ -14,6 +14,7 @@ static __declspec(naked) void zombieDamageFunction()
 		je endoffunction
 		mov dword ptr zombieDamageCallbackZombie, ECX
 		mov dword ptr zombieDamageCallbackInflictor, EDI
+		mov dword ptr zombieDamageCallbackIsHeadShot, EAX
 		mov dword ptr zombieDamageCallbackEBP, ebp
 		mov dword ptr zombieDamageCallbackEDX, EDX
 		call zombieDamageCallbackAddress

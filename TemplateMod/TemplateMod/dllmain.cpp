@@ -28,12 +28,20 @@ void OnPlayerTick(DWORD PlayerAdr)
 
 
 
-void OnZombieDamage(DWORD ZombieAdr, DWORD Inflictor, float* Damage)
+void OnZombieDamage(DWORD ZombieAdr, DWORD Inflictor, float* Damage, bool isHeadShot)
 {
 	if (Inflictor != NULL)
-		*Damage = (float)1;
+	{
+		if (isHeadShot == 0)
+		{
+			*Damage = (float)1;
+		}
+		else
+		{
+			*Damage = (float)1000;
+		}
+	}
 }
-
 
 
 void OnFlashLightDrain(DWORD Player, float* small_Drain, float* large_Drain)

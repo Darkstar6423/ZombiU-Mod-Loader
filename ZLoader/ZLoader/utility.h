@@ -25,6 +25,7 @@ extern DWORD zombieDamageJMPBack;
 //parameters
 extern DWORD zombieDamageCallbackZombie;
 extern DWORD zombieDamageCallbackInflictor;
+extern DWORD zombieDamageCallbackIsHeadShot;
 extern DWORD* zombieDamageCallbackEBP;
 extern DWORD zombieDamageCallbackEDX;
 extern float* zombieDamageCallbackHealth;
