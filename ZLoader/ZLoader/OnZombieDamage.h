@@ -11,7 +11,7 @@ static __declspec(naked) void zombieDamageFunction()
 	__asm
 	{
 		cmp[ECX + 0x3C],01
-		je endoffunction
+		je playerDamage
 		mov dword ptr zombieDamageCallbackZombie, ECX
 		mov dword ptr zombieDamageCallbackInflictor, EDI
 		mov dword ptr zombieDamageCallbackIsHeadShot, EAX
@@ -24,6 +24,17 @@ static __declspec(naked) void zombieDamageFunction()
 		endoffunction:
 		subss xmm0, [ebp-0x08]
 		jmp [zombieDamageJMPBack]
+		playerDamage:
+		mov dword ptr playerDamageCallbackPlayer, ECX
+		mov dword ptr playerDamageCallbackInflictor, EDI
+		mov dword ptr playerDamageCallbackEBP, ebp
+		mov dword ptr zombieDamageCallbackEDX, EDX
+		call playerDamageCallbackAddress
+		mov ebp, playerDamageCallbackEBP
+		mov edx, zombieDamageCallbackEDX
+		subss xmm0, [ebp - 0x08]
+		jmp[zombieDamageJMPBack]
+
 	}
 
 

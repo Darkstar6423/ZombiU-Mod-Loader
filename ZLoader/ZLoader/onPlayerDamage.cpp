@@ -7,24 +7,24 @@ DWORD playerDamageCallbackAddress;//the address of our callback
 //parameters
 DWORD playerDamageCallbackPlayer;
 DWORD playerDamageCallbackDamage;
-
+DWORD playerDamageCallbackInflictor;
 DWORD* playerDamageCallbackEBP;
 DWORD* playerDamageCallbackEAX;
 DWORD* playerDamageCallbackESP;
 DWORD* playerDamageCallbackECX;
+DWORD* playerDamageCallbackEDX;
 c_playerDamageFunction PDamagefunc;
 
 
 void playerDamageCallback()
 {
-    DWORD* attacker = (DWORD*)((char*)playerDamageCallbackEBP - 0x10);
-    zombie Zombie = getZombieStruct(*attacker);
+    zombie Zombie = getZombieStruct(playerDamageCallbackInflictor);
 
     player Player = getPlayerStruct(playerDamageCallbackPlayer);
-    float* Damage = (float*)playerDamageCallbackDamage;
+    float* Damage = (float*)((char*)playerDamageCallbackEBP - 0x08);
     if (PDamagefunc != NULL)
     {
-        PDamagefunc(playerDamageCallbackPlayer, *attacker, Damage);
+        PDamagefunc(playerDamageCallbackPlayer, playerDamageCallbackInflictor, Damage);
     }
     return;
 }
@@ -34,7 +34,7 @@ void playerDamageCallback()
 
 bool createPlayerDamageHook()
 {
-    PlaceJMP((BYTE*)rabbidsBaseAddress + 0x00E17F8, (DWORD)playerDamageFunction, 5);
+    //PlaceJMP((BYTE*)rabbidsBaseAddress + 0x00E17F8, (DWORD)playerDamageFunction, 5);
     playerDamageJMPBack = (rabbidsBaseAddress + 0x00E17F8) + 5;
     playerDamageCallbackAddress = (DWORD)&playerDamageCallback;
     loadCPlayerDamageFunction(PDamagefunc);

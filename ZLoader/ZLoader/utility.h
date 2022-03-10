@@ -14,6 +14,7 @@ extern DWORD playerDamageCallbackAddress;//the address of our callback
 //parameters
 extern DWORD playerDamageCallbackPlayer;
 extern DWORD playerDamageCallbackDamage;
+extern DWORD playerDamageCallbackInflictor;
 extern DWORD* playerDamageCallbackEBP;
 extern DWORD* playerDamageCallbackEAX;
 extern DWORD* playerDamageCallbackESP;

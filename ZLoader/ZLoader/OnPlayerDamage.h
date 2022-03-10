@@ -3,7 +3,7 @@
 #include "windows.h"
 #include "utility.h"
 
-
+// this is probably going to be depreciated in favor of whats in the onZombieDamage entry point
 static __declspec(naked) void playerDamageFunction()
 {
 	__asm
