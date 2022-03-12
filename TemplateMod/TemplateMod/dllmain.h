@@ -10,5 +10,6 @@ void OnZombieDamage(DWORD ZombieAdr, DWORD PlayerAdr, float* Damage, bool isHead
 void OnFlashLightDrain(DWORD Player, float* small_Drain, float* large_Drain);
 void OnFlashLightGain(DWORD Player, float* Amount);
 void OnWeaponFire(DWORD Weapon, int* clip);
+void OnWeaponSwitch(DWORD Weapon, int* type);
 
 #include "ZloaderEventHooks.h"

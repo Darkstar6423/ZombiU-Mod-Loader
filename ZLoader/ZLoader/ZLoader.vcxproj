@@ -167,6 +167,7 @@
     <ClInclude Include="OnPlayerDamage.h" />
     <ClInclude Include="OnPlayerTick.h" />
     <ClInclude Include="OnWeaponFire.h" />
+    <ClInclude Include="OnWeaponSwitch.h" />
     <ClInclude Include="OnZombieDamage.h" />
     <ClInclude Include="utility.h" />
     <ClInclude Include="ZombiStructs.h" />
@@ -179,6 +180,7 @@
     <ClCompile Include="OnPlayerDamage.cpp" />
     <ClCompile Include="OnPlayerTick.cpp" />
     <ClCompile Include="OnWeaponFire.cpp" />
+    <ClCompile Include="OnWeaponSwitch.cpp" />
     <ClCompile Include="OnZombieDamage.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="ModLoader.cpp" />

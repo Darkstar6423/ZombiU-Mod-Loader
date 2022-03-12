@@ -34,6 +34,7 @@ void playerDamageCallback()
 
 bool createPlayerDamageHook()
 {
+    // this entry point is no longer used since a better one was found
     //PlaceJMP((BYTE*)rabbidsBaseAddress + 0x00E17F8, (DWORD)playerDamageFunction, 5);
     playerDamageJMPBack = (rabbidsBaseAddress + 0x00E17F8) + 5;
     playerDamageCallbackAddress = (DWORD)&playerDamageCallback;

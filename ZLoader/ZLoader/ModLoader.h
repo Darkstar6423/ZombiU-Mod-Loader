@@ -12,6 +12,7 @@ typedef __declspec(dllimport) int(__cdecl* c_zombieDamageFunction)(DWORD Zombie,
 typedef __declspec(dllimport) int(__cdecl* c_flashLightDrainFunction)(DWORD Player, float* small_Drain, float* large_Drain);
 typedef __declspec(dllimport) int(__cdecl* c_flashLightGainFunction)(DWORD Player, float* Amount);
 typedef __declspec(dllimport) int(__cdecl* c_WeaponFireFunction)(DWORD Weapon, int* clip);
+typedef __declspec(dllimport) int(__cdecl* c_WeaponSwitchFunction)(DWORD WeaponAddress, int* WeaponType);
 
 extern HINSTANCE modDLL;
 
@@ -24,4 +25,5 @@ bool loadCZombieDamageFunction(c_zombieDamageFunction& ZDamagefunc);
 bool loadCFlashLightDrainFunction(c_flashLightDrainFunction& FlashLightDrainfunc);
 bool loadCFlashLightGainFunction(c_flashLightGainFunction& FlashLightGainfunc);
 bool loadCWeaponFireFunction(c_WeaponFireFunction& WeaponFireFunc);
+bool loadCWeaponSwitchFunction(c_WeaponSwitchFunction& WeaponSwitchFunc);
 

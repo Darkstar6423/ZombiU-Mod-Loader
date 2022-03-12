@@ -51,6 +51,11 @@ extern DWORD OnWeaponFireJMPBack;
 extern DWORD OnWeaponFireWeapon;
 extern DWORD OnWeaponFireEDX;
 extern DWORD OnWeaponFireECX;
+//onWeaponSwitch
+extern DWORD weaponSwitchCallbackAddress;
+extern DWORD weaponSwitchJMPBack;
+extern DWORD OnWeaponSwitchWeaponAddress;
+extern int* OnWeaponSwitchWeaponType;
 
 
 void PlaceJMP(BYTE* Address, DWORD jumpTo, DWORD length = 5);

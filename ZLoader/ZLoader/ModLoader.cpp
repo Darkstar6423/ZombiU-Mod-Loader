@@ -89,3 +89,13 @@ bool loadCWeaponFireFunction(c_WeaponFireFunction& WeaponFireFunc)
 	}
 	return true;
 }
+bool loadCWeaponSwitchFunction(c_WeaponSwitchFunction& WeaponSwitchFunc)
+{
+	WeaponSwitchFunc = (c_WeaponSwitchFunction)GetProcAddress(modDLL, "c_WeaponSwitchFunction");
+	if (!WeaponSwitchFunc)
+	{
+		//MessageBoxA(NULL, "Could not find c_WeaponSwitchFunction function", "Fatal Error", MB_OK);
+		return false;
+	}
+	return true;
+}

@@ -64,5 +64,12 @@ extern "C" {
 		return true;
 	}
 
+	__declspec(dllexport) int __cdecl c_WeaponSwitchFunction(DWORD Weapon, int* type)
+	{
+
+		OnWeaponSwitch(Weapon, type);
+		return true;
+	}
+
 
 }

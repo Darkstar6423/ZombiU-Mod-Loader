@@ -40,7 +40,6 @@ bool createZombieDamageHook()
     zombieDamageJMPBack = (rabbidsBaseAddress + 0x25FF06) + 5;
     zombieDamageCallbackAddress = (DWORD)&zombieDamageCallback;
     loadCZombieDamageFunction(ZDamagefunc);
-    
     return true;
     
 }

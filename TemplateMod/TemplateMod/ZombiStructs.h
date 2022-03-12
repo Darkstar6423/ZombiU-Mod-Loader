@@ -19,10 +19,23 @@ struct zombie
 
 extern zombie getZombieStruct(DWORD Address);
 
+/*to add:
+current ammo:for both inbag and out of bag: 50%
+*/
+
+
+/*
+weapon types: offset:278
+
+
+*/
+
 struct weapon
 {
 	DWORD baseAddress;
 	int* clip; //offset 4b4
+	float* damage; //offset 4b4
+	float* upgradedDamage; //offset 4b4
 	int* Type;
 
 	bool isEquiped;

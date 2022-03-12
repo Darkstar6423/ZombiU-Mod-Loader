@@ -31,25 +31,15 @@ void OnPlayerTick(DWORD PlayerAdr)
 
 void OnZombieDamage(DWORD ZombieAdr, DWORD Inflictor, float* Damage, bool isHeadShot)
 {
-	if (Inflictor != NULL)
-	{
-		if (isHeadShot == 0)
-		{
-			*Damage = (float)1;
-		}
-		else
-		{
-			*Damage = (float)1000;
-		}
-	}
+
 }
 
 
 void OnFlashLightDrain(DWORD Player, float* small_Drain, float* large_Drain)
 {
 
-	*small_Drain = 1;
-	*large_Drain = 2;
+	*small_Drain = 0;
+	*large_Drain = 0;
 
 }
 
@@ -58,7 +48,7 @@ void OnFlashLightDrain(DWORD Player, float* small_Drain, float* large_Drain)
 void OnFlashLightGain(DWORD Player, float* Amount)
 {
 
-	*Amount = 15;
+	*Amount = 0;
 }
 
 
@@ -67,4 +57,14 @@ void OnWeaponFire(DWORD Weapon, int* clip)
 
 	*clip += 1;
 
+}
+
+void OnWeaponSwitch(DWORD Weapon, int* type)
+{
+	weapon weap = getWeaponStruct(Weapon);
+	if (*weap.Type == 14)
+	{
+		*weap.damage *= 1.2;
+		*weap.upgradedDamage *= 1.2;
+	}
 }

@@ -66,6 +66,9 @@
     <ClInclude Include="OnWeaponFire.h">
       <Filter>Header Files\functionhooks</Filter>
     </ClInclude>
+    <ClInclude Include="OnWeaponSwitch.h">
+      <Filter>Header Files\functionhooks</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -99,6 +102,9 @@
       <Filter>Source Files\functionhooks</Filter>
     </ClCompile>
     <ClCompile Include="OnPlayerDamage.cpp">
+      <Filter>Source Files\functionhooks</Filter>
+    </ClCompile>
+    <ClCompile Include="OnWeaponSwitch.cpp">
       <Filter>Source Files\functionhooks</Filter>
     </ClCompile>
   </ItemGroup>

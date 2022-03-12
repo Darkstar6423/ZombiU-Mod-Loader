@@ -7,3 +7,4 @@
 #include "OnFlashLightDrain.h"
 #include "OnFlashLightGain.h"
 #include "OnWeaponFire.h"
+#include "OnWeaponSwitch.h"

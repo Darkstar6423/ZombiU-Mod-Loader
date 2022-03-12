@@ -34,6 +34,8 @@ struct weapon
 {
 	DWORD baseAddress;
 	int* clip; //offset 4b4
+	float* damage; //offset 4b4
+	float* upgradedDamage; //offset 4b4
 	int* Type;
 
 	bool isEquiped;

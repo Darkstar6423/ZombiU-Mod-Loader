@@ -26,6 +26,7 @@ DWORD WINAPI MainThread(LPVOID param)
         createFlashLightDrainHook();
         createFlashLightGainHook();
         createWeaponFireHook();
+        createWeaponSwitchHook();
     }
     while (true)
     {

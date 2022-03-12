@@ -1,5 +1,6 @@
-#include "ZombiStructs.h"
 #include "pch.h"
+#include "ZombiStructs.h"
+
 
 player getPlayerStruct(DWORD Address)
 {
@@ -20,6 +21,8 @@ weapon getWeaponStruct(DWORD Address)
 	struct weapon Weapon;
 	Weapon.baseAddress = Address;
 	Weapon.clip = (int*)((char*)Address+0x4b4);
+	Weapon.damage = (float*)((char*)Address+0x1D4);
+	Weapon.upgradedDamage = (float*)((char*)Address+0x1D8);
 	Weapon.Type = (int*)((char*)Address+0x278);
 	Weapon.isEquiped = (DWORD)((char*)Address+0x56C) != 0x0;
 	return Weapon;
