@@ -11,7 +11,11 @@ static __declspec(naked) void WeaponSwitchASMFunction()
 		mov[edi + 0x00000DD8], ebx
 		mov OnWeaponSwitchWeaponAddress, EBX
 		mov OnWeaponSwitchWeaponType, EAX
+		mov weaponSwitchECX, ECX
 		call weaponSwitchCallbackAddress
+		mov EAX, OnWeaponSwitchWeaponType
+		mov EBX, OnWeaponSwitchWeaponAddress
+		mov ECX, weaponSwitchECX
 		jmp [weaponSwitchJMPBack]
 
 	}

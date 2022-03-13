@@ -12,6 +12,7 @@ DWORD zombieDamageCallbackIsHeadShot;
 DWORD zombieDamageCallbackEDX;
 DWORD *zombieDamageCallbackEBP;
 float* zombieDamageCallbackHealth;
+float zombieDamageCallbackXMM0;
 
 c_zombieDamageFunction ZDamagefunc;
 

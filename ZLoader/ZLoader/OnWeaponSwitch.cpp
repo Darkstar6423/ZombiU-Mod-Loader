@@ -4,7 +4,7 @@
 
 DWORD weaponSwitchCallbackAddress;
 DWORD weaponSwitchJMPBack;
-
+DWORD weaponSwitchECX;
 c_WeaponSwitchFunction WeaponSwitchFunc;
 
 DWORD OnWeaponSwitchWeaponAddress;

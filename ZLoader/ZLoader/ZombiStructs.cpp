@@ -21,10 +21,21 @@ weapon getWeaponStruct(DWORD Address)
 	struct weapon Weapon;
 	Weapon.baseAddress = Address;
 	Weapon.clip = (int*)((char*)Address+0x4b4);
-	Weapon.damage = (float*)((char*)Address+0x1D4);
-	Weapon.upgradedDamage = (float*)((char*)Address+0x1D8);
 	Weapon.Type = (int*)((char*)Address+0x278);
 	Weapon.isEquiped = (DWORD)((char*)Address+0x56C) != 0x0;
+	//stats
+	//damage
+	Weapon.damageUpgraded = (bool*)((char*)Address + 0x3E0);
+	Weapon.upgradedDamage = (float*)((char*)Address + 0x1D8);
+	Weapon.damage = (float*)((char*)Address + 0x1D4);
+	//spread
+	Weapon.spreadUpgraded = (bool*)((char*)Address + 0x434);
+	Weapon.spread = (float*)((char*)Address + 0x5D0);
+	Weapon.upgradedSpread = (float*)((char*)Address + 0x294);
+	//fireRate
+	Weapon.fireRateUpgraded = (bool*)((char*)Address + 0x3FC);
+	Weapon.fireRate = (float*)((char*)Address + 0x1B0);
+	Weapon.upgradedFireRate = (float*)((char*)Address + 0x1B4);
 	return Weapon;
 }
 

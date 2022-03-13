@@ -29,6 +29,7 @@ extern DWORD zombieDamageCallbackInflictor;
 extern DWORD zombieDamageCallbackIsHeadShot;
 extern DWORD* zombieDamageCallbackEBP;
 extern DWORD zombieDamageCallbackEDX;
+extern float zombieDamageCallbackXMM0;
 extern float* zombieDamageCallbackHealth;
 
 //Runs every tick on the player
@@ -55,6 +56,7 @@ extern DWORD OnWeaponFireECX;
 extern DWORD weaponSwitchCallbackAddress;
 extern DWORD weaponSwitchJMPBack;
 extern DWORD OnWeaponSwitchWeaponAddress;
+extern DWORD weaponSwitchECX;
 extern int* OnWeaponSwitchWeaponType;
 
 

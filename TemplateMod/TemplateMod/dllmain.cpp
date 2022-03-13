@@ -28,9 +28,20 @@ void OnPlayerTick(DWORD PlayerAdr)
 }
 
 
-
+//100064.8984
 void OnZombieDamage(DWORD ZombieAdr, DWORD Inflictor, float* Damage, bool isHeadShot)
 {
+	//removal of random cricket bat one shots
+	if (isHeadShot == true && Inflictor != NULL)
+	{
+		player Player = getPlayerStruct(Inflictor);
+		if (*Player.Weapon.Type == 6 && *Damage > (float)1000)
+		{
+			*Damage = (float)*Player.Weapon.damage;
+		}
+
+	}
+
 
 }
 
@@ -55,16 +66,22 @@ void OnFlashLightGain(DWORD Player, float* Amount)
 void OnWeaponFire(DWORD Weapon, int* clip)
 {
 
-	*clip += 1;
 
 }
 
 void OnWeaponSwitch(DWORD Weapon, int* type)
 {
+	
 	weapon weap = getWeaponStruct(Weapon);
-	if (*weap.Type == 14)
+	switch (*weap.Type)
 	{
-		*weap.damage *= 1.2;
-		*weap.upgradedDamage *= 1.2;
+	case 6:
+		*weap.damage = 45.0;
+		break;
+	case 14:
+		*weap.upgradedDamage = 2.0;
+		*weap.damage = 1.0;
+		break;
 	}
+	
 }
