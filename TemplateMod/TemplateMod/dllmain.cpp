@@ -75,12 +75,54 @@ void OnWeaponSwitch(DWORD Weapon, int* type)
 	weapon weap = getWeaponStruct(Weapon);
 	switch (*weap.Type)
 	{
+	case 1:
+		*weap.upgradedSpread = 0.9;
+		if (*weap.spreadUpgraded == 0)
+		{
+			*weap.spread = 1.5;
+		}
+		else
+		{
+			*weap.spread = 1.15;
+		}		
+		*weap.upgradedDamage = 92.0;
+		if (*weap.damageUpgraded == 0)
+		{
+			*weap.damage = 82.0;
+		}
+		else
+		{
+			*weap.damage = 92.0;
+		}
+
+		*weap.upgradedFireRate = 0.3;
+		if (*weap.fireRateUpgraded == 0)
+		{
+			*weap.fireRate = 0.5;
+		}
+		else
+		{
+			*weap.fireRate = 0.35;
+		}
+
+		break;
 	case 6:
 		*weap.damage = 45.0;
 		break;
 	case 14:
-		*weap.upgradedDamage = 2.0;
-		*weap.damage = 1.0;
+		*weap.upgradedDamage = 80.0;
+		if (*weap.damageUpgraded == 0)
+		{
+			*weap.damage = 70.0;
+		}
+		else
+		{
+			*weap.damage = 80.0;
+		}
+		
+
+
+		
 		break;
 	}
 	
