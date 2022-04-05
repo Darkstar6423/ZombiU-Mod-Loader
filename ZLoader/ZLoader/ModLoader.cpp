@@ -99,3 +99,14 @@ bool loadCWeaponSwitchFunction(c_WeaponSwitchFunction& WeaponSwitchFunc)
 	}
 	return true;
 }
+
+bool loadCScoreAddFunc(c_ScoreAddFunction& ScoreAddFunc)
+{
+	ScoreAddFunc = (c_ScoreAddFunction)GetProcAddress(modDLL, "c_ScoreGivenFunction");
+	if (!ScoreAddFunc)
+	{
+		//MessageBoxA(NULL, "Could not find c_ScoreAddFunc function", "Fatal Error", MB_OK);
+		return false;
+	}
+	return true;
+}

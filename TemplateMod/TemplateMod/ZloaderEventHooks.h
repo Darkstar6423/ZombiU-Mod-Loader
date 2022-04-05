@@ -70,6 +70,14 @@ extern "C" {
 		OnWeaponSwitch(Weapon, type);
 		return true;
 	}
+	
+	__declspec(dllexport) int __cdecl c_ScoreGivenFunction(int* ScoreEvent, int* Score, int* CurrentScore)
+	{
+
+		OnScoreGiven(ScoreEvent, Score, CurrentScore);
+		return true;
+	}
+
 
 
 }

@@ -13,6 +13,7 @@ typedef __declspec(dllimport) int(__cdecl* c_flashLightDrainFunction)(DWORD Play
 typedef __declspec(dllimport) int(__cdecl* c_flashLightGainFunction)(DWORD Player, float* Amount);
 typedef __declspec(dllimport) int(__cdecl* c_WeaponFireFunction)(DWORD Weapon, int* clip);
 typedef __declspec(dllimport) int(__cdecl* c_WeaponSwitchFunction)(DWORD WeaponAddress, int* WeaponType);
+typedef __declspec(dllimport) int(__cdecl* c_ScoreAddFunction)(int *ScoreEvent, int *Score, int *CurrentScore);
 
 extern HINSTANCE modDLL;
 
@@ -26,4 +27,5 @@ bool loadCFlashLightDrainFunction(c_flashLightDrainFunction& FlashLightDrainfunc
 bool loadCFlashLightGainFunction(c_flashLightGainFunction& FlashLightGainfunc);
 bool loadCWeaponFireFunction(c_WeaponFireFunction& WeaponFireFunc);
 bool loadCWeaponSwitchFunction(c_WeaponSwitchFunction& WeaponSwitchFunc);
+bool loadCScoreAddFunc(c_ScoreAddFunction& ScoreAddFunc);
 

@@ -59,5 +59,11 @@ extern DWORD OnWeaponSwitchWeaponAddress;
 extern DWORD weaponSwitchECX;
 extern int* OnWeaponSwitchWeaponType;
 
+//OnScoreGiven
+extern DWORD scoreGivenCallbackAddress;
+extern DWORD scoreGivenJMPBack;
+extern int OnScoreGivenEvent;
+extern int OnScoreGivenScore;
+extern int OnScoreGivenCurrentScore;
 
 void PlaceJMP(BYTE* Address, DWORD jumpTo, DWORD length = 5);

@@ -75,6 +75,7 @@ void OnWeaponSwitch(DWORD Weapon, int* type)
 	weapon weap = getWeaponStruct(Weapon);
 	switch (*weap.Type)
 	{
+	//Pistol
 	case 1:
 		*weap.upgradedSpread = 0.9;
 		if (*weap.spreadUpgraded == 0)
@@ -106,9 +107,11 @@ void OnWeaponSwitch(DWORD Weapon, int* type)
 		}
 
 		break;
+		// cricket bat
 	case 6:
 		*weap.damage = 45.0;
 		break;
+		//silenced pistol
 	case 14:
 		*weap.upgradedDamage = 80.0;
 		if (*weap.damageUpgraded == 0)
@@ -126,4 +129,10 @@ void OnWeaponSwitch(DWORD Weapon, int* type)
 		break;
 	}
 	
+
+}
+
+void OnScoreGiven(int* ScoreEvent, int* Score, int* CurrentScore)
+{
+	*Score = 0;
 }

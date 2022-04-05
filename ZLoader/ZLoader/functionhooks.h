@@ -8,3 +8,4 @@
 #include "OnFlashLightGain.h"
 #include "OnWeaponFire.h"
 #include "OnWeaponSwitch.h"
+#include "OnScoreGiven.h"

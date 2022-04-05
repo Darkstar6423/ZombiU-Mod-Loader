@@ -12,7 +12,7 @@ DWORD WINAPI MainThread(LPVOID param)
 
     process_handle = GetCurrentProcess();
     rabbidsBaseAddress = (DWORD)GetModuleHandle("rabbids.win32.f.dll"); // get the rabbids base address
-    //load the mods dll
+    //load the mod dll
     c_initFunction function;
     bool loaded = loadExternalDLL(function);
     function();
@@ -27,6 +27,7 @@ DWORD WINAPI MainThread(LPVOID param)
         createFlashLightGainHook();
         createWeaponFireHook();
         createWeaponSwitchHook();
+        createScoreGivenHook();
     }
     while (true)
     {
