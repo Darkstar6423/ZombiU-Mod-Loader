@@ -1,0 +1,27 @@
+﻿  dllmain.cpp
+C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\ZLoader\dllmain.cpp(2,10): fatal error C1083: Cannot open precompiled header file: 'Debug\ZLoader.pch': No such file or directory
+  OnFlashLightDrain.cpp
+C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\ZLoader\OnFlashLightDrain.cpp(1,10): fatal error C1083: Cannot open precompiled header file: 'Debug\ZLoader.pch': No such file or directory
+  OnFlashLightGain.cpp
+C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\ZLoader\OnFlashLightGain.cpp(1,10): fatal error C1083: Cannot open precompiled header file: 'Debug\ZLoader.pch': No such file or directory
+  OnPlayerDamage.cpp
+C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\ZLoader\OnPlayerDamage.cpp(1,10): fatal error C1083: Cannot open precompiled header file: 'Debug\ZLoader.pch': No such file or directory
+  OnPlayerTick.cpp
+C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\ZLoader\OnPlayerTick.cpp(1,10): fatal error C1083: Cannot open precompiled header file: 'Debug\ZLoader.pch': No such file or directory
+  OnScoreGiven.cpp
+C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\ZLoader\OnScoreGiven.cpp(1,10): fatal error C1083: Cannot open precompiled header file: 'Debug\ZLoader.pch': No such file or directory
+  OnWeaponFire.cpp
+C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\ZLoader\OnWeaponFire.cpp(1,10): fatal error C1083: Cannot open precompiled header file: 'Debug\ZLoader.pch': No such file or directory
+  OnWeaponSwitch.cpp
+C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\ZLoader\OnWeaponSwitch.cpp(1,10): fatal error C1083: Cannot open precompiled header file: 'Debug\ZLoader.pch': No such file or directory
+  OnZombieDamage.cpp
+C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\ZLoader\OnZombieDamage.cpp(1,10): fatal error C1083: Cannot open precompiled header file: 'Debug\ZLoader.pch': No such file or directory
+  pch.cpp
+C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\ZLoader\pch.cpp(3,10): fatal error C1083: Cannot open precompiled header file: 'Debug\ZLoader.pch': No such file or directory
+  ModLoader.cpp
+C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\ZLoader\ModLoader.cpp(2,10): fatal error C1083: Cannot open precompiled header file: 'Debug\ZLoader.pch': No such file or directory
+  utility.cpp
+C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\ZLoader\utility.cpp(1,10): fatal error C1083: Cannot open precompiled header file: 'Debug\ZLoader.pch': No such file or directory
+  ZombiStructs.cpp
+C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\ZLoader\ZombiStructs.cpp(1,10): fatal error C1083: Cannot open precompiled header file: 'Debug\ZLoader.pch': No such file or directory
+  Generating Code...
