@@ -17,7 +17,5 @@ static __declspec(naked) void onPlayerTickFunction()
 
 
 }
-
-extern c_playerTickFunction PtickFunc;
 void onPlayerTickCallback();
 bool createPlayerTickHook();

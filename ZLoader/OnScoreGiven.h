@@ -24,4 +24,3 @@ static __declspec(naked) void ScoreGivenASMFunction()
 
 void ScoreGivenCallback();
 bool createScoreGivenHook();
-extern c_ScoreAddFunction ScoreGivenFunc;

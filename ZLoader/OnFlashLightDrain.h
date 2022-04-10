@@ -21,5 +21,5 @@ static __declspec(naked) void FlashLightDrainFunction()
 
 }
 
-extern c_flashLightDrainFunction onFlashLightDrainFunc;
 bool createFlashLightDrainHook();
+void FlashLightDrainCallback();

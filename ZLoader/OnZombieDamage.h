@@ -47,4 +47,3 @@ static __declspec(naked) void zombieDamageFunction()
 
 void zombieDamageCallback();
 bool createZombieDamageHook();
-extern c_zombieDamageFunction ZDamagefunc;

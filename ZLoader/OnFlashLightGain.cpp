@@ -5,7 +5,7 @@
 DWORD FlashLightGainCallbackAddress;
 DWORD FlashLightGainJMPBack;
 DWORD FlashLightGainPlayer;
-c_flashLightGainFunction onFlashLightGainFunc;
+decltype(OnFlashLightGain) *onFlashLightGainFunc;
 
 void FlashLightGainCallback()
 {
@@ -24,7 +24,7 @@ bool createFlashLightGainHook()
 	PlaceJMP((BYTE*)rabbidsBaseAddress + 0xE3EFE, (DWORD)FlashLightGainFunction, 8);
 	FlashLightGainJMPBack = (rabbidsBaseAddress + 0xE3EFE) + 8;
 	FlashLightGainCallbackAddress = (DWORD)&FlashLightGainCallback;
-	loadCFlashLightGainFunction(onFlashLightGainFunc);
+	onFlashLightGainFunc = hook(GetProcAddress(modDLL, "OnFlashLightGain"));
 	return true;
 }
 

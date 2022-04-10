@@ -1,15 +1,13 @@
-﻿  pch.cpp
-  dllmain.cpp
+﻿  dllmain.cpp
 C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\TemplateMod\dllmain.cpp(80,29): warning C4305: '=': truncation from 'double' to 'float'
 C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\TemplateMod\dllmain.cpp(87,23): warning C4305: '=': truncation from 'double' to 'float'
 C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\TemplateMod\dllmain.cpp(99,31): warning C4305: '=': truncation from 'double' to 'float'
 C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\TemplateMod\dllmain.cpp(106,25): warning C4305: '=': truncation from 'double' to 'float'
 C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\TemplateMod\dllmain.cpp(137,14): warning C4244: '*=': conversion from 'double' to 'int', possible loss of data
-  ZombiStructs.cpp
      Creating library C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\Release\mod.lib and object C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\Release\mod.exp
   Generating code
-  0 of 20 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
+  1 of 11 functions ( 9.1%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   TemplateMod.vcxproj -> C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\Release\mod.dll

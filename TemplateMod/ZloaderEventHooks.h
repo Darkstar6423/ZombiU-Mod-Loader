@@ -1,83 +1,17 @@
 #pragma once
-#include "ZombiStructs.h"
-#include "dllmain.h"
+
+
 
 extern "C" {
 
-	__declspec(dllexport) int __cdecl C_init()
-	{
-
-		mod_init();
-
-
-		return true;
-	}
-
-	__declspec(dllexport) int __cdecl C_OnPlayerDamage(DWORD PlayerAdr, DWORD ZombieAdr, float* Damage)
-	{
-
-		OnPlayerDamage(PlayerAdr, ZombieAdr, Damage);
-
-		return true;
-	}
-
-	__declspec(dllexport) int __cdecl C_OnPlayerTick(DWORD PlayerAdr)
-	{
-
-		OnPlayerTick(PlayerAdr);
-
-
-		return true;
-	}
-
-	__declspec(dllexport) int __cdecl C_OnZombieDamage(DWORD ZombieAdr, DWORD Inflictor, float* Damage, bool isHeadShot)
-	{
-
-
-		OnZombieDamage(ZombieAdr, Inflictor, Damage, isHeadShot);
-
-		return true;
-	}
-	
-	__declspec(dllexport) int __cdecl c_OnflashLightDrain(DWORD Player, float* small_Drain, float* large_Drain)
-	{
-
-
-		OnFlashLightDrain(Player, small_Drain, large_Drain);
-
-		return true;
-	}
-	
-	__declspec(dllexport) int __cdecl c_OnflashLightGain(DWORD Player, float* Amount)
-	{
-
-
-		OnFlashLightGain(Player, Amount);
-
-		return true;
-	}
-
-	__declspec(dllexport) int __cdecl c_WeaponFireFunction(DWORD Weapon, int* clip)
-	{
-
-		OnWeaponFire(Weapon, clip);
-		return true;
-	}
-
-	__declspec(dllexport) int __cdecl c_WeaponSwitchFunction(DWORD Weapon, int* type)
-	{
-
-		OnWeaponSwitch(Weapon, type);
-		return true;
-	}
-	
-	__declspec(dllexport) int __cdecl c_ScoreGivenFunction(int* ScoreEvent, int* Score, int* CurrentScore)
-	{
-
-		OnScoreGiven(ScoreEvent, Score, CurrentScore);
-		return true;
-	}
-
-
+	_declspec(dllexport) bool __cdecl init();
+	_declspec(dllexport) void __cdecl OnPlayerDamage(DWORD PlayerAdr, DWORD ZombieAdr, float* Damage);
+	_declspec(dllexport) void __cdecl OnPlayerTick(DWORD PlayerAdr);
+	_declspec(dllexport) void __cdecl OnZombieDamage(DWORD ZombieAdr, DWORD PlayerAdr, float* Damage, bool isHeadShot);
+	_declspec(dllexport) void __cdecl OnFlashLightDrain(DWORD Player, float* small_Drain, float* large_Drain);
+	_declspec(dllexport) void __cdecl OnFlashLightGain(DWORD Player, float* Amount);
+	_declspec(dllexport) void __cdecl OnWeaponFire(DWORD Weapon, int* clip);
+	_declspec(dllexport) void __cdecl OnWeaponSwitch(DWORD Weapon, int* type);
+	_declspec(dllexport) void __cdecl OnScoreGiven(int* ScoreEvent, int* Score, int* CurrentScore);
 
 }

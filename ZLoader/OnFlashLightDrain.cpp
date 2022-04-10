@@ -5,7 +5,7 @@
 DWORD FlashLightDrainCallbackAddress;
 DWORD FlashLightDrainJMPBack;
 DWORD FlashLightDrainPlayer;
-c_flashLightDrainFunction onFlashLightDrainFunc;
+decltype(OnFlashLightDrain) *onFlashLightDrainFunc;
 
 void FlashLightDrainCallback()
 {
@@ -26,7 +26,7 @@ bool createFlashLightDrainHook()
 	PlaceJMP((BYTE*)rabbidsBaseAddress + 0xE3C54, (DWORD)FlashLightDrainFunction, 7);
 	FlashLightDrainJMPBack = (rabbidsBaseAddress + 0xE3C54) + 7;
 	FlashLightDrainCallbackAddress = (DWORD)&FlashLightDrainCallback;
-	loadCFlashLightDrainFunction(onFlashLightDrainFunc);
+	onFlashLightDrainFunc = hook(GetProcAddress(modDLL, "OnFlashLightDrain"));
 	return true;
 }
 

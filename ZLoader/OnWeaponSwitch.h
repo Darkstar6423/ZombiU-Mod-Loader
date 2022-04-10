@@ -25,4 +25,3 @@ static __declspec(naked) void WeaponSwitchASMFunction()
 
 void WeaponSwitchCallback();
 bool createWeaponSwitchHook();
-extern c_WeaponSwitchFunction WeaponSwitchFunc;

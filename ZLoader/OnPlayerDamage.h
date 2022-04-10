@@ -3,26 +3,8 @@
 #include "windows.h"
 #include "utility.h"
 
-// this is probably going to be depreciated in favor of whats in the onZombieDamage entry point
-static __declspec(naked) void playerDamageFunction()
-{
-	__asm
-	{
-		//Original Code
-		movss[esp], xmm0
-		//new code
-		mov dword ptr playerDamageCallbackPlayer, ecx
-		mov dword ptr playerDamageCallbackDamage, esp
-		mov dword ptr playerDamageCallbackEBP, ebp
-		mov dword ptr playerDamageCallbackECX, ecx
-		call playerDamageCallbackAddress
-		mov ecx,playerDamageCallbackECX
-		//Jump Back
-		jmp[playerDamageJMPBack]
-	}
-}
+// refer to OnZombieDamage for ASM entry point
 
 
 void playerDamageCallback();
 bool createPlayerDamageHook();
-extern c_playerDamageFunction PDamagefunc;

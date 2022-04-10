@@ -4,11 +4,13 @@
 
 DWORD OnWeaponFireCallbackAddress;
 DWORD OnWeaponFireJMPBack;
-c_WeaponFireFunction WeapFireFunc;
+
 
 DWORD OnWeaponFireWeapon;
 DWORD OnWeaponFireEDX;
 DWORD OnWeaponFireECX;
+
+decltype(OnWeaponFire) *WeapFireFunc;
 
 void OnWeaponFireCallback()
 {
@@ -30,6 +32,6 @@ bool createWeaponFireHook()
     PlaceJMP((BYTE*)rabbidsBaseAddress + 0x1F4405, (DWORD)weaponFireFunction, 6);
     OnWeaponFireJMPBack = (rabbidsBaseAddress + 0x1F4405) + 6;
     OnWeaponFireCallbackAddress = (DWORD)&OnWeaponFireCallback;
-    loadCWeaponFireFunction(WeapFireFunc);
+    WeapFireFunc = hook(GetProcAddress(modDLL, "OnWeaponFire"));
     return true;
 }

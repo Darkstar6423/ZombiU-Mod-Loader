@@ -14,7 +14,7 @@ DWORD *zombieDamageCallbackEBP;
 float* zombieDamageCallbackHealth;
 float zombieDamageCallbackXMM0;
 
-c_zombieDamageFunction ZDamagefunc;
+decltype(OnZombieDamage) *ZDamagefunc;
 
 void zombieDamageCallback()
 {
@@ -36,11 +36,9 @@ void zombieDamageCallback()
 
 bool createZombieDamageHook()
 {
-   
     PlaceJMP((BYTE*)rabbidsBaseAddress + 0x25FF06, (DWORD)zombieDamageFunction, 5);
     zombieDamageJMPBack = (rabbidsBaseAddress + 0x25FF06) + 5;
     zombieDamageCallbackAddress = (DWORD)&zombieDamageCallback;
-    loadCZombieDamageFunction(ZDamagefunc);
+    ZDamagefunc = hook(GetProcAddress(modDLL, "OnZombieDamage"));
     return true;
-    
 }

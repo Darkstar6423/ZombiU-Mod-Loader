@@ -171,8 +171,8 @@
     <ClInclude Include="OnWeaponSwitch.h" />
     <ClInclude Include="OnZombieDamage.h" />
     <ClInclude Include="utility.h" />
-    <ClInclude Include="ZombiStructs.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="ZombiStructs.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />

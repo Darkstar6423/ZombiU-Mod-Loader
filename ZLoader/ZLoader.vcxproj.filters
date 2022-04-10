@@ -36,9 +36,6 @@
     <ClInclude Include="dllmain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ZombiStructs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="OnPlayerDamage.h">
       <Filter>Header Files\functionhooks</Filter>
     </ClInclude>
@@ -72,15 +69,15 @@
     <ClInclude Include="OnScoreGiven.h">
       <Filter>Header Files\functionhooks</Filter>
     </ClInclude>
+    <ClInclude Include="ZombiStructs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ZombiStructs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="utility.cpp">
@@ -112,6 +109,9 @@
     </ClCompile>
     <ClCompile Include="OnScoreGiven.cpp">
       <Filter>Source Files\functionhooks</Filter>
+    </ClCompile>
+    <ClCompile Include="ZombiStructs.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

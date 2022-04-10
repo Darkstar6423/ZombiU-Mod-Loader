@@ -4,7 +4,7 @@
 
 
 
-bool mod_init()
+bool init()
 {
 	//code that runs on start goes here
 	//note: this does not run in the game loop, this runs in the DLL thread

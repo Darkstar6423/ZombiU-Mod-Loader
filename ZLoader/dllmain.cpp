@@ -13,9 +13,7 @@ DWORD WINAPI MainThread(LPVOID param)
     process_handle = GetCurrentProcess();
     rabbidsBaseAddress = (DWORD)GetModuleHandle("rabbids.win32.f.dll"); // get the rabbids base address
     //load the mod dll
-    c_initFunction function;
-    bool loaded = loadExternalDLL(function);
-    function();
+    bool loaded = loadExternalDLL();
     //if the dll does not load, do not insert opcode
     if (loaded)
     {

@@ -5,10 +5,12 @@
 DWORD weaponSwitchCallbackAddress;
 DWORD weaponSwitchJMPBack;
 DWORD weaponSwitchECX;
-c_WeaponSwitchFunction WeaponSwitchFunc;
+
 
 DWORD OnWeaponSwitchWeaponAddress;
 int* OnWeaponSwitchWeaponType;
+decltype(OnWeaponSwitch) *WeaponSwitchFunc;
+
 
 void WeaponSwitchCallback()
 {
@@ -24,6 +26,6 @@ bool createWeaponSwitchHook()
     PlaceJMP((BYTE*)rabbidsBaseAddress + 0xE6D0E, (DWORD)WeaponSwitchASMFunction, 6);
     weaponSwitchJMPBack = (rabbidsBaseAddress + 0xE6D0E) + 6;
     weaponSwitchCallbackAddress = (DWORD)&WeaponSwitchCallback;
-    loadCWeaponSwitchFunction(WeaponSwitchFunc);
+    WeaponSwitchFunc = hook(GetProcAddress(modDLL,"OnWeaponSwitch"));
     return true;
 }

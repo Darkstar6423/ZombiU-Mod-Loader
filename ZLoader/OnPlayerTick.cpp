@@ -8,7 +8,7 @@ DWORD OnPlayerTickJMPBack;
 //parameters
 DWORD OnPlayerTickCallbackPlayer;
 
-c_playerTickFunction PtickFunc;
+decltype(OnPlayerTick) *PtickFunc;
 
 void onPlayerTickCallback()
 {
@@ -29,7 +29,7 @@ bool createPlayerTickHook()
     PlaceJMP((BYTE*)rabbidsBaseAddress + 0xE40A8, (DWORD)onPlayerTickFunction, 8);
     OnPlayerTickJMPBack = (rabbidsBaseAddress + 0xE40A8) + 8;
     OnPlayerTickCallbackAddress = (DWORD)&onPlayerTickCallback;
-    loadCPlayerTickFunction(PtickFunc);
+    PtickFunc = hook(GetProcAddress(modDLL, "OnPlayerTick"));
     return true;
 }
 

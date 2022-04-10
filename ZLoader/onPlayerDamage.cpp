@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "OnPlayerDamage.h"
-
 //Player Damage Function
 DWORD playerDamageJMPBack;//where this jump will return to
 DWORD playerDamageCallbackAddress;//the address of our callback
@@ -13,7 +12,7 @@ DWORD* playerDamageCallbackEAX;
 DWORD* playerDamageCallbackESP;
 DWORD* playerDamageCallbackECX;
 DWORD* playerDamageCallbackEDX;
-c_playerDamageFunction PDamagefunc;
+decltype(OnPlayerDamage) *PDamagefunc;
 
 
 void playerDamageCallback()
@@ -38,6 +37,6 @@ bool createPlayerDamageHook()
     //PlaceJMP((BYTE*)rabbidsBaseAddress + 0x00E17F8, (DWORD)playerDamageFunction, 5);
     playerDamageJMPBack = (rabbidsBaseAddress + 0x00E17F8) + 5;
     playerDamageCallbackAddress = (DWORD)&playerDamageCallback;
-    loadCPlayerDamageFunction(PDamagefunc);
+    PDamagefunc = hook(GetProcAddress(modDLL, "OnPlayerDamage"));
     return true;
 }

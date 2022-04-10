@@ -7,6 +7,10 @@
 using namespace std;
 
 
+HMODULE zloader;
+wchar_t buffer[4096];
+
+
 void PressEnterToContinue()
 {
 	int c;
@@ -15,7 +19,7 @@ void PressEnterToContinue()
 	do c = getchar(); while ((c != '\n') && (c != EOF));
 }
 
-int getProcId(const wchar_t* target, bool keepTrying = false)
+int getProcId(const wchar_t* target)
 {
 	DWORD pID = 0;
 	PROCESSENTRY32 pe32;
@@ -31,9 +35,6 @@ int getProcId(const wchar_t* target, bool keepTrying = false)
 		}
 	} while (Process32Next(hSnapshot, &pe32));
 	Sleep(100);
-
-	if (pID == 0 && keepTrying == true)
-		pID = getProcId(target, true);
 
 	return pID;
 }
@@ -103,7 +104,7 @@ bool isUConnectRunning()
 		NULL,           // Process handle not inheritable
 		NULL,           // Thread handle not inheritable
 		FALSE,          // Set handle inheritance to FALSE
-		0,              // No creation flags
+		CREATE_DEFAULT_ERROR_MODE | CREATE_NEW_PROCESS_GROUP,
 		NULL,           // Use parent's environment block
 		NULL,           // Use parent's starting directory 
 		(LPSTARTUPINFOA)&si,            // Pointer to STARTUPINFO structure
@@ -114,7 +115,9 @@ bool isUConnectRunning()
 	CloseHandle(pi.hProcess);
 	CloseHandle(pi.hThread);
 
-	getProcId(L"UplayWebCore.exe", true);
+	while (!getProcId(L"UplayWebCore.exe"))
+		Sleep(200);
+	
 	cout << "UConnect successfully launched" << endl;
 
 	return true;
@@ -140,7 +143,7 @@ int main(int argc, char* argv[])
 			return false;
 		}
 	}
-
+	cout << "Starting Zombi.exe" << endl;
 	// additional information
 	STARTUPINFO si;
 	PROCESS_INFORMATION pi;
@@ -150,23 +153,28 @@ int main(int argc, char* argv[])
 	si.cb = sizeof(si);
 	ZeroMemory(&pi, sizeof(pi));
 
+	si.wShowWindow = SW_MINIMIZE;
+
 	// start the program up
 	CreateProcess(L"ZOMBI.EXE",   // the path
 		NULL,        // Command line
 		NULL,           // Process handle not inheritable
 		NULL,           // Thread handle not inheritable
 		FALSE,          // Set handle inheritance to FALSE
-		0,              // No creation flags
+		CREATE_DEFAULT_ERROR_MODE | CREATE_NEW_PROCESS_GROUP,
 		NULL,           // Use parent's environment block
 		NULL,           // Use parent's starting directory 
 		&si,            // Pointer to STARTUPINFO structure
 		&pi             // Pointer to PROCESS_INFORMATION structure (removed extra parentheses)
 	);
 
-	Sleep(500);
+	Sleep(2000);
 
-
-	int pID = getProcId(L"ZOMBI.exe", true);
+	while (!getProcId(L"ZOMBI.exe"))
+		Sleep(1000);
+	
+	int pID = getProcId(L"ZOMBI.exe");
+	cout << "Zombi.exe launched successfully. Injecting..." << endl;
 	char dll[] = "ZLoader.dll";
 	char dllpath[MAX_PATH] = { 0 };
 	GetFullPathNameA(dll, MAX_PATH, dllpath, NULL);
@@ -188,11 +196,18 @@ int main(int argc, char* argv[])
 	CloseHandle(handleThread);
 
 	VirtualFreeEx(hProcess, dllpath, 0, MEM_RELEASE);
+
+
 	CloseHandle(hProcess);
 
 	CloseHandle(pi.hProcess);
 	CloseHandle(pi.hThread);
-	
+
+	while (getProcId(L"ZOMBI.exe"))
+	{
+		Sleep(200);
+	}
+	cout << "The game closed, closing the launcher" << endl;
 	return 0;
 
 }

@@ -27,4 +27,3 @@ static __declspec(naked) void weaponFireFunction()
 
 void OnWeaponFireCallback();
 bool createWeaponFireHook();
-extern c_WeaponFireFunction WeapFireFunc;
