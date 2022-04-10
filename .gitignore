@@ -2,3 +2,9 @@
 /release
 /.vs
 /.git
+/TemplateMod/release
+/TemplateMod/debug
+/ZInjector/release
+/ZInjector/debug
+/ZLoader/release
+/ZLoader/Debug

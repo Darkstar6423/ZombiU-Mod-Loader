@@ -15,7 +15,7 @@ void PressEnterToContinue()
 	do c = getchar(); while ((c != '\n') && (c != EOF));
 }
 
-int getProcId(const wchar_t* target, time_t startTime)
+int getProcId(const wchar_t* target, bool keepTrying = false)
 {
 	DWORD pID = 0;
 	PROCESSENTRY32 pe32;
@@ -30,16 +30,15 @@ int getProcId(const wchar_t* target, time_t startTime)
 			break;
 		}
 	} while (Process32Next(hSnapshot, &pe32));
-	Sleep(1000);
-	time_t currentTime = time(0);
-	if (pID == 0 && currentTime <= startTime+10)
-	{
-		pID = getProcId(target, startTime);
-	}
+	Sleep(100);
+
+	if (pID == 0 && keepTrying == true)
+		pID = getProcId(target, true);
+
 	return pID;
 }
 
-int assertError(int error=0)
+int assertError(int error = 0, bool critical = false)
 {
 	switch (error)
 	{
@@ -49,20 +48,103 @@ int assertError(int error=0)
 	case 2:
 		cout << "Unable to inject DLL\n";
 		break;
+	case 3:
+		cout << "Ubisoft Connect is not active. Starting\n";
+		break;
+	case 4:
+		cout << "Cannot find Ubisoft Connect Directory. Is it installed?\n";
+		break;
 	}
-	PressEnterToContinue();
+	if (critical == true)
+	{
+		PressEnterToContinue();
+	}
+
+
 	return error;
 }
 
-
-int main(int argc, char* argv[])
+bool isUConnectRunning()
 {
+	HKEY key;
+	if (RegOpenKeyExA(HKEY_LOCAL_MACHINE, "SOFTWARE\\WOW6432Node\\UBISOFT\\LAUNCHER", 0, KEY_READ, &key) != ERROR_SUCCESS)
+	{
+		assertError(4, true);
+		return false;
+	}
+	char buffer[512];
+	DWORD UConnectPathLength = 512;
+	if (RegQueryValueExA(key, "installDir", 0, 0, (LPBYTE)&buffer, &UConnectPathLength) != ERROR_SUCCESS)
+	{
+		assertError(4, true);
+		return false;
+
+
+	}
+	char upcname[] = "upc.exe";
+
+	strncat_s(buffer, upcname, strlen(buffer) - sizeof(upcname));
+	cout << endl << buffer << endl;
+
 
 	// additional information
 	STARTUPINFO si;
 	PROCESS_INFORMATION pi;
 
+	// set the size of the structures
+	ZeroMemory(&si, sizeof(si));
+	si.cb = sizeof(si);
+	ZeroMemory(&pi, sizeof(pi));
+	si.cb = sizeof(STARTUPINFO);
+	si.dwFlags = STARTF_USESHOWWINDOW;
+	si.wShowWindow = SW_MINIMIZE;
+	CreateProcessA(buffer,   // the path
+		NULL,        // Command line
+		NULL,           // Process handle not inheritable
+		NULL,           // Thread handle not inheritable
+		FALSE,          // Set handle inheritance to FALSE
+		0,              // No creation flags
+		NULL,           // Use parent's environment block
+		NULL,           // Use parent's starting directory 
+		(LPSTARTUPINFOA)&si,            // Pointer to STARTUPINFO structure
+		&pi             // Pointer to PROCESS_INFORMATION structure (removed extra parentheses)
+	);
+
+
+	CloseHandle(pi.hProcess);
+	CloseHandle(pi.hThread);
+
+	getProcId(L"UplayWebCore.exe", true);
+	cout << "UConnect successfully launched" << endl;
+
+	return true;
+}
+
+
+
+
+int main(int argc, char* argv[])
+{
+
+
+
 	int error = 0;
+
+
+	int UConnectPID = getProcId(L"upc.exe");
+	if (UConnectPID == 0)
+	{
+		assertError(3, false);
+		if (!isUConnectRunning())
+		{
+			return false;
+		}
+	}
+
+	// additional information
+	STARTUPINFO si;
+	PROCESS_INFORMATION pi;
+
 	// set the size of the structures
 	ZeroMemory(&si, sizeof(si));
 	si.cb = sizeof(si);
@@ -82,17 +164,9 @@ int main(int argc, char* argv[])
 	);
 
 	Sleep(500);
-	time_t start_time = time(0);
-	cout << "the current time is " << start_time << "\n";
-	const wchar_t* process = L"ZOMBI.exe";
-	int pID = getProcId(process, start_time);
-	if (pID == 0 && error ==0)
-	{
-		error = assertError(1);
-		return error;
-	}
 
 
+	int pID = getProcId(L"ZOMBI.exe", true);
 	char dll[] = "ZLoader.dll";
 	char dllpath[MAX_PATH] = { 0 };
 	GetFullPathNameA(dll, MAX_PATH, dllpath, NULL);
@@ -100,8 +174,7 @@ int main(int argc, char* argv[])
 	HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, false, pID);
 	if (hProcess == NULL && error == 0)
 	{
-		cout << "could not inject dll into process \n";
-		error = assertError(2);
+		error = assertError(2, true);
 		return error;
 	}
 	
