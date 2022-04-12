@@ -158,9 +158,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="canMinimapAutoPing.h" />
+    <ClInclude Include="canMinimapManualPing.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="functionhooks.h" />
+    <ClInclude Include="FunctionOverrides.h" />
+    <ClInclude Include="OverrideParameters.h" />
     <ClInclude Include="OnFlashLightDrain.h" />
     <ClInclude Include="ModLoader.h" />
     <ClInclude Include="OnFlashLightGain.h" />
@@ -170,11 +174,13 @@
     <ClInclude Include="OnWeaponFire.h" />
     <ClInclude Include="OnWeaponSwitch.h" />
     <ClInclude Include="OnZombieDamage.h" />
-    <ClInclude Include="utility.h" />
+    <ClInclude Include="hookparameter.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="ZombiStructs.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="canMinimapAutoPing.cpp" />
+    <ClCompile Include="canMinimapManualPing.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="OnFlashLightDrain.cpp" />
     <ClCompile Include="OnFlashLightGain.cpp" />
@@ -186,7 +192,7 @@
     <ClCompile Include="OnZombieDamage.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="ModLoader.cpp" />
-    <ClCompile Include="utility.cpp" />
+    <ClCompile Include="hookparameter.cpp" />
     <ClCompile Include="ZombiStructs.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

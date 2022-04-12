@@ -1,7 +1,7 @@
 #pragma once
 #include "ZombiStructs.h"
 #include "windows.h"
-#include "utility.h"
+#include "hookparameter.h"
 
 static __declspec(naked) void ScoreGivenASMFunction()
 {

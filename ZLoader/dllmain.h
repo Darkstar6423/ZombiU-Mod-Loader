@@ -7,4 +7,5 @@
 #include <tlhelp32.h>
 #include <windows.h>
 #include "functionhooks.h"
+#include "FunctionOverrides.h"
 #include "ModLoader.h"

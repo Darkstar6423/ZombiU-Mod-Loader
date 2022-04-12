@@ -1,7 +1,7 @@
 #pragma once
 #include "ZombiStructs.h"
 #include "windows.h"
-#include "utility.h"
+#include "hookparameter.h"
 
 // refer to OnZombieDamage for ASM entry point
 

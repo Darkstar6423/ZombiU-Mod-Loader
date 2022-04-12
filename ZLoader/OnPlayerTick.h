@@ -1,6 +1,6 @@
 #pragma once
 #include "ZombiStructs.h"
-#include "utility.h"
+#include "hookparameter.h"
 #include "windows.h"
 
 

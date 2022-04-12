@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <iostream>
 #include <type_traits>
-#include "../TemplateMod/ZloaderEventHooks.h"
+
 
 //modhook object
 class hook {
@@ -31,5 +31,4 @@ extern HINSTANCE modDLL;
 bool loadExternalDLL();
 
 
-bool loadCScoreAddFunc(c_ScoreAddFunction& ScoreAddFunc);
 

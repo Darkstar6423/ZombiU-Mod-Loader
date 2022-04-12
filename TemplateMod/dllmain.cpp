@@ -136,3 +136,17 @@ void OnScoreGiven(int* ScoreEvent, int* Score, int* CurrentScore)
 {
 	*Score *=0.5;
 }
+
+
+//Overrides
+
+bool canMinimapAutoPing(DWORD Player)
+{
+	return false;
+}
+
+bool canMinimapManualPing(DWORD Player)
+{
+
+	return false;
+}

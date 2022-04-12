@@ -25,6 +25,12 @@
     <Filter Include="Source Files\ModLoader">
       <UniqueIdentifier>{e9263788-43b6-494c-a729-b9a6142ac760}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\FunctionOverrides">
+      <UniqueIdentifier>{3d532de5-b581-487c-a0f7-a8d39db3c79e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\FunctionOverrides">
+      <UniqueIdentifier>{bca6007e-ec36-4ed7-96ed-48c788e8ac19}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -37,9 +43,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="OnPlayerDamage.h">
-      <Filter>Header Files\functionhooks</Filter>
-    </ClInclude>
-    <ClInclude Include="utility.h">
       <Filter>Header Files\functionhooks</Filter>
     </ClInclude>
     <ClInclude Include="OnZombieDamage.h">
@@ -72,6 +75,21 @@
     <ClInclude Include="ZombiStructs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="canMinimapAutoPing.h">
+      <Filter>Header Files\FunctionOverrides</Filter>
+    </ClInclude>
+    <ClInclude Include="hookparameter.h">
+      <Filter>Header Files\functionhooks</Filter>
+    </ClInclude>
+    <ClInclude Include="OverrideParameters.h">
+      <Filter>Header Files\FunctionOverrides</Filter>
+    </ClInclude>
+    <ClInclude Include="FunctionOverrides.h">
+      <Filter>Header Files\FunctionOverrides</Filter>
+    </ClInclude>
+    <ClInclude Include="canMinimapManualPing.h">
+      <Filter>Header Files\FunctionOverrides</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -79,9 +97,6 @@
     </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="utility.cpp">
-      <Filter>Source Files\functionhooks</Filter>
     </ClCompile>
     <ClCompile Include="OnZombieDamage.cpp">
       <Filter>Source Files\functionhooks</Filter>
@@ -112,6 +127,15 @@
     </ClCompile>
     <ClCompile Include="ZombiStructs.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="canMinimapAutoPing.cpp">
+      <Filter>Source Files\FunctionOverrides</Filter>
+    </ClCompile>
+    <ClCompile Include="hookparameter.cpp">
+      <Filter>Source Files\functionhooks</Filter>
+    </ClCompile>
+    <ClCompile Include="canMinimapManualPing.cpp">
+      <Filter>Source Files\FunctionOverrides</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

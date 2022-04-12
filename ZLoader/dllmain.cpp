@@ -26,6 +26,9 @@ DWORD WINAPI MainThread(LPVOID param)
         createWeaponFireHook();
         createWeaponSwitchHook();
         createScoreGivenHook();
+        //Overrides
+        createAutoPingCheckOverride();
+        createManualPingCheckOverride();
     }
     while (true)
     {

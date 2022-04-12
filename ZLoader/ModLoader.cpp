@@ -1,6 +1,6 @@
 #include "ModLoader.h"
 #include "pch.h"
-
+#include "..\templatemod\ZloaderEventHooks.h"
 HINSTANCE modDLL;
 
 bool loadExternalDLL()
