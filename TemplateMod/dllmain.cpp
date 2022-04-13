@@ -49,8 +49,8 @@ void OnZombieDamage(DWORD ZombieAdr, DWORD Inflictor, float* Damage, bool isHead
 void OnFlashLightDrain(DWORD Player, float* small_Drain, float* large_Drain)
 {
 
-	*small_Drain = 0;
-	*large_Drain = 0;
+	*small_Drain = 0.3;
+	*large_Drain = 0.5;
 
 }
 
@@ -59,7 +59,7 @@ void OnFlashLightDrain(DWORD Player, float* small_Drain, float* large_Drain)
 void OnFlashLightGain(DWORD Player, float* Amount)
 {
 
-	*Amount = 0;
+	*Amount = 0.8;
 }
 
 
@@ -140,13 +140,19 @@ void OnScoreGiven(int* ScoreEvent, int* Score, int* CurrentScore)
 
 //Overrides
 
-bool canMinimapAutoPing(DWORD Player)
+bool canMinimapAutoPing(DWORD Player, bool hasAutoPingUpgrade)
 {
 	return false;
 }
 
-bool canMinimapManualPing(DWORD Player)
+bool canMinimapManualPing(DWORD Player, bool hasAutoPingUpgrade)
 {
+	player player = getPlayerStruct(Player);
+	if (*player.torch <= 20)
+	{
+		return false;
+	}
 
-	return false;
+	*player.torch -= 20;
+	return true;
 }

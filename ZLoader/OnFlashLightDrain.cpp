@@ -5,6 +5,11 @@
 DWORD FlashLightDrainCallbackAddress;
 DWORD FlashLightDrainJMPBack;
 DWORD FlashLightDrainPlayer;
+
+DWORD OnFlashLightDrainEAX;
+DWORD OnFlashLightDrainECX;
+
+
 decltype(OnFlashLightDrain) *onFlashLightDrainFunc;
 
 void FlashLightDrainCallback()

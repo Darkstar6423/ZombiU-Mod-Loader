@@ -14,7 +14,7 @@ void canMinimapAutoPingOverride()
     bool *mayAutoPing = (bool*)((char*)autoPingCheckEBX + 0x015C);
     if (CanMinimapAutoPingFunc != NULL)
     {
-        *mayAutoPing = CanMinimapAutoPingFunc(OnPlayerTickCallbackPlayer);
+        *mayAutoPing = CanMinimapAutoPingFunc(OnPlayerTickCallbackPlayer, *mayAutoPing);
     }
 }
 

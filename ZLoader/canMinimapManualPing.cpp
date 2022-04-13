@@ -1,5 +1,5 @@
-#include "canMinimapManualPing.h"
 #include "pch.h"
+#include "canMinimapManualPing.h"
 
 DWORD manualPingCheckJMPBack;
 DWORD manualPingCheckEBX;
@@ -11,10 +11,12 @@ decltype(canMinimapManualPing)* CanMinimapManualPingFunc;
 
 void canMinimapManualPingOverride()
 {
+    bool canPing = manualPingCheckEAX;
     if (CanMinimapManualPingFunc != NULL)
     {
-        manualPingCheckEAX = CanMinimapManualPingFunc(OnPlayerTickCallbackPlayer);
+        canPing =  CanMinimapManualPingFunc(OnPlayerTickCallbackPlayer, manualPingCheckEAX);
     }
+    manualPingCheckEAX = canPing;
 }
 
 

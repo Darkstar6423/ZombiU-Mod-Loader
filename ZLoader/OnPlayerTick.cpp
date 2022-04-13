@@ -7,7 +7,6 @@ DWORD OnPlayerTickCallbackAddress;
 DWORD OnPlayerTickJMPBack;
 //parameters
 DWORD OnPlayerTickCallbackPlayer;
-
 decltype(OnPlayerTick) *PtickFunc;
 
 void onPlayerTickCallback()

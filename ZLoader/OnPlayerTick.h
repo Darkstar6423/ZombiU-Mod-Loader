@@ -9,9 +9,10 @@ static __declspec(naked) void onPlayerTickFunction()
 
 	__asm
 	{
-		movss xmm0, [esi + 0x00000EC0]
-		mov dword ptr OnPlayerTickCallbackPlayer, esi
+		mov OnPlayerTickCallbackPlayer, esi
 		call OnPlayerTickCallbackAddress
+		mov esi, OnPlayerTickCallbackPlayer
+		movss xmm0, [esi + 0x00000EC0]
 		jmp[OnPlayerTickJMPBack]
 	}
 

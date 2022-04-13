@@ -6,14 +6,21 @@
 
 
 
+extern DWORD OnFlashLightDrainEAX;
+extern DWORD OnFlashLightDrainECX;
+
 
 static __declspec(naked) void FlashLightDrainFunction()
 {
 
 	__asm
 	{
+		mov OnFlashLightDrainEAX, EAX
+		mov OnFlashLightDrainECX, ECX
 		mov FlashLightDrainPlayer, esi
 		call FlashLightDrainCallbackAddress
+		mov EAX, OnFlashLightDrainEAX
+		mov ECX, OnFlashLightDrainECX
 		cmp byte ptr[esi + 0x00000EA0], 00
 		jmp FlashLightDrainJMPBack
 	}
