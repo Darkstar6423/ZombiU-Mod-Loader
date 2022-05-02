@@ -1,11 +1,6 @@
 #include "dllmain.h"
 #include "pch.h"
 
-
-
-
-
-
 DWORD WINAPI MainThread(LPVOID param)
 {
     Sleep(2000); // wait for the game to finish loading
@@ -29,6 +24,8 @@ DWORD WINAPI MainThread(LPVOID param)
         //Overrides
         createAutoPingCheckOverride();
         createManualPingCheckOverride();
+        
+
     }
     while (true)
     {

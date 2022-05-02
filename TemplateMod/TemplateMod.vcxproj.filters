@@ -27,10 +27,10 @@
     <ClInclude Include="ZloaderEventHooks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ZombiStructs.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
     <ClInclude Include="ZLoaderFunctionOverrides.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ZombiUtility.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -41,7 +41,7 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ZombiStructs.cpp">
+    <ClCompile Include="ZombiUtility.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

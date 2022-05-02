@@ -23,7 +23,6 @@ private:
 };
 
 //function definitions
-typedef __declspec(dllimport) int(__cdecl* c_ScoreAddFunction)(int *ScoreEvent, int *Score, int *CurrentScore);
 
 extern HINSTANCE modDLL;
 

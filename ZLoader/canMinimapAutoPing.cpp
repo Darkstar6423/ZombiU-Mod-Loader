@@ -16,6 +16,8 @@ void canMinimapAutoPingOverride()
     {
         *mayAutoPing = CanMinimapAutoPingFunc(OnPlayerTickCallbackPlayer, *mayAutoPing);
     }
+    
+
 }
 
 
@@ -29,3 +31,4 @@ bool createAutoPingCheckOverride()
     CanMinimapAutoPingFunc = hook(GetProcAddress(modDLL, "canMinimapAutoPing"));
     return true;
 }
+

@@ -157,7 +157,7 @@
     <ClInclude Include="ZLoaderFunctionOverrides.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="ZloaderEventHooks.h" />
-    <ClInclude Include="ZombiStructs.h" />
+    <ClInclude Include="ZombiUtility.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
@@ -167,7 +167,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="ZombiStructs.cpp" />
+    <ClCompile Include="ZombiUtility.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

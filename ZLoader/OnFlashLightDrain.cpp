@@ -8,7 +8,7 @@ DWORD FlashLightDrainPlayer;
 
 DWORD OnFlashLightDrainEAX;
 DWORD OnFlashLightDrainECX;
-
+DWORD OnFlashLightDrainEDX;
 
 decltype(OnFlashLightDrain) *onFlashLightDrainFunc;
 

@@ -124,12 +124,8 @@ bool isUConnectRunning()
 }
 
 
-
-
 int main(int argc, char* argv[])
 {
-
-
 
 	int error = 0;
 
@@ -153,7 +149,7 @@ int main(int argc, char* argv[])
 	si.cb = sizeof(si);
 	ZeroMemory(&pi, sizeof(pi));
 
-	si.wShowWindow = SW_MINIMIZE;
+	si.wShowWindow = false;
 
 	// start the program up
 	CreateProcess(L"ZOMBI.EXE",   // the path
@@ -193,20 +189,24 @@ int main(int argc, char* argv[])
 	HANDLE handleThread = CreateRemoteThread(hProcess, NULL, NULL, (LPTHREAD_START_ROUTINE)LoadLibraryA, pszLibFileRemote, NULL, NULL);
 	
 	WaitForSingleObject(handleThread, INFINITE);
+
+
+
+	cout << "Injected Successfully" << endl;
+	std::string command = "";
+	HWND console = GetConsoleWindow();
+	DWORD fdwMode = ENABLE_WINDOW_INPUT | ENABLE_MOUSE_INPUT;
+	SetConsoleMode(console, fdwMode);
+	char buffer[512];
+	DWORD val = 0;
+
+	//cleanup
 	CloseHandle(handleThread);
-
 	VirtualFreeEx(hProcess, dllpath, 0, MEM_RELEASE);
-
-
 	CloseHandle(hProcess);
-
 	CloseHandle(pi.hProcess);
 	CloseHandle(pi.hThread);
 
-	while (getProcId(L"ZOMBI.exe"))
-	{
-		Sleep(200);
-	}
 	cout << "The game closed, closing the launcher" << endl;
 	return 0;
 

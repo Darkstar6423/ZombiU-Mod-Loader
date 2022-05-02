@@ -14,23 +14,12 @@ bool loadExternalDLL()
 	}
 
 	decltype(init) *init = hook(GetProcAddress(modDLL, "init"));
-	if (!init)
+	if (*init == NULL)
 	{
 		MessageBoxA(NULL, "Could not find initialization function", "Fatal Error", MB_OK);
 		return false;
 	}
-	init();
-	return true;
-}
+	CreateThread(0, 0, (LPTHREAD_START_ROUTINE)*init, 0, 0, NULL);
 
-
-bool loadCScoreAddFunc(c_ScoreAddFunction& ScoreAddFunc)
-{
-	ScoreAddFunc = (c_ScoreAddFunction)GetProcAddress(modDLL, "c_ScoreGivenFunction");
-	if (!ScoreAddFunc)
-	{
-		//MessageBoxA(NULL, "Could not find c_ScoreAddFunc function", "Fatal Error", MB_OK);
-		return false;
-	}
 	return true;
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ZombiStructs.h"
+#include "..\ZLoader\ZombiStructs.h"
 #include "ZloaderEventHooks.h"
 #include "ZloaderFunctionOverrides.h"
-
+#include "ZombiUtility.h"

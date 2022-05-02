@@ -17,8 +17,9 @@ static __declspec(naked) void autoPingCheckFunction()
 		jmp autoPingCheckJMPBack
 
 	}
-
 }
+
+
 
 
 void canMinimapAutoPingOverride();

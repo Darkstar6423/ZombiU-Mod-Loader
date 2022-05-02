@@ -1,13 +1,14 @@
 // dllmain.cpp : Defines the entry point for the DLL application.
 #include "pch.h"
 #include "dllmain.h"
+#include "ZombiUtility.h"
 
-
-
+//code that runs on start goes here
+//note: this does not run in the game loop, this runs in a DLL thread
 bool init()
 {
-	//code that runs on start goes here
-	//note: this does not run in the game loop, this runs in the DLL thread
+	loadUtilityFunctions();
+
 
 	return true;
 }
@@ -34,7 +35,7 @@ void OnZombieDamage(DWORD ZombieAdr, DWORD Inflictor, float* Damage, bool isHead
 	//removal of random cricket bat one shots
 	if (isHeadShot == true && Inflictor != NULL)
 	{
-		player Player = getPlayerStruct(Inflictor);
+		player Player = getPlayer(Inflictor);
 		if (*Player.Weapon.Type == 6 && *Damage > (float)1000)
 		{
 			*Damage = (float)*Player.Weapon.damage;
@@ -46,10 +47,18 @@ void OnZombieDamage(DWORD ZombieAdr, DWORD Inflictor, float* Damage, bool isHead
 }
 
 
-void OnFlashLightDrain(DWORD Player, float* small_Drain, float* large_Drain)
+void OnFlashLightDrain(DWORD PlayerAdr, float* small_Drain, float* large_Drain)
 {
 
-	*small_Drain = 0.3;
+	player Player = getPlayer(PlayerAdr);
+	if(*Player.torch >= 98.7)
+	{ 
+		*small_Drain = 0;
+	}
+	else
+	{
+		*small_Drain = -0.1;
+	}
 	*large_Drain = 0.5;
 
 }
@@ -72,7 +81,7 @@ void OnWeaponFire(DWORD Weapon, int* clip)
 void OnWeaponSwitch(DWORD Weapon, int* type)
 {
 	
-	weapon weap = getWeaponStruct(Weapon);
+	weapon weap = getWeapon(Weapon);
 	switch (*weap.Type)
 	{
 	//Pistol
@@ -147,7 +156,7 @@ bool canMinimapAutoPing(DWORD Player, bool hasAutoPingUpgrade)
 
 bool canMinimapManualPing(DWORD Player, bool hasAutoPingUpgrade)
 {
-	player player = getPlayerStruct(Player);
+	player player = getPlayer(Player);
 	if (*player.torch <= 20)
 	{
 		return false;
