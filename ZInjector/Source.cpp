@@ -183,9 +183,10 @@ int main(int argc, char* argv[])
 	}
 	
 
-	LPVOID pszLibFileRemote = VirtualAllocEx(hProcess, NULL, strlen(dllpath)+1, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
+	LPVOID pszLibFileRemote = VirtualAllocEx(hProcess, NULL, strlen(dllpath) + 1, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
 
 	WriteProcessMemory(hProcess, pszLibFileRemote, dllpath, strlen(dllpath)+1, NULL);
+	
 	HANDLE handleThread = CreateRemoteThread(hProcess, NULL, NULL, (LPTHREAD_START_ROUTINE)LoadLibraryA, pszLibFileRemote, NULL, NULL);
 	
 	WaitForSingleObject(handleThread, INFINITE);

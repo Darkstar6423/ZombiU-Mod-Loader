@@ -29,26 +29,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -160,10 +160,12 @@
   <ItemGroup>
     <ClInclude Include="canMinimapAutoPing.h" />
     <ClInclude Include="canMinimapManualPing.h" />
+    <ClInclude Include="DrawText.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="functionhooks.h" />
     <ClInclude Include="FunctionOverrides.h" />
+    <ClInclude Include="modFunctions.h" />
     <ClInclude Include="OverrideParameters.h" />
     <ClInclude Include="OnFlashLightDrain.h" />
     <ClInclude Include="ModLoader.h" />
@@ -182,6 +184,7 @@
     <ClCompile Include="canMinimapAutoPing.cpp" />
     <ClCompile Include="canMinimapManualPing.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="DrawText.cpp" />
     <ClCompile Include="OnFlashLightDrain.cpp" />
     <ClCompile Include="OnFlashLightGain.cpp" />
     <ClCompile Include="OnPlayerDamage.cpp" />

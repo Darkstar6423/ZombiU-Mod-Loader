@@ -1,5 +1,6 @@
 #pragma once
 #include "..\ZLoader\ZombiStructs.h"
+#include "..\ZLoader\modFunctions.h"
 #include <type_traits>
 #include <windows.h>
 
@@ -24,5 +25,6 @@ private:
 extern decltype(getZombieStruct)* getZombie;
 extern decltype(getWeaponStruct)* getWeapon;
 extern decltype(getPlayerStruct)* getPlayer;
-
+extern decltype(DRAWTEXT)* drawtext;
+extern decltype(DRAWIMESSAGE)* drawIMessage;
 void loadUtilityFunctions();

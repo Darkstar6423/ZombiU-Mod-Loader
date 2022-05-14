@@ -9,3 +9,4 @@
 #include "functionhooks.h"
 #include "FunctionOverrides.h"
 #include "ModLoader.h"
+#include "modFunctions.h"

@@ -31,6 +31,12 @@
     <Filter Include="Source Files\FunctionOverrides">
       <UniqueIdentifier>{bca6007e-ec36-4ed7-96ed-48c788e8ac19}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\modFunctions">
+      <UniqueIdentifier>{3d1a5ef8-1ec6-4e38-b6f5-2d7821dbbaae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\modFunctions">
+      <UniqueIdentifier>{0ba8ebf6-a2f0-4fbb-ac9e-e03fac8aa693}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -90,6 +96,12 @@
     <ClInclude Include="canMinimapManualPing.h">
       <Filter>Header Files\FunctionOverrides</Filter>
     </ClInclude>
+    <ClInclude Include="modFunctions.h">
+      <Filter>Header Files\modFunctions</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawText.h">
+      <Filter>Header Files\modFunctions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -136,6 +148,9 @@
     </ClCompile>
     <ClCompile Include="canMinimapManualPing.cpp">
       <Filter>Source Files\FunctionOverrides</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawText.cpp">
+      <Filter>Source Files\modFunctions</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

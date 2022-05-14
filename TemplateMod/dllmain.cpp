@@ -2,17 +2,33 @@
 #include "pch.h"
 #include "dllmain.h"
 #include "ZombiUtility.h"
-
+#include <string>
 //code that runs on start goes here
-//note: this does not run in the game loop, this runs in a DLL thread
+//note: this does not run in the game loop, this runs in a DLL threadbool init()
 bool init()
 {
 	loadUtilityFunctions();
+	
+
+	DWORD rabbidsAdr = (DWORD)GetModuleHandle("rabbids.win32.f.dll");
+	while (true)
+	{
+		if (GetAsyncKeyState(VK_F5) & 0x80000)
+		{
+			drawIMessage(u"THERE IS TEXT", 2);
 
 
+		}
+
+		Sleep(1);
+	}
+
+
+
+
+	
 	return true;
 }
-
 
 void OnPlayerDamage(DWORD PlayerAdr, DWORD ZombieAdr, float* Damage)
 {
