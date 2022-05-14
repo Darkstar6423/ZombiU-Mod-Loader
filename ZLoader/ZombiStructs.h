@@ -17,7 +17,7 @@ extern "C" {
 		struct pos origin;
 	};
 
-	_declspec(dllexport) zombie __cdecl getZombieStruct(DWORD Address);
+	_declspec(dllexport) zombie __cdecl GETZOMBIESTRUCT(DWORD Address);
 
 	/*to add:
 	current ammo:for both inbag and out of bag: 50%
@@ -56,7 +56,7 @@ extern "C" {
 
 	};
 
-	_declspec(dllexport) weapon __cdecl getWeaponStruct(DWORD Address);
+	_declspec(dllexport) weapon __cdecl GETWEAPONSTRUCT(DWORD Address);
 
 
 	struct player
@@ -70,6 +70,6 @@ extern "C" {
 		struct pos origin;
 	};
 
-	_declspec(dllexport) player __cdecl  getPlayerStruct(DWORD Address);
+	_declspec(dllexport) player __cdecl  GETPLAYERSTRUCT(DWORD Address);
 
 }

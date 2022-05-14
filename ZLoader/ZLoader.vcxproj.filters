@@ -78,9 +78,6 @@
     <ClInclude Include="OnScoreGiven.h">
       <Filter>Header Files\functionhooks</Filter>
     </ClInclude>
-    <ClInclude Include="ZombiStructs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="canMinimapAutoPing.h">
       <Filter>Header Files\FunctionOverrides</Filter>
     </ClInclude>
@@ -100,6 +97,9 @@
       <Filter>Header Files\modFunctions</Filter>
     </ClInclude>
     <ClInclude Include="DrawText.h">
+      <Filter>Header Files\modFunctions</Filter>
+    </ClInclude>
+    <ClInclude Include="ZombiStructs.h">
       <Filter>Header Files\modFunctions</Filter>
     </ClInclude>
   </ItemGroup>
@@ -137,9 +137,6 @@
     <ClCompile Include="OnScoreGiven.cpp">
       <Filter>Source Files\functionhooks</Filter>
     </ClCompile>
-    <ClCompile Include="ZombiStructs.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="canMinimapAutoPing.cpp">
       <Filter>Source Files\FunctionOverrides</Filter>
     </ClCompile>
@@ -150,6 +147,9 @@
       <Filter>Source Files\FunctionOverrides</Filter>
     </ClCompile>
     <ClCompile Include="DrawText.cpp">
+      <Filter>Source Files\modFunctions</Filter>
+    </ClCompile>
+    <ClCompile Include="ZombiStructs.cpp">
       <Filter>Source Files\modFunctions</Filter>
     </ClCompile>
   </ItemGroup>

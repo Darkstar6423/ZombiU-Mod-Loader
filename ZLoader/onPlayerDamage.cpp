@@ -17,9 +17,9 @@ decltype(OnPlayerDamage) *PDamagefunc;
 
 void playerDamageCallback()
 {
-    zombie Zombie = getZombieStruct(playerDamageCallbackInflictor);
+    zombie Zombie = GETZOMBIESTRUCT(playerDamageCallbackInflictor);
 
-    player Player = getPlayerStruct(playerDamageCallbackPlayer);
+    player Player = GETPLAYERSTRUCT(playerDamageCallbackPlayer);
     float* Damage = (float*)((char*)playerDamageCallbackEBP - 0x08);
     if (PDamagefunc != NULL)
     {

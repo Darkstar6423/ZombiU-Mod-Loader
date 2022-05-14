@@ -11,7 +11,7 @@ decltype(OnPlayerTick) *PtickFunc;
 
 void onPlayerTickCallback()
 {
-    struct player Player = getPlayerStruct(OnPlayerTickCallbackPlayer);
+    struct player Player = GETPLAYERSTRUCT(OnPlayerTickCallbackPlayer);
 
     if (PtickFunc != NULL)
     {

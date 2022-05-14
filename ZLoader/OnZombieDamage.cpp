@@ -18,7 +18,7 @@ decltype(OnZombieDamage) *ZDamagefunc;
 
 void zombieDamageCallback()
 {
-    struct zombie Zombie = getZombieStruct(zombieDamageCallbackZombie);
+    struct zombie Zombie = GETZOMBIESTRUCT(zombieDamageCallbackZombie);
     if (*Zombie.health > 0)
     {
         float* damage = (float*)((char*)zombieDamageCallbackEBP - 0x08);

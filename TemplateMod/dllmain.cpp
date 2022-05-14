@@ -15,9 +15,7 @@ bool init()
 	{
 		if (GetAsyncKeyState(VK_F5) & 0x80000)
 		{
-			drawIMessage(u"THERE IS TEXT", 2);
-
-
+			drawIMessage(u"THIS IS TEXT", 2);
 		}
 
 		Sleep(1);
@@ -173,9 +171,11 @@ bool canMinimapAutoPing(DWORD Player, bool hasAutoPingUpgrade)
 bool canMinimapManualPing(DWORD Player, bool hasAutoPingUpgrade)
 {
 	player player = getPlayer(Player);
-	if (*player.torch <= 20)
+	if (*player.torch < 20)
 	{
+		drawIMessage(u"NOT ENOUGH POWER", 2);
 		return false;
+
 	}
 
 	*player.torch -= 20;

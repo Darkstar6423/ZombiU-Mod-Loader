@@ -2,7 +2,7 @@
 #include "ZombiStructs.h"
 
 
-player getPlayerStruct(DWORD Address)
+player GETPLAYERSTRUCT(DWORD Address)
 {
 	struct player Player;
 	Player.baseAddress = Address;
@@ -10,13 +10,13 @@ player getPlayerStruct(DWORD Address)
 	Player.stamina = (float*)((char*)Address+0xc34);
 	Player.torch = (float*)((char*)Address+0xEC0);
 	DWORD* weaponAddr = (DWORD*)((char*)Address + 0xDCC);
-	Player.Weapon = getWeaponStruct(*weaponAddr);
+	Player.Weapon = GETWEAPONSTRUCT(*weaponAddr);
 
 	return Player;
 }
 
 
-weapon getWeaponStruct(DWORD Address)
+weapon GETWEAPONSTRUCT(DWORD Address)
 {
 	struct weapon Weapon;
 	Weapon.baseAddress = Address;
@@ -42,7 +42,7 @@ weapon getWeaponStruct(DWORD Address)
 
 
 //todo: add rockstar zombie offset ??? I'm going to need 2 or more of these to find this
-zombie getZombieStruct(DWORD Address)
+zombie GETZOMBIESTRUCT(DWORD Address)
 {
 	struct zombie Zombie;
 	Zombie.baseAddress = Address;
