@@ -10,15 +10,29 @@ bool init()
 	loadUtilityFunctions();
 	
 
-	DWORD rabbidsAdr = (DWORD)GetModuleHandle("rabbids.win32.f.dll");
+	DWORD ZOMBIAdr = (DWORD)GetModuleHandle("ZOMBI.EXE");
 	while (true)
 	{
 		if (GetAsyncKeyState(VK_F5) & 0x80000)
 		{
 			drawIMessage(u"THIS IS TEXT", 2);
+			/*
+			_asm
+			{
+				mov esi,ZOMBIAdr
+				push 0x1C84FBA8
+				lea eax, [esi + 0x70E2F0]
+				call eax
+				push 2791
+				lea eax, [esi + 0x70A350]
+				call eax
+
+			}
+			*/
+
 		}
 
-		Sleep(1);
+		Sleep(100);
 	}
 
 
@@ -37,8 +51,18 @@ void OnPlayerDamage(DWORD PlayerAdr, DWORD ZombieAdr, float* Damage)
 
 void OnPlayerTick(DWORD PlayerAdr)
 {
+	player Player = getPlayer(PlayerAdr);
+	*Player.torchRegeAmount = 0.8;
+	if (*Player.torch >= 98.7)
+	{
+		*Player.torchDrainSmallAmount = 0;
+	}
+	else 
+	{
+		*Player.torchDrainSmallAmount = -0.1;
+	}
 
-
+	*Player.torchDrainLargeAmount = 0.5;
 
 }
 
@@ -60,30 +84,6 @@ void OnZombieDamage(DWORD ZombieAdr, DWORD Inflictor, float* Damage, bool isHead
 
 }
 
-
-void OnFlashLightDrain(DWORD PlayerAdr, float* small_Drain, float* large_Drain)
-{
-
-	player Player = getPlayer(PlayerAdr);
-	if(*Player.torch >= 98.7)
-	{ 
-		*small_Drain = 0;
-	}
-	else
-	{
-		*small_Drain = -0.1;
-	}
-	*large_Drain = 0.5;
-
-}
-
-
-
-void OnFlashLightGain(DWORD Player, float* Amount)
-{
-
-	*Amount = 0.8;
-}
 
 
 void OnWeaponFire(DWORD Weapon, int* clip)

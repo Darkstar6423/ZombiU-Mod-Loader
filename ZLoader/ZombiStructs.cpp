@@ -9,6 +9,9 @@ player GETPLAYERSTRUCT(DWORD Address)
 	Player.health = (float*)((char*)Address+0x1b4);
 	Player.stamina = (float*)((char*)Address+0xc34);
 	Player.torch = (float*)((char*)Address+0xEC0);
+	Player.torchRegeAmount = (float*)((char*)Address+ 0xA68);
+	Player.torchDrainSmallAmount = (float*)((char*)Address+ 0xA60);
+	Player.torchDrainLargeAmount = (float*)((char*)Address+ 0xA5C);
 	DWORD* weaponAddr = (DWORD*)((char*)Address + 0xDCC);
 	Player.Weapon = GETWEAPONSTRUCT(*weaponAddr);
 

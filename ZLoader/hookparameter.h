@@ -40,15 +40,7 @@ extern DWORD OnPlayerTickJMPBack;
 //parameters
 extern DWORD OnPlayerTickCallbackPlayer;
 
-//Runs every time the flash light battery drains
-extern DWORD FlashLightDrainCallbackAddress;
-extern DWORD FlashLightDrainJMPBack;
-extern DWORD FlashLightDrainPlayer;
-//Runs Every time the flash light regens battery
-extern DWORD FlashLightGainCallbackAddress;
-extern DWORD FlashLightGainJMPBack;
-extern DWORD FlashLightGainPlayer;
-//onWeaponFire
+
 extern DWORD OnWeaponFireCallbackAddress;
 extern DWORD OnWeaponFireJMPBack;
 extern DWORD OnWeaponFireWeapon;

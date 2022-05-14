@@ -63,12 +63,6 @@
     <ClInclude Include="ModLoader.h">
       <Filter>Header Files\ModLoader</Filter>
     </ClInclude>
-    <ClInclude Include="OnFlashLightDrain.h">
-      <Filter>Header Files\functionhooks</Filter>
-    </ClInclude>
-    <ClInclude Include="OnFlashLightGain.h">
-      <Filter>Header Files\functionhooks</Filter>
-    </ClInclude>
     <ClInclude Include="OnWeaponFire.h">
       <Filter>Header Files\functionhooks</Filter>
     </ClInclude>
@@ -118,12 +112,6 @@
     </ClCompile>
     <ClCompile Include="ModLoader.cpp">
       <Filter>Source Files\ModLoader</Filter>
-    </ClCompile>
-    <ClCompile Include="OnFlashLightDrain.cpp">
-      <Filter>Source Files\functionhooks</Filter>
-    </ClCompile>
-    <ClCompile Include="OnFlashLightGain.cpp">
-      <Filter>Source Files\functionhooks</Filter>
     </ClCompile>
     <ClCompile Include="OnWeaponFire.cpp">
       <Filter>Source Files\functionhooks</Filter>

@@ -2,6 +2,8 @@
 #include "dllmain.h"
 #include "DrawText.h"
 #include <thread>
+#include <mutex>
+
 
 
 void DRAWTEXT(const char16_t* text, int textType, bool visible)
@@ -17,23 +19,35 @@ void DRAWTEXT(const char16_t* text, int textType, bool visible)
 		mov ecx, eax
 		lea eax, [esi + 0x12E530]
 		call eax
+		
 	}
 }
-struct quckMessageArgs {
-	const char16_t *text;
-	int time;
-};
+std::thread messageThread;
+DWORD quickMessageText;
+std::mutex Messagemtx;
 
 void quickMessage(const char16_t* text, int time)
 {
+	//Messagemtx.lock();
+	quickMessageText = (DWORD) & *text;
+
 	DRAWTEXT(text, 10, 1);
 	Sleep(time * 1000);
 	DRAWTEXT(text, 10, 0);
+	quickMessageText = 0x00000000;
+	Sleep(500);
+	//Messagemtx.unlock();
+
 }
 
 void DRAWIMESSAGE(const char16_t* text, int time)
 {
-	std::thread t(quickMessage, text, time);
-	t.detach();
+
+	if (quickMessageText != (DWORD)&*text)
+	{
+	TerminateThread(messageThread.native_handle(), 0);
+	std::thread messageThread(quickMessage, text, time);
+	messageThread.detach();
+	}
 }
 

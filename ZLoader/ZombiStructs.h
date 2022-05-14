@@ -65,6 +65,9 @@ extern "C" {
 		float* health;
 		float* stamina;
 		float* torch;
+		float* torchRegeAmount;
+		float* torchDrainSmallAmount;
+		float* torchDrainLargeAmount;
 		struct weapon Weapon;//offset dcc
 
 		struct pos origin;
