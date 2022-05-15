@@ -26,4 +26,6 @@ extern decltype(GETWEAPONSTRUCT)* getWeapon;
 extern decltype(GETPLAYERSTRUCT)* getPlayer;
 extern decltype(DRAWTEXT)* drawtext;
 extern decltype(DRAWIMESSAGE)* drawIMessage;
+extern decltype(GIVEITEM)* giveItem;
+extern decltype(GETINVENTORYADDRESS)* getInventoryAddress;
 void loadUtilityFunctions();

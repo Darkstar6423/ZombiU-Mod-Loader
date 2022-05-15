@@ -22,7 +22,7 @@ DWORD WINAPI MainThread(LPVOID param)
         //Overrides
         createAutoPingCheckOverride();
         createManualPingCheckOverride();
-        
+        injectInventoryGetter();
 
     }
     while (true)

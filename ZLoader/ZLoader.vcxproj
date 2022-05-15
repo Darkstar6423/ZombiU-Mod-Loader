@@ -165,6 +165,9 @@
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="functionhooks.h" />
     <ClInclude Include="FunctionOverrides.h" />
+    <ClInclude Include="GameVariables.h" />
+    <ClInclude Include="getGameVars.h" />
+    <ClInclude Include="InventoryFunctions.h" />
     <ClInclude Include="modFunctions.h" />
     <ClInclude Include="OverrideParameters.h" />
     <ClInclude Include="ModLoader.h" />
@@ -183,6 +186,8 @@
     <ClCompile Include="canMinimapManualPing.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="DrawText.cpp" />
+    <ClCompile Include="getGameVars.cpp" />
+    <ClCompile Include="InventoryFunctions.cpp" />
     <ClCompile Include="OnPlayerDamage.cpp" />
     <ClCompile Include="OnPlayerTick.cpp" />
     <ClCompile Include="OnScoreGiven.cpp" />

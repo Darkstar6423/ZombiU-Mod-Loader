@@ -10,25 +10,16 @@ bool init()
 	loadUtilityFunctions();
 	
 
+	DWORD rabbidsadr = (DWORD)GetModuleHandle("rabbids.win32.f.dll");
 	DWORD ZOMBIAdr = (DWORD)GetModuleHandle("ZOMBI.EXE");
 	while (true)
 	{
 		if (GetAsyncKeyState(VK_F5) & 0x80000)
 		{
 			drawIMessage(u"THIS IS TEXT", 2);
-			/*
-			_asm
-			{
-				mov esi,ZOMBIAdr
-				push 0x1C84FBA8
-				lea eax, [esi + 0x70E2F0]
-				call eax
-				push 2791
-				lea eax, [esi + 0x70A350]
-				call eax
-
-			}
-			*/
+			
+			giveItem(0x1, 1);
+			
 
 		}
 
@@ -45,7 +36,6 @@ bool init()
 void OnPlayerDamage(DWORD PlayerAdr, DWORD ZombieAdr, float* Damage)
 {
 	*Damage = 0;
-
 }
 
 

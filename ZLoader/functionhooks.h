@@ -7,3 +7,4 @@
 #include "OnWeaponFire.h"
 #include "OnWeaponSwitch.h"
 #include "OnScoreGiven.h"
+#include "getGameVars.h"
