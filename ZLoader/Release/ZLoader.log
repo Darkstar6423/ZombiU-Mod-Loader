@@ -1,17 +1,15 @@
 ﻿cl : command line warning D9025: overriding '/sdl' with '/GS-'
-  getGameVars.cpp
+  InventoryFunctions.cpp
 C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\ZLoader\OnZombieDamage.h(26,1): warning C4102: 'endoffunction': unreferenced label
 LINK : warning C4727: PCH named c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\zloader.pch with same timestamp found in c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\drawtext.obj and c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\dllmain.obj.  Using first PCH.
-LINK : warning C4727: PCH named c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\zloader.pch with same timestamp found in c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\onplayerdamage.obj and c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\inventoryfunctions.obj.  Using first PCH.
-LINK : warning C4727: PCH named c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\zloader.pch with same timestamp found in c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\onplayertick.obj and c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\inventoryfunctions.obj.  Using first PCH.
+LINK : warning C4727: PCH named c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\zloader.pch with same timestamp found in c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\onplayertick.obj and c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\onplayerdamage.obj.  Using first PCH.
 LINK : warning C4727: PCH named c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\zloader.pch with same timestamp found in c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\onweaponfire.obj and c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\onscoregiven.obj.  Using first PCH.
 LINK : warning C4727: PCH named c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\zloader.pch with same timestamp found in c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\onzombiedamage.obj and c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\onweaponswitch.obj.  Using first PCH.
 LINK : warning C4727: PCH named c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\zloader.pch with same timestamp found in c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\hookparameter.obj and c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\modloader.obj.  Using first PCH.
 LINK : warning C4727: PCH named c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\zloader.pch with same timestamp found in c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\zombistructs.obj and c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\modloader.obj.  Using first PCH.
      Creating library C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\Release\ZLoader.lib and object C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\Release\ZLoader.exp
   Generating code
-  0 of 97 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 97 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   ZLoader.vcxproj -> C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\Release\ZLoader.dll

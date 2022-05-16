@@ -153,7 +153,7 @@
       <Filter>Source Files\functionhooks</Filter>
     </ClCompile>
     <ClCompile Include="InventoryFunctions.cpp">
-      <Filter>Source Files\FunctionOverrides</Filter>
+      <Filter>Source Files\modFunctions</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

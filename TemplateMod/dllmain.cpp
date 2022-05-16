@@ -17,10 +17,7 @@ bool init()
 		if (GetAsyncKeyState(VK_F5) & 0x80000)
 		{
 			drawIMessage(u"THIS IS TEXT", 2);
-			
 			giveItem(0x1, 1);
-			
-
 		}
 
 		Sleep(100);

@@ -21,7 +21,7 @@ void GIVEITEM(DWORD item, int amount)
 		mov ecx, PlayerInventory
 		mov eax, rabbidsBaseAddress
 		add eax, 0x1F3720
-		push 1
+		push amount
 		push amount
 		push item
 		call eax
