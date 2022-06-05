@@ -169,6 +169,7 @@
     <ClInclude Include="getGameVars.h" />
     <ClInclude Include="InventoryFunctions.h" />
     <ClInclude Include="modFunctions.h" />
+    <ClInclude Include="Modules.h" />
     <ClInclude Include="OverrideParameters.h" />
     <ClInclude Include="ModLoader.h" />
     <ClInclude Include="OnPlayerDamage.h" />

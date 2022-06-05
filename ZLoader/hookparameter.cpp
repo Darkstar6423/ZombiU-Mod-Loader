@@ -3,11 +3,7 @@
 
 
 HANDLE process_handle;
-
 DWORD rabbidsBaseAddress;
-
-
-
 
 
 void PlaceJMP(BYTE* Address, DWORD jumpTo, DWORD length)

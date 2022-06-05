@@ -2,11 +2,11 @@
 #include "windows.h"
 #include "ModLoader.h"
 #include "../TemplateMod/ZloaderEventHooks.h"
-
+#include "Modules.h"
 
 extern HANDLE process_handle;
 
-extern DWORD rabbidsBaseAddress;
+
 
 static long getZombiBaseAddress();
 

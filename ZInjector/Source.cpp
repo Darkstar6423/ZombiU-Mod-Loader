@@ -10,6 +10,11 @@ using namespace std;
 HMODULE zloader;
 wchar_t buffer[4096];
 
+struct handle_data {
+	unsigned long process_id;
+	HWND window_handle;
+};
+
 
 void PressEnterToContinue()
 {
@@ -65,112 +70,71 @@ int assertError(int error = 0, bool critical = false)
 	return error;
 }
 
-bool isUConnectRunning()
+BOOL is_main_window(HWND handle)
 {
-	HKEY key;
-	if (RegOpenKeyExA(HKEY_LOCAL_MACHINE, "SOFTWARE\\WOW6432Node\\UBISOFT\\LAUNCHER", 0, KEY_READ, &key) != ERROR_SUCCESS)
-	{
-		assertError(4, true);
-		return false;
-	}
-	char buffer[512];
-	DWORD UConnectPathLength = 512;
-	if (RegQueryValueExA(key, "installDir", 0, 0, (LPBYTE)&buffer, &UConnectPathLength) != ERROR_SUCCESS)
-	{
-		assertError(4, true);
-		return false;
-
-
-	}
-	char upcname[] = "upc.exe";
-
-	strncat_s(buffer, upcname, strlen(buffer) - sizeof(upcname));
-	cout << endl << buffer << endl;
-
-
-	// additional information
-	STARTUPINFO si;
-	PROCESS_INFORMATION pi;
-
-	// set the size of the structures
-	ZeroMemory(&si, sizeof(si));
-	si.cb = sizeof(si);
-	ZeroMemory(&pi, sizeof(pi));
-	si.cb = sizeof(STARTUPINFO);
-	si.dwFlags = STARTF_USESHOWWINDOW;
-	si.wShowWindow = SW_MINIMIZE;
-	CreateProcessA(buffer,   // the path
-		NULL,        // Command line
-		NULL,           // Process handle not inheritable
-		NULL,           // Thread handle not inheritable
-		FALSE,          // Set handle inheritance to FALSE
-		CREATE_DEFAULT_ERROR_MODE | CREATE_NEW_PROCESS_GROUP,
-		NULL,           // Use parent's environment block
-		NULL,           // Use parent's starting directory 
-		(LPSTARTUPINFOA)&si,            // Pointer to STARTUPINFO structure
-		&pi             // Pointer to PROCESS_INFORMATION structure (removed extra parentheses)
-	);
-
-
-	CloseHandle(pi.hProcess);
-	CloseHandle(pi.hThread);
-
-	while (!getProcId(L"UplayWebCore.exe"))
-		Sleep(200);
-	
-	cout << "UConnect successfully launched" << endl;
-
-	return true;
+	return GetWindow(handle, GW_OWNER) == (HWND)0 && IsWindowVisible(handle);
 }
 
+BOOL CALLBACK enum_windows_callback(HWND handle, LPARAM lParam)
+{
+	handle_data& data = *(handle_data*)lParam;
+	unsigned long process_id = 0;
+	GetWindowThreadProcessId(handle, &process_id);
+	if (data.process_id != process_id || !is_main_window(handle))
+		return TRUE;
+	data.window_handle = handle;
+	return FALSE;
+}
+
+HWND find_main_window(unsigned long process_id)
+{
+	handle_data data;
+	data.process_id = process_id;
+	data.window_handle = 0;
+	EnumWindows(enum_windows_callback, (LPARAM)&data);
+	return data.window_handle;
+}
 
 int main(int argc, char* argv[])
 {
 
 	int error = 0;
 
-
-	int UConnectPID = getProcId(L"upc.exe");
-	if (UConnectPID == 0)
-	{
-		assertError(3, false);
-		if (!isUConnectRunning())
-		{
-			return false;
-		}
-	}
 	cout << "Starting Zombi.exe" << endl;
 	// additional information
 	STARTUPINFO si;
 	PROCESS_INFORMATION pi;
-
 	// set the size of the structures
 	ZeroMemory(&si, sizeof(si));
 	si.cb = sizeof(si);
 	ZeroMemory(&pi, sizeof(pi));
-
-	si.wShowWindow = false;
-
 	// start the program up
-	CreateProcess(L"ZOMBI.EXE",   // the path
+	if (!CreateProcess(L"ZOMBIORG.EXE",   // the path
 		NULL,        // Command line
 		NULL,           // Process handle not inheritable
 		NULL,           // Thread handle not inheritable
 		FALSE,          // Set handle inheritance to FALSE
-		CREATE_DEFAULT_ERROR_MODE | CREATE_NEW_PROCESS_GROUP,
+		0,
 		NULL,           // Use parent's environment block
 		NULL,           // Use parent's starting directory 
 		&si,            // Pointer to STARTUPINFO structure
 		&pi             // Pointer to PROCESS_INFORMATION structure (removed extra parentheses)
-	);
+	))
+	{
+		printf("CreateProcess failed (%d).\n", GetLastError());
+		return 0;
+	}
 
 	Sleep(2000);
+	while (!getProcId(L"UbisoftGameLauncher.exe"))
+		Sleep(1000);
 
-	while (!getProcId(L"ZOMBI.exe"))
+	while (!getProcId(L"ZOMBIORG.exe"))
 		Sleep(1000);
 	
-	int pID = getProcId(L"ZOMBI.exe");
-	cout << "Zombi.exe launched successfully. Injecting..." << endl;
+	
+	int pID = getProcId(L"ZOMBIORG.exe");
+
 	char dll[] = "ZLoader.dll";
 	char dllpath[MAX_PATH] = { 0 };
 	GetFullPathNameA(dll, MAX_PATH, dllpath, NULL);
@@ -181,8 +145,11 @@ int main(int argc, char* argv[])
 		error = assertError(2, true);
 		return error;
 	}
-	
-
+	//we need to ensure that the window appears before injecting
+	cout << "Zombi.exe process found. Waiting for initialization" << endl;
+	while(!find_main_window(pID))
+		Sleep(100);
+	cout << "Zombi.exe launched successfully. Injecting..." << endl;
 	LPVOID pszLibFileRemote = VirtualAllocEx(hProcess, NULL, strlen(dllpath) + 1, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
 
 	WriteProcessMemory(hProcess, pszLibFileRemote, dllpath, strlen(dllpath)+1, NULL);
@@ -209,6 +176,7 @@ int main(int argc, char* argv[])
 	CloseHandle(pi.hThread);
 
 	cout << "The game closed, closing the launcher" << endl;
+	
 	return 0;
-
+	
 }
