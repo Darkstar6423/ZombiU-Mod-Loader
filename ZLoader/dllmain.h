@@ -10,3 +10,4 @@
 #include "FunctionOverrides.h"
 #include "ModLoader.h"
 #include "modFunctions.h"
+#include "DirectXMain.h"

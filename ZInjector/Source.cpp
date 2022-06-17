@@ -149,6 +149,7 @@ int main(int argc, char* argv[])
 	cout << "Zombi.exe process found. Waiting for initialization" << endl;
 	while(!find_main_window(pID))
 		Sleep(100);
+
 	cout << "Zombi.exe launched successfully. Injecting..." << endl;
 	LPVOID pszLibFileRemote = VirtualAllocEx(hProcess, NULL, strlen(dllpath) + 1, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
 
@@ -165,7 +166,6 @@ int main(int argc, char* argv[])
 	HWND console = GetConsoleWindow();
 	DWORD fdwMode = ENABLE_WINDOW_INPUT | ENABLE_MOUSE_INPUT;
 	SetConsoleMode(console, fdwMode);
-	char buffer[512];
 	DWORD val = 0;
 
 	//cleanup

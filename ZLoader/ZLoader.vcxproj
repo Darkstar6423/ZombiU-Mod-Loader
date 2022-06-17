@@ -75,8 +75,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
-    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(DXSDK_DIR)Include</IncludePath>
+    <LibraryPath>$(LibraryPath);$(DXSDK_DIR)Lib\x86</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -121,6 +121,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <TurnOffAssemblyGeneration>false</TurnOffAssemblyGeneration>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -160,6 +161,8 @@
   <ItemGroup>
     <ClInclude Include="canMinimapAutoPing.h" />
     <ClInclude Include="canMinimapManualPing.h" />
+    <ClInclude Include="ConsoleGUI.h" />
+    <ClInclude Include="DirectXMain.h" />
     <ClInclude Include="DrawText.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="dllmain.h" />
@@ -168,6 +171,7 @@
     <ClInclude Include="GameVariables.h" />
     <ClInclude Include="getGameVars.h" />
     <ClInclude Include="InventoryFunctions.h" />
+    <ClInclude Include="kiero.h" />
     <ClInclude Include="modFunctions.h" />
     <ClInclude Include="Modules.h" />
     <ClInclude Include="OverrideParameters.h" />
@@ -185,10 +189,12 @@
   <ItemGroup>
     <ClCompile Include="canMinimapAutoPing.cpp" />
     <ClCompile Include="canMinimapManualPing.cpp" />
+    <ClCompile Include="ConsoleGUI.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="DrawText.cpp" />
     <ClCompile Include="getGameVars.cpp" />
     <ClCompile Include="InventoryFunctions.cpp" />
+    <ClCompile Include="kiero.cpp" />
     <ClCompile Include="OnPlayerDamage.cpp" />
     <ClCompile Include="OnPlayerTick.cpp" />
     <ClCompile Include="OnScoreGiven.cpp" />
@@ -198,6 +204,7 @@
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="ModLoader.cpp" />
     <ClCompile Include="hookparameter.cpp" />
+    <ClCompile Include="DirectXMain.cpp" />
     <ClCompile Include="ZombiStructs.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

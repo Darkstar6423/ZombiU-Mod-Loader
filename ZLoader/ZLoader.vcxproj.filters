@@ -37,6 +37,12 @@
     <Filter Include="Header Files\modFunctions">
       <UniqueIdentifier>{0ba8ebf6-a2f0-4fbb-ac9e-e03fac8aa693}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\DirectX">
+      <UniqueIdentifier>{4f67e343-149a-408a-98a9-db7eff2fb7f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DirectX">
+      <UniqueIdentifier>{6e5cde5c-4c5e-4a47-a119-f7a39ca95bac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -108,6 +114,15 @@
     <ClInclude Include="Modules.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DirectXMain.h">
+      <Filter>Header Files\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="kiero.h">
+      <Filter>Header Files\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleGUI.h">
+      <Filter>Header Files\DirectX</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -157,6 +172,15 @@
     </ClCompile>
     <ClCompile Include="InventoryFunctions.cpp">
       <Filter>Source Files\modFunctions</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectXMain.cpp">
+      <Filter>Source Files\DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="kiero.cpp">
+      <Filter>Source Files\DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleGUI.cpp">
+      <Filter>Source Files\DirectX</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
