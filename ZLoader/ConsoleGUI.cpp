@@ -1,29 +1,22 @@
 #include "ConsoleGUI.h"
-#include <d2d1.h>
 #include "pch.h"
-
-struct CUSTOMVERTEX { FLOAT X, Y, Z, RHW; DWORD COLOR; };
-#define CUSTOMFVF (D3DFVF_XYZRHW | D3DFVF_DIFFUSE)
-
-
-CUSTOMVERTEX vertices[] =
-{
-{ 0.0f, 0.0f, 0.5f, 1.0f, D3DCOLOR_XRGB(255, 0, 0) },
-{ 1024.0f, 0.0f, 0.5f, 1.0f, D3DCOLOR_XRGB(0, 0, 255) },
-{ 1024.0f, 400.0f, 0.5f, 1.0f, D3DCOLOR_XRGB(255, 0, 0) },
-{ 0.0f, 0.0f, 0.5f, 1.0f, D3DCOLOR_XRGB(255, 0, 0) },
-{ 1024.0f, 400.0f, 0.5f, 1.0f, D3DCOLOR_XRGB(255, 0, 0) },
-{ 0.0f, 400.0f, 0.5f, 1.0f, D3DCOLOR_XRGB(255, 0, 0) }
-};
+#include <iostream>
 
 
 
+LPDIRECT3DVERTEXBUFFER9 v_buffer = NULL;
 
-void DrawConsoleGUI(IDirect3DDevice9* pDevice);
-LPD3DXFONT ConsoleFont;
 bool drawConsole = false;
 bool isDrawingConsole = false;
-HWND Window = GetForegroundWindow();
+char consoleBuffer[256];
+
+
+void initConsole();
+void DrawConsoleGUI(IDirect3DDevice9* pDevice);
+
+LPD3DXFONT ConsoleFont;
+
+HWND Window = NULL;
 
 
 
@@ -40,18 +33,64 @@ void DrawConsoleGUI(IDirect3DDevice9* pDevice)
 
     if (!isDrawingConsole)
         return;
-    
 
 
     RECT WinRect;
     GetClientRect(Window, &WinRect);
     //Console Log Box
+    
 
-
-
+    
+    //Console Text Box
+    D3DRECT ConsoleTextBox = { 0, 0, WinRect.right, WinRect.bottom - (WinRect.bottom-20) };
+    pDevice->Clear(1, &ConsoleTextBox, D3DCLEAR_TARGET, D3DCOLOR_ARGB(255, 82, 79, 79), 0.0f, 0);
 
     if (!ConsoleFont)
-        D3DXCreateFont(pDevice, 16, 0, FW_BOLD, 1, 0, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, DEFAULT_QUALITY, DEFAULT_PITCH | FF_DONTCARE, "Arial", &ConsoleFont);
-    //fonts->DrawText(NULL, "Zloader Version 0.1", -1, &textRectangle, DT_NOCLIP | DT_LEFT, D3DCOLOR_ARGB(100, 113, 113, 113));
+        D3DXCreateFont(pDevice, 20, 0, FW_BOLD, 1, 0, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, DEFAULT_QUALITY, DEFAULT_PITCH | FF_DONTCARE, "Arial", &ConsoleFont);
+
+    RECT ConsoleTextRectangle;
+    SetRect(&ConsoleTextRectangle, 5, ConsoleTextBox.y1/2, 0, 0);
+
+    ConsoleFont->DrawText(NULL, consoleBuffer, -1, &ConsoleTextRectangle, DT_NOCLIP | DT_LEFT, D3DCOLOR_ARGB(255, 255, 255, 255));
+
+}
+
+
+void initConsole()
+{
+    Window = GetForegroundWindow();
+    consoleBuffer[0] = '>';
+    consoleBuffer[1] = ' ';
+
+
+
+    CUSTOMVERTEX FirstTriangleVertex[] =
+    {
+        { 400.0f, 62.5f, 0.5f, 1.0f, D3DCOLOR_XRGB(0, 0, 255), },
+        { 650.0f, 500.0f, 0.5f, 1.0f, D3DCOLOR_XRGB(0, 255, 0), },
+        { 150.0f, 500.0f, 0.5f, 1.0f, D3DCOLOR_XRGB(255, 0, 0), },
+    };
+
+
+    while (gDevice == NULL)
+        Sleep(1);
+
+    gDevice->CreateVertexBuffer(sizeof(FirstTriangleVertex),
+        D3DUSAGE_DONOTCLIP,
+        CUSTOMFVF,
+        D3DPOOL_MANAGED,
+        &v_buffer,
+        NULL);
+
+
+    
+    VOID* pVoid;
+    
+    v_buffer -> Lock(0, 0, (void**)&pVoid, 0);
+    memcpy(pVoid, FirstTriangleVertex, sizeof(FirstTriangleVertex));
+    v_buffer -> Unlock();
+    
+
+
 
 }

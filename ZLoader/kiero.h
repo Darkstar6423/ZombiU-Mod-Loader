@@ -14,7 +14,7 @@
 #define KIERO_USE_MINHOOK    1 // 1 if you will use kiero::bind function
 
 #define KIERO_ARCH_X64 0
-#define KIERO_ARCH_X86 0
+#define KIERO_ARCH_X86 1
 
 #if defined(_M_X64)	
 # undef  KIERO_ARCH_X64

@@ -1,6 +1,7 @@
+#include "pch.h"
 #include "getGameVars.h"
 #include "GameVariables.h"
-#include "pch.h"
+
 
 DWORD PlayerInventory; // invnetory variable
 DWORD ASMINVJMPBACK; //jump back

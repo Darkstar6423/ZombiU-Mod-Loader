@@ -13,5 +13,5 @@
 #pragma comment(lib, "d3dx9.lib")
 
 
-
+extern IDirect3DDevice9* gDevice;
 extern void InitDirectX();

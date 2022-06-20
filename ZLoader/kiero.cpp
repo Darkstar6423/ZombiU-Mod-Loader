@@ -105,18 +105,19 @@ kiero::Status::Enum kiero::init(RenderType::Enum _renderType)
 				D3DPRESENT_PARAMETERS params;
 				params.BackBufferWidth = 0;
 				params.BackBufferHeight = 0;
-				params.BackBufferFormat = D3DFMT_A8R8G8B8;
+				params.BackBufferFormat = D3DFMT_UNKNOWN;
 				params.BackBufferCount = 0;
 				params.MultiSampleType = D3DMULTISAMPLE_NONE;
 				params.MultiSampleQuality = NULL;
 				params.SwapEffect = D3DSWAPEFFECT_DISCARD;
 				params.hDeviceWindow = window;
 				params.Windowed = 1;
-				params.EnableAutoDepthStencil = TRUE;
-				params.AutoDepthStencilFormat = D3DFMT_D16;
+				params.EnableAutoDepthStencil = 0;
+				params.AutoDepthStencilFormat = D3DFMT_UNKNOWN;
 				params.Flags = NULL;
 				params.FullScreen_RefreshRateInHz = 0;
 				params.PresentationInterval = 0;
+
 
 				LPDIRECT3DDEVICE9 device;
 				if (direct3D9->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_NULLREF, window, D3DCREATE_SOFTWARE_VERTEXPROCESSING | D3DCREATE_DISABLE_DRIVER_MANAGEMENT, &params, &device) < 0)

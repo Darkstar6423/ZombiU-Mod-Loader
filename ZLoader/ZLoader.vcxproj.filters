@@ -43,6 +43,9 @@
     <Filter Include="Source Files\DirectX">
       <UniqueIdentifier>{6e5cde5c-4c5e-4a47-a119-f7a39ca95bac}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\DInput">
+      <UniqueIdentifier>{3d609a13-aa20-4125-93ad-bcc1b2aa2995}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
