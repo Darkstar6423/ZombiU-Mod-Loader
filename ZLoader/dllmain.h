@@ -11,3 +11,4 @@
 #include "ModLoader.h"
 #include "modFunctions.h"
 #include "DirectXMain.h"
+#include "DInput8Main.h"

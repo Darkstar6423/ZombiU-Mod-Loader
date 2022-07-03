@@ -162,6 +162,7 @@
     <ClInclude Include="canMinimapAutoPing.h" />
     <ClInclude Include="canMinimapManualPing.h" />
     <ClInclude Include="ConsoleGUI.h" />
+    <ClInclude Include="DInput8Main.h" />
     <ClInclude Include="DirectXMain.h" />
     <ClInclude Include="DrawText.h" />
     <ClInclude Include="framework.h" />
@@ -190,6 +191,7 @@
     <ClCompile Include="canMinimapAutoPing.cpp" />
     <ClCompile Include="canMinimapManualPing.cpp" />
     <ClCompile Include="ConsoleGUI.cpp" />
+    <ClCompile Include="DInput8Main.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="DrawText.cpp" />
     <ClCompile Include="getGameVars.cpp" />

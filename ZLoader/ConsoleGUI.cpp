@@ -62,33 +62,9 @@ void initConsole()
     consoleBuffer[0] = '>';
     consoleBuffer[1] = ' ';
 
-
-
-    CUSTOMVERTEX FirstTriangleVertex[] =
-    {
-        { 400.0f, 62.5f, 0.5f, 1.0f, D3DCOLOR_XRGB(0, 0, 255), },
-        { 650.0f, 500.0f, 0.5f, 1.0f, D3DCOLOR_XRGB(0, 255, 0), },
-        { 150.0f, 500.0f, 0.5f, 1.0f, D3DCOLOR_XRGB(255, 0, 0), },
-    };
-
-
     while (gDevice == NULL)
         Sleep(1);
 
-    gDevice->CreateVertexBuffer(sizeof(FirstTriangleVertex),
-        D3DUSAGE_DONOTCLIP,
-        CUSTOMFVF,
-        D3DPOOL_MANAGED,
-        &v_buffer,
-        NULL);
-
-
-    
-    VOID* pVoid;
-    
-    v_buffer -> Lock(0, 0, (void**)&pVoid, 0);
-    memcpy(pVoid, FirstTriangleVertex, sizeof(FirstTriangleVertex));
-    v_buffer -> Unlock();
     
 
 

@@ -46,6 +46,9 @@
     <Filter Include="Source Files\DInput">
       <UniqueIdentifier>{3d609a13-aa20-4125-93ad-bcc1b2aa2995}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\DInput">
+      <UniqueIdentifier>{cfca6b18-f6a5-4fce-865d-cc2c77a165e4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -126,6 +129,9 @@
     <ClInclude Include="ConsoleGUI.h">
       <Filter>Header Files\DirectX</Filter>
     </ClInclude>
+    <ClInclude Include="DInput8Main.h">
+      <Filter>Header Files\DInput</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -184,6 +190,9 @@
     </ClCompile>
     <ClCompile Include="ConsoleGUI.cpp">
       <Filter>Source Files\DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="DInput8Main.cpp">
+      <Filter>Source Files\DInput</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

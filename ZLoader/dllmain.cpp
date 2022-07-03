@@ -2,12 +2,13 @@
 #include "pch.h"
 
 
-
+HINSTANCE ZloaderModule;
 
 
 
 DWORD WINAPI MainThread(LPVOID param)
 {
+
     process_handle = GetCurrentProcess();
      
     //load the mod dll
@@ -19,6 +20,7 @@ DWORD WINAPI MainThread(LPVOID param)
 
         while (GetModuleHandle("rabbids.win32.f.dll") == NULL)
             Sleep(100);
+
         rabbidsBaseAddress = (DWORD)GetModuleHandle("rabbids.win32.f.dll"); // get the rabbids base address
         //run function insertions
         createPlayerDamageHook();
@@ -33,9 +35,12 @@ DWORD WINAPI MainThread(LPVOID param)
         injectInventoryGetter();
 
         InitDirectX();
-        
+        DInput8Init(ZloaderModule);
 
     }
+    
+
+    
     while (true)
     {
         if (GetAsyncKeyState(VK_F6) & 0x80000)
@@ -52,6 +57,7 @@ bool WINAPI DllMain(HINSTANCE hModule, DWORD dwReason, LPVOID lpReserved)
 {
     if (dwReason == DLL_PROCESS_ATTACH)
     {
+        ZloaderModule = hModule;
         CreateThread(0, 0, MainThread, hModule, 0, 0);
     }
 

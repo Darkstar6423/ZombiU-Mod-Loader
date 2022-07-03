@@ -1,20 +1,15 @@
 ﻿cl : command line warning D9025: overriding '/sdl' with '/GS-'
-  ConsoleGUI.cpp
-C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\ZLoader\ConsoleGUI.cpp(60,9): warning C4101: 'c': unreferenced local variable
-LINK : warning C4727: PCH named c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\zloader.pch with same timestamp found in c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\canminimapmanualping.obj and c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\canminimapautoping.obj.  Using first PCH.
-LINK : warning C4727: PCH named c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\zloader.pch with same timestamp found in c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\getgamevars.obj and c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\drawtext.obj.  Using first PCH.
-LINK : warning C4727: PCH named c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\zloader.pch with same timestamp found in c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\kiero.obj and c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\inventoryfunctions.obj.  Using first PCH.
-LINK : warning C4727: PCH named c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\zloader.pch with same timestamp found in c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\onplayerdamage.obj and c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\inventoryfunctions.obj.  Using first PCH.
-LINK : warning C4727: PCH named c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\zloader.pch with same timestamp found in c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\onscoregiven.obj and c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\onplayertick.obj.  Using first PCH.
-LINK : warning C4727: PCH named c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\zloader.pch with same timestamp found in c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\onweaponswitch.obj and c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\onweaponfire.obj.  Using first PCH.
-LINK : warning C4727: PCH named c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\zloader.pch with same timestamp found in c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\pch.obj and c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\onzombiedamage.obj.  Using first PCH.
-LINK : warning C4727: PCH named c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\zloader.pch with same timestamp found in c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\hookparameter.obj and c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\modloader.obj.  Using first PCH.
-LINK : warning C4727: PCH named c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\zloader.pch with same timestamp found in c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\zombistructs.obj and c:\users\gstep\source\git-repos\zombiu-mod-loader\zloader\release\directxmain.obj.  Using first PCH.
-     Creating library C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\Release\ZLoader.lib and object C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\Release\ZLoader.exp
+  DInput8Main.cpp
+C:\Users\George\source\repos\ZombiU-Mod-Loader\ZLoader\DInput8Main.cpp(67,21): warning C4018: '<': signed/unsigned mismatch
+LINK : warning C4727: PCH named c:\users\george\source\repos\zombiu-mod-loader\zloader\release\zloader.pch with same timestamp found in c:\users\george\source\repos\zombiu-mod-loader\zloader\release\onplayerdamage.obj and c:\users\george\source\repos\zombiu-mod-loader\zloader\release\kiero.obj.  Using first PCH.
+LINK : warning C4727: PCH named c:\users\george\source\repos\zombiu-mod-loader\zloader\release\zloader.pch with same timestamp found in c:\users\george\source\repos\zombiu-mod-loader\zloader\release\onplayertick.obj and c:\users\george\source\repos\zombiu-mod-loader\zloader\release\kiero.obj.  Using first PCH.
+LINK : warning C4727: PCH named c:\users\george\source\repos\zombiu-mod-loader\zloader\release\zloader.pch with same timestamp found in c:\users\george\source\repos\zombiu-mod-loader\zloader\release\onweaponswitch.obj and c:\users\george\source\repos\zombiu-mod-loader\zloader\release\onweaponfire.obj.  Using first PCH.
+LINK : warning C4727: PCH named c:\users\george\source\repos\zombiu-mod-loader\zloader\release\zloader.pch with same timestamp found in c:\users\george\source\repos\zombiu-mod-loader\zloader\release\pch.obj and c:\users\george\source\repos\zombiu-mod-loader\zloader\release\onzombiedamage.obj.  Using first PCH.
+     Creating library C:\Users\George\source\repos\ZombiU-Mod-Loader\Release\ZLoader.lib and object C:\Users\George\source\repos\ZombiU-Mod-Loader\Release\ZLoader.exp
 MSVCRT.lib(initializers.obj) : warning LNK4098: defaultlib 'libcmt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  1 of 167 functions ( 0.6%) were compiled, the rest were copied from previous compilation.
+  1 of 160 functions ( 0.6%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     2 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  ZLoader.vcxproj -> C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\Release\ZLoader.dll
+  ZLoader.vcxproj -> C:\Users\George\source\repos\ZombiU-Mod-Loader\Release\ZLoader.dll
