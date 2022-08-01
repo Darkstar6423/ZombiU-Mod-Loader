@@ -132,6 +132,9 @@
     <ClInclude Include="DInput8Main.h">
       <Filter>Header Files\DInput</Filter>
     </ClInclude>
+    <ClInclude Include="ButtonBindIntercept.h">
+      <Filter>Header Files\FunctionOverrides</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -193,6 +196,9 @@
     </ClCompile>
     <ClCompile Include="DInput8Main.cpp">
       <Filter>Source Files\DInput</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonBindIntercept.cpp">
+      <Filter>Source Files\FunctionOverrides</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

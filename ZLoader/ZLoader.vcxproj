@@ -159,6 +159,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ButtonBindIntercept.h" />
     <ClInclude Include="canMinimapAutoPing.h" />
     <ClInclude Include="canMinimapManualPing.h" />
     <ClInclude Include="ConsoleGUI.h" />
@@ -188,6 +189,7 @@
     <ClInclude Include="ZombiStructs.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ButtonBindIntercept.cpp" />
     <ClCompile Include="canMinimapAutoPing.cpp" />
     <ClCompile Include="canMinimapManualPing.cpp" />
     <ClCompile Include="ConsoleGUI.cpp" />

@@ -168,3 +168,10 @@ bool canMinimapManualPing(DWORD Player, bool hasAutoPingUpgrade)
 	*player.torch -= 20;
 	return true;
 }
+
+bool interceptButtonBind(bool isPressed, DWORD ButtonPressed)
+{
+
+
+	return isPressed;
+}

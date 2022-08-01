@@ -32,6 +32,7 @@ DWORD WINAPI MainThread(LPVOID param)
         //Overrides
         createAutoPingCheckOverride();
         createManualPingCheckOverride();
+        CreateButtonBindIntercept();
         injectInventoryGetter();
 
         InitDirectX();
