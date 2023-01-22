@@ -32,7 +32,7 @@ bool init()
 
 void OnPlayerDamage(DWORD PlayerAdr, DWORD ZombieAdr, float* Damage)
 {
-	*Damage = 0;
+
 }
 
 

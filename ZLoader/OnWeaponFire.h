@@ -2,9 +2,9 @@
 #include "ZombiStructs.h"
 #include "windows.h"
 #include "hookparameter.h"
+#include "Console.h"
 
-
-
+void cheatInfiniteAmmo(string args[]);
 
 
 

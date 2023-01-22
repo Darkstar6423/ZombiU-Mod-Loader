@@ -49,6 +49,12 @@
     <Filter Include="Header Files\DInput">
       <UniqueIdentifier>{cfca6b18-f6a5-4fce-865d-cc2c77a165e4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Console">
+      <UniqueIdentifier>{b6382815-c761-4da5-a5f7-ae9c67190798}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Console">
+      <UniqueIdentifier>{aed34a03-6a42-4994-9b54-bc6e23ccd130}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -135,6 +141,12 @@
     <ClInclude Include="ButtonBindIntercept.h">
       <Filter>Header Files\FunctionOverrides</Filter>
     </ClInclude>
+    <ClInclude Include="Console.h">
+      <Filter>Header Files\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleCommand.h">
+      <Filter>Header Files\Console</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -199,6 +211,12 @@
     </ClCompile>
     <ClCompile Include="ButtonBindIntercept.cpp">
       <Filter>Source Files\FunctionOverrides</Filter>
+    </ClCompile>
+    <ClCompile Include="Console.cpp">
+      <Filter>Source Files\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleCommand.cpp">
+      <Filter>Source Files\Console</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

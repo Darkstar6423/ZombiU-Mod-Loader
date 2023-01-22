@@ -12,3 +12,4 @@
 #include "modFunctions.h"
 #include "DirectXMain.h"
 #include "DInput8Main.h"
+#include "Console.h"

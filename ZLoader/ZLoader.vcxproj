@@ -162,6 +162,8 @@
     <ClInclude Include="ButtonBindIntercept.h" />
     <ClInclude Include="canMinimapAutoPing.h" />
     <ClInclude Include="canMinimapManualPing.h" />
+    <ClInclude Include="Console.h" />
+    <ClInclude Include="ConsoleCommand.h" />
     <ClInclude Include="ConsoleGUI.h" />
     <ClInclude Include="DInput8Main.h" />
     <ClInclude Include="DirectXMain.h" />
@@ -192,6 +194,8 @@
     <ClCompile Include="ButtonBindIntercept.cpp" />
     <ClCompile Include="canMinimapAutoPing.cpp" />
     <ClCompile Include="canMinimapManualPing.cpp" />
+    <ClCompile Include="Console.cpp" />
+    <ClCompile Include="ConsoleCommand.cpp" />
     <ClCompile Include="ConsoleGUI.cpp" />
     <ClCompile Include="DInput8Main.cpp" />
     <ClCompile Include="dllmain.cpp" />

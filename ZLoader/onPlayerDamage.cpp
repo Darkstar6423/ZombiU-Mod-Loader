@@ -13,7 +13,7 @@ DWORD* playerDamageCallbackESP;
 DWORD* playerDamageCallbackECX;
 DWORD* playerDamageCallbackEDX;
 decltype(OnPlayerDamage) *PDamagefunc;
-
+bool godmode = false;
 
 void playerDamageCallback()
 {
@@ -21,6 +21,11 @@ void playerDamageCallback()
 
     player Player = GETPLAYERSTRUCT(playerDamageCallbackPlayer);
     float* Damage = (float*)((char*)playerDamageCallbackEBP - 0x08);
+    if (godmode == true)
+    {
+        *Damage = 0;
+    }
+
     if (PDamagefunc != NULL)
     {
         PDamagefunc(playerDamageCallbackPlayer, playerDamageCallbackInflictor, Damage);
@@ -35,8 +40,28 @@ bool createPlayerDamageHook()
 {
     // this entry point is no longer used since a better one was found
     //PlaceJMP((BYTE*)rabbidsBaseAddress + 0x00E17F8, (DWORD)playerDamageFunction, 5);
+
+
+    console.createConsoleCommand("godmode", "Prevents the player from taking damage", 0, cheatGodmodeCommand);
     playerDamageJMPBack = (rabbidsBaseAddress + 0x00E17F8) + 5;
     playerDamageCallbackAddress = (DWORD)&playerDamageCallback;
     PDamagefunc = hook(GetProcAddress(modDLL, "OnPlayerDamage"));
     return true;
+}
+
+
+void cheatGodmodeCommand(string args[])
+{
+    if (godmode == true)
+    {
+        godmode = false;
+        std::cout << "Godmode Disabled" << endl;
+    }
+    else
+    {
+        godmode = true;
+        std::cout << "Godmode Enabled" << endl;
+
+    }
+
 }

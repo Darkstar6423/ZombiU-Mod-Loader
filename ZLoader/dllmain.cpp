@@ -6,6 +6,7 @@ HINSTANCE ZloaderModule;
 
 
 
+
 DWORD WINAPI MainThread(LPVOID param)
 {
 
@@ -37,7 +38,6 @@ DWORD WINAPI MainThread(LPVOID param)
 
         InitDirectX();
         DInput8Init(ZloaderModule);
-
     }
     
 
@@ -46,7 +46,7 @@ DWORD WINAPI MainThread(LPVOID param)
     {
         if (GetAsyncKeyState(VK_F6) & 0x80000)
         {
-           MessageBoxA(NULL, "todo: show chain current mod", "chain loaded dlls", MB_OK);
+           MessageBoxA(NULL, "todo: show current mod", "chain loaded dlls", MB_OK);
         }
         
         Sleep(1);

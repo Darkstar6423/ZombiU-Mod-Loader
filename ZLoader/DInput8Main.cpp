@@ -1,5 +1,6 @@
 #include "DInput8Main.h"
 #include <iostream>
+#include <io.h>
 #include "pch.h"
 
 bool DInput8Init(HINSTANCE hmodule);
@@ -43,12 +44,6 @@ HRESULT __stdcall hookGetDeviceState(IDirectInputDevice8* pThis, DWORD cbData, L
 
 			}
 		}
-		if (isDrawingConsole)
-		{
-			((LPDIMOUSESTATE2)lpvData)->rgbButtons[0] = 0;
-			((LPDIMOUSESTATE2)lpvData)->rgbButtons[1] = 0;
-			
-		}
 	
 	}
 	
@@ -80,13 +75,11 @@ HRESULT __stdcall hookGetDeviceData(IDirectInputDevice8* pThis, DWORD cbObjectDa
 				}
 			}
 		}
-		if (isDrawingConsole) 
-		{
-			*pdwInOut = 0; 
-		}
 	}
 	return result;
 }
+
+static const WORD MAX_CONSOLE_LINES = 500;
 
 
 
@@ -122,6 +115,9 @@ bool DInput8Init(HINSTANCE hmodule)
 		MessageBoxA(NULL, "Coult not enable getDeviceState hook", "DInput Error", 1);
 		return false;
 	}
+
+
+
 	//Keyboard
 	DWORD* getDeviceDataAddress = (DWORD*)((char*)Vtable+(0xA*0x4));//6393D3A0
 	if (MH_CreateHook((DWORD*)*getDeviceDataAddress, &hookGetDeviceData, reinterpret_cast<LPVOID*>(&pGetDeviceData)) != MH_OK)
@@ -144,3 +140,6 @@ bool DInput8Init(HINSTANCE hmodule)
 
 	return true;
 }
+
+
+

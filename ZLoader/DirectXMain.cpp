@@ -23,30 +23,6 @@ void CleanD3D()
     }
 }
 
-void D3DThread()
-{
-    while (true)
-    {
-        if (GetKeyState(VK_OEM_3) & 0x80000)
-        {
-            if (drawConsole)
-            {
-                drawConsole = false;
-                while (GetAsyncKeyState(VK_OEM_3) & 0x80000) {}
-            }
-            else
-            {
-                drawConsole = true;
-                while (GetAsyncKeyState(VK_OEM_3) & 0x80000) {}
-            }
-        }
-
-        CleanD3D();
-        Sleep(1);
-    }
-}
-
-
 
 
 
@@ -104,8 +80,6 @@ void InitDirectX()
     {
         gameWindow = GetForegroundWindow();
         kiero::bind(42, (void**)&pEndScene, hookedendScene);
-        std::thread messageThread(D3DThread);
-        messageThread.detach();
     }
     initConsole();
 }

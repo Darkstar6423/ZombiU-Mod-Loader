@@ -12,16 +12,17 @@ decltype(interceptButtonBind)* buttonBindInterceptModFunc;
 
 void buttonBindIntercept()
 {
+    if (isDrawingConsole)
+    {
+        SEAX = 0;
+    }
 
     if (buttonBindInterceptModFunc != NULL)
     {
         SEAX = buttonBindInterceptModFunc(SEAX, ButtonPressed);
     }
 
-    if (isDrawingConsole)
-    {
-        SEAX = 0;
-    }
+
 
 }
 

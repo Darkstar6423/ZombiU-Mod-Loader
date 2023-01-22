@@ -53,6 +53,8 @@ void DrawConsoleGUI(IDirect3DDevice9* pDevice)
 
     ConsoleFont->DrawText(NULL, consoleBuffer, -1, &ConsoleTextRectangle, DT_NOCLIP | DT_LEFT, D3DCOLOR_ARGB(255, 255, 255, 255));
 
+
+
 }
 
 
