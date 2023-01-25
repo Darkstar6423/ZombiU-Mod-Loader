@@ -35,7 +35,7 @@ void OnWeaponFireCallback()
 
 bool createWeaponFireHook()
 {
-    console.createConsoleCommand("bottomlessclip", "Ammo is not consumed when firing the weapon", 0, cheatInfiniteAmmo);
+    console.createConsoleCommand("bottomlessclip", "Ammo is not consumed when firing the weapon. Cheat Command", 0, cheatInfiniteAmmo);
     PlaceJMP((BYTE*)rabbidsBaseAddress + 0x1F4405, (DWORD)weaponFireFunction, 6);
     OnWeaponFireJMPBack = (rabbidsBaseAddress + 0x1F4405) + 6;
     OnWeaponFireCallbackAddress = (DWORD)&OnWeaponFireCallback;
@@ -56,6 +56,6 @@ void cheatInfiniteAmmo(string args[])
         cout << "Bottomless Clip Enabled" << endl;
 
     }
-
+    consoleCheats = true;
 
 }

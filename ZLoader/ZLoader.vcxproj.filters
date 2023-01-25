@@ -114,9 +114,6 @@
     <ClInclude Include="ZombiStructs.h">
       <Filter>Header Files\modFunctions</Filter>
     </ClInclude>
-    <ClInclude Include="getGameVars.h">
-      <Filter>Header Files\functionhooks</Filter>
-    </ClInclude>
     <ClInclude Include="GameVariables.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -190,9 +187,6 @@
     </ClCompile>
     <ClCompile Include="ZombiStructs.cpp">
       <Filter>Source Files\modFunctions</Filter>
-    </ClCompile>
-    <ClCompile Include="getGameVars.cpp">
-      <Filter>Source Files\functionhooks</Filter>
     </ClCompile>
     <ClCompile Include="InventoryFunctions.cpp">
       <Filter>Source Files\modFunctions</Filter>

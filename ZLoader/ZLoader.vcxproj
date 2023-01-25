@@ -173,7 +173,6 @@
     <ClInclude Include="functionhooks.h" />
     <ClInclude Include="FunctionOverrides.h" />
     <ClInclude Include="GameVariables.h" />
-    <ClInclude Include="getGameVars.h" />
     <ClInclude Include="InventoryFunctions.h" />
     <ClInclude Include="kiero.h" />
     <ClInclude Include="modFunctions.h" />
@@ -200,7 +199,6 @@
     <ClCompile Include="DInput8Main.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="DrawText.cpp" />
-    <ClCompile Include="getGameVars.cpp" />
     <ClCompile Include="InventoryFunctions.cpp" />
     <ClCompile Include="kiero.cpp" />
     <ClCompile Include="OnPlayerDamage.cpp" />

@@ -13,6 +13,11 @@ decltype(OnScoreGiven) *ScoreGivenFunc;
 
 void ScoreGivenCallback()
 {
+    if (consoleCheats == true)
+    {
+        OnScoreGivenScore = 0;
+    }
+
     if (ScoreGivenFunc != NULL)
     {
         ScoreGivenFunc(&OnScoreGivenEvent, &OnScoreGivenScore, &OnScoreGivenCurrentScore);

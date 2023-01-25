@@ -4,7 +4,7 @@
 #include "ZombiUtility.h"
 #include <string>
 //code that runs on start goes here
-//note: this does not run in the game loop, this runs in a DLL threadbool init()
+//note: this does not run in the game loop, this runs in a DLL thread started in zloader.dll
 bool init()
 {
 	loadUtilityFunctions();
@@ -14,12 +14,6 @@ bool init()
 	DWORD ZOMBIAdr = (DWORD)GetModuleHandle("ZOMBI.EXE");
 	while (true)
 	{
-		if (GetAsyncKeyState(VK_F5) & 0x80000)
-		{
-			drawIMessage(u"THIS IS TEXT", 2);
-			giveItem(0x1,1);
-		}
-
 		Sleep(100);
 	}
 
@@ -54,7 +48,6 @@ void OnPlayerTick(DWORD PlayerAdr)
 }
 
 
-//100064.8984
 void OnZombieDamage(DWORD ZombieAdr, DWORD Inflictor, float* Damage, bool isHeadShot)
 {
 	//removal of random cricket bat one shots

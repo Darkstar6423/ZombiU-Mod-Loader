@@ -2,6 +2,8 @@
 #include "ZombiStructs.h"
 #include "windows.h"
 #include "hookparameter.h"
+#include "console.h"
+
 
 static __declspec(naked) void ScoreGivenASMFunction()
 {

@@ -8,7 +8,7 @@
 using namespace std;
 
 void helpFunction(string args[]);
-
+extern bool consoleCheats;
 class Console
 {
 public:

@@ -42,7 +42,7 @@ bool createPlayerDamageHook()
     //PlaceJMP((BYTE*)rabbidsBaseAddress + 0x00E17F8, (DWORD)playerDamageFunction, 5);
 
 
-    console.createConsoleCommand("godmode", "Prevents the player from taking damage", 0, cheatGodmodeCommand);
+    console.createConsoleCommand("godmode", "Prevents the player from taking damage. Cheat Command", 0, cheatGodmodeCommand);
     playerDamageJMPBack = (rabbidsBaseAddress + 0x00E17F8) + 5;
     playerDamageCallbackAddress = (DWORD)&playerDamageCallback;
     PDamagefunc = hook(GetProcAddress(modDLL, "OnPlayerDamage"));
@@ -63,5 +63,5 @@ void cheatGodmodeCommand(string args[])
         std::cout << "Godmode Enabled" << endl;
 
     }
-
+    consoleCheats = true;
 }

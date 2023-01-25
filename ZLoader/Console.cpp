@@ -4,6 +4,7 @@
 
 thread consoleThread;
 Console console;
+bool consoleCheats = false;
 
 void ConsoleHandler()
 {
