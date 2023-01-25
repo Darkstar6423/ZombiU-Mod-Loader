@@ -10,7 +10,7 @@ void ConsoleHandler()
 {
 	cout << "ZombiU Mod Loader v0.1" << endl;
 	string Consolebuffer;
-	while(true)
+	while (true)
 	{
 		cout << ">>";
 		getline(cin, Consolebuffer);
@@ -30,13 +30,21 @@ void ConsoleHandler()
 		string args[50];
 		string temp = Consolebuffer;
 		string delim = " ";
-		size_t pos = 0;
-		while (console.commands[test].parameters > 0 && (pos = temp.find(delim)) != std::string::npos && i < 50)
+		size_t pos = 0, pos_end;
+		pos_end = temp.find(delim, pos);
+		pos = pos_end + delim.length();
+		while (console.commands[test].parameters > 0 && (pos_end = temp.find(delim, pos)) != std::string::npos && i < 50)
 		{
-			temp.erase(0, pos + delim.length());
-			args[i] = temp.substr(0, pos-1);
+			args[i] = temp.substr(pos, pos_end - pos);
+			pos = pos_end + delim.length();
+			
 			i++;
 		}
+		if (i > 0)
+		{
+			args[i] = temp.substr(pos);
+		}
+
 		console.commands[test].function(args);
 		Consolebuffer = "";
 	}

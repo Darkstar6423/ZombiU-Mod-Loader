@@ -15,20 +15,22 @@ bool infiniteAmmo = false;
 
 void OnWeaponFireCallback()
 {
-
+    int* clip = (int*)((char*)OnWeaponFireEDX + 0x148);
+    int* RealAmmo = (int*)((char*)OnWeaponFireWeapon + 0x4b4);
     if (WeapFireFunc != NULL)
     {
-        int* clip = (int*)((char*)OnWeaponFireEDX+0x148);
+      
         WeapFireFunc(OnWeaponFireWeapon, clip);
-        int* RealAmmo = (int*)((char*)OnWeaponFireWeapon+0x4b4);
-        if (infiniteAmmo == true)
-        {
-            *clip += 1;
-        }
-
-        *RealAmmo = *clip;//put this in so that the Real ammo matches the Clip ammo
+        
+   
+       
     }
 
+    if (infiniteAmmo == true)
+    {
+        *clip += 1;
+    }
+    *RealAmmo = *clip;//put this in so that the Real ammo matches the Clip ammo
 
 }
 

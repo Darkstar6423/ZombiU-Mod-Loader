@@ -53,9 +53,7 @@ void cheatGiveItemCommand(string args[])
 	std::istringstream stream(args[0]);
 	DWORD item;
 	stream >> std::hex >> item;
-	cout << args[1] << endl;
 	GIVEITEM(item, stoi(args[1]));
-
 	cout << "0x" << args[0] << " given to player" << endl;
 	consoleCheats = true;
 }
