@@ -55,6 +55,12 @@
     <Filter Include="Header Files\Console">
       <UniqueIdentifier>{aed34a03-6a42-4994-9b54-bc6e23ccd130}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Config">
+      <UniqueIdentifier>{3e652d7a-b8c1-40c4-85ef-6b1f853cffab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Config">
+      <UniqueIdentifier>{71e79713-87dd-42a1-8b60-7fc8310c5fd6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -144,6 +150,9 @@
     <ClInclude Include="ConsoleCommand.h">
       <Filter>Header Files\Console</Filter>
     </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Header Files\Config</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -211,6 +220,9 @@
     </ClCompile>
     <ClCompile Include="ConsoleCommand.cpp">
       <Filter>Source Files\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>Source Files\Config</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

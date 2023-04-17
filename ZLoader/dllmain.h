@@ -13,3 +13,4 @@
 #include "DirectXMain.h"
 #include "DInput8Main.h"
 #include "Console.h"
+#include "config.h"

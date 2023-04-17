@@ -1,11 +1,14 @@
 #include "ModLoader.h"
 #include "pch.h"
 #include "..\templatemod\ZloaderEventHooks.h"
+#include "config.h"
 HINSTANCE modDLL;
 
 bool loadExternalDLL()
 {
-	modDLL = LoadLibrary("mods\\default\\mod.dll");
+	std::string modPath = "mods//" + config.settings["selectedMod"] + "//mod.dll";
+	char *mod = (char*)modPath.c_str();
+	modDLL = LoadLibrary(mod);
 	
 	if (!modDLL)
 	{

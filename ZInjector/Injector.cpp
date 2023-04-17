@@ -1,14 +1,12 @@
-#include <windows.h>
-#include <TlHelp32.h>
-#include <iostream>
-#include <fcntl.h>
-#include <stdio.h>
-#include <limits.h>
+#include "Injector.h"
 using namespace std;
 
 
 HMODULE zloader;
 wchar_t buffer[4096];
+
+std::string selectedMod = "default";
+
 
 struct handle_data {
 	unsigned long process_id;
@@ -95,7 +93,7 @@ HWND find_main_window(unsigned long process_id)
 	return data.window_handle;
 }
 
-int main(int argc, char* argv[])
+int inject()
 {
 
 	int error = 0;

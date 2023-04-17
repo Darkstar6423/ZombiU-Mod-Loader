@@ -3,15 +3,15 @@
 
 
 HINSTANCE ZloaderModule;
-
-
+CONFIG config;
+Console console;
 
 
 DWORD WINAPI MainThread(LPVOID param)
 {
 
     process_handle = GetCurrentProcess();
-     
+    
     //load the mod dll
     bool loaded = loadExternalDLL();
     //if the dll does not load, do not insert opcode
@@ -22,6 +22,8 @@ DWORD WINAPI MainThread(LPVOID param)
         while (GetModuleHandle("rabbids.win32.f.dll") == NULL)
             Sleep(100);
 
+        config = CONFIG::CONFIG();
+        console = Console::Console();
         rabbidsBaseAddress = (DWORD)GetModuleHandle("rabbids.win32.f.dll"); // get the rabbids base address
         //run function insertions
         createPlayerDamageHook();
@@ -41,14 +43,12 @@ DWORD WINAPI MainThread(LPVOID param)
     }
     
 
-    
     while (true)
     {
         if (GetAsyncKeyState(VK_F6) & 0x80000)
         {
            MessageBoxA(NULL, "todo: show current mod", "chain loaded dlls", MB_OK);
         }
-        
         Sleep(1);
     }
     return 0;
@@ -56,6 +56,7 @@ DWORD WINAPI MainThread(LPVOID param)
 
 bool WINAPI DllMain(HINSTANCE hModule, DWORD dwReason, LPVOID lpReserved)
 {
+    
     if (dwReason == DLL_PROCESS_ATTACH)
     {
         ZloaderModule = hModule;
