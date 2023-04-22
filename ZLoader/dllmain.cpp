@@ -11,7 +11,8 @@ DWORD WINAPI MainThread(LPVOID param)
 {
 
     process_handle = GetCurrentProcess();
-    
+    config = CONFIG::CONFIG();
+    console.createConsole();
     //load the mod dll
     bool loaded = loadExternalDLL();
     //if the dll does not load, do not insert opcode
@@ -22,8 +23,7 @@ DWORD WINAPI MainThread(LPVOID param)
         while (GetModuleHandle("rabbids.win32.f.dll") == NULL)
             Sleep(100);
 
-        config = CONFIG::CONFIG();
-        console = Console::Console();
+
         rabbidsBaseAddress = (DWORD)GetModuleHandle("rabbids.win32.f.dll"); // get the rabbids base address
         //run function insertions
         createPlayerDamageHook();

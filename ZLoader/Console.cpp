@@ -61,6 +61,10 @@ void Console::createConsoleCommand(std::string name, std::string desc, int param
 
 Console::Console()
 {
+}
+
+int Console::createConsole()
+{
 	if (stoi(config.settings["devConsole"]) == 1)
 	{
 
@@ -103,6 +107,7 @@ Console::Console()
 		thread consoleThread(ConsoleHandler);
 		consoleThread.detach();
 	}
+	return 0;
 }
 
 Console::~Console()

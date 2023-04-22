@@ -14,6 +14,7 @@ class Console
 public:
 	Console();
 	~Console();
+	int createConsole();
 	map <string, ConsoleCommand> commands;
 	void createConsoleCommand(std::string name, std::string desc, int param, void(&func)(string args[]));
 
