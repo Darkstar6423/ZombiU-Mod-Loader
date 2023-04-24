@@ -124,3 +124,21 @@ int GUI::createListBox()
 
     return 0;
 }
+
+int GUI::createSettingsButton()
+{
+
+    GUI::launchButton = CreateWindow(
+        L"Button",  // Predefined class; Unicode assumed 
+        L"S",      // Button text 
+        WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,  // Styles 
+        2,         // x position 
+        700,         // y position 
+        185,        // Button width
+        72,        // Button height
+        GUI::window,     // Parent window
+        (HMENU)SETTINGS_BUTTON,       // No menu.
+        (HINSTANCE)GetWindowLongPtr(GUI::window, GWLP_HINSTANCE),
+        NULL);      // Pointer not needed.
+    return 0;
+}

@@ -4,6 +4,7 @@
 #include <string>
 #define LAUNCH_BUTTON 102
 #define MOD_LISTBOX 103
+#define SETTINGS_BUTTON 104
 #define WIN_WIDTH 1600
 #define WIN_HEIGHT 800
 
@@ -26,6 +27,7 @@ public:
 	HINSTANCE hInstance;
 	HWND modSelection;
 	HWND launchButton;
+	HWND settingsButton;
 	int buttonFunctions[500];
 	std::string mods[1000];
 
@@ -35,5 +37,6 @@ public:
 
 	int createLaunchButton();
 	int createListBox();
+	int createSettingsButton();
 
 };

@@ -53,6 +53,7 @@ int WINAPI WinMain(
     //Elements
     gui.createLaunchButton();
     gui.createListBox();
+    gui.createSettingsButton();
 
 
     

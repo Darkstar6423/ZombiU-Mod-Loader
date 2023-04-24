@@ -1,6 +1,0 @@
-﻿  CONFIG.cpp
-  Generating code
-  Previous IPDB and IOBJ mismatch, fall back to full compilation.
-  All 709 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Finished generating code
-  ZInjector.vcxproj -> C:\Users\gstep\source\git-repos\ZombiU-Mod-Loader\Release\ZOMBI.exe
