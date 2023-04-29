@@ -14,3 +14,5 @@ To install the mod loader, follow the steps below and run it from Steam.
 A more detailed tutorial will be written in the wiki section for those who are less familiar with poking around game files.
 
 If you have any problems, please post them in the issues section with the loader version number (found in the bottom left of the game window) and I will try to address them.
+
+I have published a mod to demonstrate the features of the mod loader called [ZombiU-Reimagined](https://github.com/Darkstar6423/ZombiU-Reimagined).
