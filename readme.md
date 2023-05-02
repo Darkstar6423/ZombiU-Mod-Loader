@@ -16,3 +16,6 @@ A more detailed tutorial will be written in the wiki section for those who are l
 If you have any problems, please post them in the issues section with the loader version number (found in the bottom left of the game window) and I will try to address them.
 
 I have published a mod to demonstrate the features of the mod loader called [ZombiU-Reimagined](https://github.com/Darkstar6423/ZombiU-Reimagined).
+
+# Anti-Virus
+Since this program uses DLL injection, most anti-virus programs will pick it up as malware. In order to use this program you will have to give the zombi.exe file and ZInjector.exe programs excemptions on your anti-virus programs
